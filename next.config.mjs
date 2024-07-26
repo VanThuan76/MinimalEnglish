@@ -1,21 +1,22 @@
-/** @type {import('next').NextConfig} */
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin()
+
+const hostnames = ['i.pravatar.cc', 'images.unsplash.com', 'github.com'];
+
 const nextConfig = {
+  swcMinify: true,
+  reactStrictMode: true,
+  experimental: {
+    mdxRs: true,
+  },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "github.com",
-      },
-    ],
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: hostnames.map(hostname => ({
+      protocol: 'https',
+      hostname,
+    })),
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig)
