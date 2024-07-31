@@ -1,10 +1,9 @@
 "use client";
-import { ChevronsDown, Github, Menu } from "lucide-react";
+import { ChevronsDown, Menu, X } from "lucide-react";
 import React from "react";
 import {
   Sheet,
   SheetContent,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -21,169 +20,120 @@ import {
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { ToggleTheme } from "./toogle-theme";
+import { usePathname } from "next/navigation";
+import path from "path";
 
 interface RouteProps {
   href: string;
   label: string;
 }
 
-interface FeatureProps {
-  title: string;
-  description: string;
-}
-
 const routeList: RouteProps[] = [
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: "/",
+    label: "Trang chủ",
   },
   {
-    href: "#team",
-    label: "Team",
+    href: "/aboutus",
+    label: "Về chúng tôi",
   },
   {
-    href: "#contact",
-    label: "Contact",
+    href: "/class",
+    label: "Lớp học",
   },
   {
-    href: "#faq",
-    label: "FAQ",
-  },
-];
-
-const featureList: FeatureProps[] = [
-  {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
+    href: "/library",
+    label: "Thư viện",
   },
   {
-    title: "Build Trust",
-    description:
-      "Leverages social proof elements to establish trust and credibility.",
-  },
-  {
-    title: "Capture Leads",
-    description:
-      "Make your lead capture form visually appealing and strategically.",
+    href: "/new&blog",
+    label: "New & Blog",
   },
 ];
 
 export const Navbar = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
-      <Link href="/" className="font-bold text-lg flex items-center">
-        <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
-        Shadcn
-      </Link>
-      {/* <!-- Mobile --> */}
-      <div className="flex items-center lg:hidden">
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Menu
-              onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer lg:hidden"
-            />
-          </SheetTrigger>
+    <header className="sticky flex flex-row justify-between items-center px-[20px] md:px-[106px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]">
+      <div className="flex flex-row justify-between items-center w-full h-full border-b-[2px] border-[#E0E2DE] md:border-b-0">
+        <Image 
+          height={56}
+          width={56}
+          alt="logo"
+          src="/images/logo.png"
+          className="w-[56px] h-auto md:w-[98px]"
+        />
+        
+        {/* <!-- Mobile --> */}
+        <div className="flex items-center lg:hidden ">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Menu
+                strokeWidth="0.75px"
+                onClick={() => setIsOpen(!isOpen)}
+                className="cursor-pointer lg:hidden w-[45px] h-auto text-[#000F30]"
+              />
+            </SheetTrigger>
+            <SheetContent
+              side="top"
+              className="flex flex-col justify-between bg-card border-secondary bg-[#FDF6EB]"
+            >
+              <div>
+                <SheetHeader className="mb-4 ml-4">
+                  <SheetTitle className="flex justify-between items-center">
+                    <Image 
+                      height={56}
+                      width={56}
+                      alt="logo"
+                      src="/images/logo.png"
+                    />
 
-          <SheetContent
-            side="left"
-            className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-card border-secondary"
-          >
-            <div>
-              <SheetHeader className="mb-4 ml-4">
-                <SheetTitle className="flex items-center">
-                  <Link href="/" className="flex items-center">
-                    <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
-                    Shadcn
-                  </Link>
-                </SheetTitle>
-              </SheetHeader>
-
-              <div className="flex flex-col gap-2">
-                {routeList.map(({ href, label }) => (
-                  <Button
-                    key={href}
-                    onClick={() => setIsOpen(false)}
-                    asChild
-                    variant="ghost"
-                    className="justify-start text-base"
-                  >
-                    <Link href={href}>{label}</Link>
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            <SheetFooter className="flex-col sm:flex-col justify-start items-start">
-              <Separator className="mb-2" />
-
-              <ToggleTheme />
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
-      </div>
-
-      {/* <!-- Desktop --> */}
-      <NavigationMenu className="hidden lg:block mx-auto">
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-card text-base">
-              Features
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <div className="grid w-[600px] grid-cols-2 gap-5 p-4">
-                <Image
-                  src="https://avatars.githubusercontent.com/u/75042455?v=4"
-                  alt="RadixLogo"
-                  className="h-full w-full rounded-md object-cover"
-                  width={600}
-                  height={600}
-                />
-                <ul className="flex flex-col gap-2">
-                  {featureList.map(({ title, description }) => (
-                    <li
-                      key={title}
-                      className="rounded-md p-3 text-sm hover:bg-muted"
+                    <button 
+                      onClick={() => setIsOpen(!isOpen)} 
+                      className="outline-none w-[56px] h-[56px] flex justify-center items-center"                 
                     >
-                      <p className="mb-1 font-semibold leading-none text-foreground">
-                        {title}
-                      </p>
-                      <p className="line-clamp-2 text-muted-foreground">
-                        {description}
-                      </p>
-                    </li>
+                      <X strokeWidth="1.5px" className="h-[32px] w-[32px]" color="black"/>
+                    </button>
+
+                  </SheetTitle>
+                </SheetHeader>
+                <Separator className="mb-2 bg-[#E0E2DE]" />
+
+                <div className="flex flex-col gap-2">
+                  {routeList.map(({ href, label }) => (
+                    <div key={href}>
+                        <Button
+                          asChild
+                          onClick={() => setIsOpen(false)}
+                          variant="ghost"
+                          className="justify-start text-base"
+                        >
+                          <Link href={href} className={pathname === href ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{label}</Link>
+                        </Button>
+                        <Separator className="mb-2 bg-[#D0D5DD]" />
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
 
-          <NavigationMenuItem>
-            {routeList.map(({ href, label }) => (
-              <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2">
-                  {label}
-                </Link>
-              </NavigationMenuLink>
-            ))}
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+            </SheetContent>
+          </Sheet>
+        </div>
 
-      <div className="hidden lg:flex">
-        <ToggleTheme />
 
-        <Button asChild size="sm" variant="ghost" aria-label="View on GitHub">
-          <Link
-            aria-label="View on GitHub"
-            href="https://github.com/nobruf/shadcn-landing-page.git"
-            target="_blank"
-          >
-            <Github className="size-5" />
-          </Link>
-        </Button>
+        {/* <!-- Desktop --> */}
+        <NavigationMenu className="hidden lg:block">
+          <NavigationMenuList>
+            <NavigationMenuItem className="flex justify-between w-[751px]">
+              {routeList.map(({ href, label }) => (
+                  <Link key={href} href={href} className={pathname === href ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#000F30]"}>
+                    {label}
+                  </Link>
+              ))}
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
     </header>
   );
