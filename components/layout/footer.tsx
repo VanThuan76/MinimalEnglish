@@ -97,13 +97,13 @@ export const FooterSection = () => {
             </div>
 
             <div>
-              <Link href="/Lớp học" className="text-black hover:opacity-100">
+              <Link href="/class" className="text-black hover:opacity-100">
                 Lớp học
               </Link>
             </div>
 
             <div>
-              <Link href="/Thư viện" className="text-black hover:opacity-100">
+              <Link href="/Library" className="text-black hover:opacity-100">
                 Thư viện
               </Link>
             </div>
