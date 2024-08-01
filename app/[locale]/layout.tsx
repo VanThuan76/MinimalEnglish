@@ -9,6 +9,7 @@ import { getMessages } from "next-intl/server";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
+import { FooterSection } from "@/components/layout/footer";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -41,7 +42,9 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <Navbar />
+            
             {children}
+            <FooterSection />
           </ThemeProvider>
         </NextIntlClientProvider>
         <Script

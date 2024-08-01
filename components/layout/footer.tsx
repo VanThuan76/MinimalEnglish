@@ -1,12 +1,13 @@
 import { Separator } from "@/components/ui/separator";
 import { ChevronsDownIcon, MailIcon } from "lucide-react";
-import Link from "next/link";
+import {Link} from "@/navigation";
 import Image from "next/image";
 import { PhoneIcon } from "lucide-react";
 import FacebookIcon from "@/components/icons/facebook-icon";
 import MessengerIcon from "@/components/icons/messenger-icon";
 import ZaloIcon from "@/components/icons/Zalo-icon";
 import YouTubeIcon from "@/components/icons/youtube-icon";
+
 
 
 export const FooterSection = () => {
