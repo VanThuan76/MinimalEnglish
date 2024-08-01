@@ -9,11 +9,13 @@ import { ServicesSection } from "./_sections/services";
 import { SponsorsSection } from "./_sections/sponsors";
 import { TeamSection } from "./_sections/team";
 import { TestimonialSection } from "./_sections/testimonial";
+import { AboutUs } from "@/app/[locale]/(home)/_sections/aboutus";
 
 export default function Home() {
   return (
     <>
       <Banner />
+      <AboutUs />
       <HeroSection />
       <SponsorsSection />
       <BenefitsSection />
