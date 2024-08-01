@@ -1,18 +1,19 @@
+import { banner } from "@/app/[locale]/type";
 import Image from "next/image";
 
-export const Banner = () => {
+export const Banner = ({title, slogan, content} : banner) => {
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]">
       <div className="grid lg:grid-cols-2 place-items-center gap-11">
         <div >
           <h2 className="text-[32px] font-[600] md:text-5xl md:font-bold mb-4 text-[#000F30]">
-            Minimal English - 
+            {title} - 
           </h2>
           <h2 className="text-[32px] font-[600] md:text-5xl md:pb-[20px] md:pt-3 md:font-bold mb-4 text-[#BE5C59]">
-            Học giản đơn, đạt aim hơn!
+            {slogan}
           </h2>
           <p className="text-[#514F4F] text-[16px] lg:text-[20px]">
-          Minimal English là lớp học IELTS chuyên biệt với mục tiêu giúp học viên đạt mục tiêu trong kỳ thi IELTS thông qua phương pháp học tối giản và hiệu quả. Chúng tôi kết hợp giữa phương pháp Hybrid Learning và sự phân hóa trình độ để cá nhân hóa việc học, đảm bảo mỗi học viên đều nhận được sự chú ý và hỗ trợ tối đa.
+            {content}
           </p>
         </div>
 

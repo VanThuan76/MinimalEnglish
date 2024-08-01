@@ -1,6 +1,7 @@
+import { vision } from "@/app/[locale]/type";
 import Image from "next/image";
 
-export const Vision = () => {
+export const Vision = ({label, content}: vision) => {
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 place-items-center gap-12">
@@ -25,14 +26,10 @@ export const Vision = () => {
 
         <div >
           <h2 className="text-[32px] font-[600] md:text-5xl md:py-[40px] md:font-bold mb-4 text-[#BE5C59]">
-            Tầm nhìn
+            {label}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-          Với tầm nhìn xa và trái tim đầy nhiệt huyết, Minimal English mong muốn trở thành lớp
-            học tiếng Anh hàng đầu, giúp đỡ các em học sinh hiện thực hóa ước mơ. Chúng tôi tin rằng,
-             giáo dục không phải là con đường duy nhất dẫn đến thành công nhưng sẽ là con đường chắc chắn và an toàn nhất.
-            Chúng tôi cam kết lan tỏa phương pháp và giá trị của Minimal English tới nhiều học sinh hơn nữa.
-
+            {content}
           </p>
         </div>
 

@@ -1,6 +1,7 @@
+import { About } from "@/app/[locale]/type";
 import Image from "next/image";
 
-export const AboutUs = () => {
+export const AboutUs = ({title,label,content}: About) => {
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 gap-12 place-items-center">
@@ -35,7 +36,7 @@ export const AboutUs = () => {
 
         <div>
           <h2 className="text-[16px] font-bold md:mt-[10px] mb-4 text-[#BE5C59]">
-            VỀ MINIMAL ENGLISH
+            {label}           
           </h2>
           
           <h2 className="text-[32px] font-[600] md:text-5xl md:mt-[10px] md:font-bold text-[#000F30]">
@@ -46,9 +47,7 @@ export const AboutUs = () => {
             đam mê và nghị lực
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            Với phương pháp Hybrid Learning, kết hợp giữa học trực tiếp và học trực tuyến, chúng tôi mang đến cho học viên môi trường thân thiện, phương pháp học tập tối giản nhưng hiệu quả. Tại Minimal English, học viên không chỉ học kiến thức mà còn nhận được sự tự tin và 
-            động lực để phát triển. Chúng tôi cam kết mang lại chất lượng giảng dạy tốt nhất, giúp học viên đạt được mục tiêu học tập và vượt qua 
-            mọi thử thách.
+            {content}
           </p>
         </div>
 
