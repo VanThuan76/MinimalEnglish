@@ -10,7 +10,8 @@ import { SponsorsSection } from "./_sections/sponsors";
 import { TeamSection } from "./_sections/team";
 import { TestimonialSection } from "./_sections/testimonial";
 import { AboutUs } from "@/app/[locale]/(home)/_sections/about_us";
-import { Data, HomeData } from "@/app/[locale]/type";
+import { Data } from "@/app/[locale]/type";
+import { Class } from "@/app/[locale]/(home)/_sections/class";
 
 export default async function Home() {
   const res = await fetch('https://siuuuu-8f55.onrender.com/api/users');
@@ -20,6 +21,7 @@ export default async function Home() {
     <>
       <Banner title={data.home.banner.title} slogan={data.home.banner.slogan} content={data.home.banner.content}/>
       <AboutUs title={data.home.about_us.title} label={data.home.about_us.label} content={data.home.about_us.content}/>
+      <Class title={data.home.outstanding_class.title} label={data.home.outstanding_class.label} info_classes={data.home.outstanding_class.info_classes}/>
       <HeroSection />
       <SponsorsSection />
       <BenefitsSection />
