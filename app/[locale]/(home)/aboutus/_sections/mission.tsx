@@ -1,16 +1,17 @@
+import { Mission } from "@/app/[locale]/type";
 import Image from "next/image";
 
-export const Misson = () => {
+export const Misson = ({label,content_1,content_2}: Mission) => {
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 place-items-center gap-11">
         <div >
           <h2 className="text-[32px] font-[600] md:text-5xl md:py-[40px] md:font-bold mb-4 text-[#BE5C59]">
-            Sứ mệnh
+            {label}
           </h2>
           <ul className="text-[#514F4F] text-[18px] list-disc">
-            <li className="mx-[20px]">Minimal English cam kết mang lại môi trường học tập hiệu quả và thân thiện, giúp học sinh phát triển toàn diện kỹ năng ngôn ngữ và tự tin trong cuộc sống.</li>
-            <li className="mx-[20px]">Chúng tôi tập trung vào sự tối giản nhưng không đơn giản trong phương pháp giảng dạy, giúp học sinh đạt được mục tiêu học tập và vượt qua mọi thử thách.</li>
+            <li className="mx-[20px]">{content_1}</li>
+            <li className="mx-[20px]">{content_2}</li>
           </ul>
         </div>
 
@@ -19,7 +20,7 @@ export const Misson = () => {
             <Image
               width={550}
               height={733}
-              src="/images/about/about_1.jpeg"
+              src="/images/about/IMG_3106.png"
               alt="about"
               className="w-[310px] z-[2] h-[310px] rounded-[32px] xl:w-[530px] xl:h-[530px] drop-shadow-2xl object-cover object-center"
             />
