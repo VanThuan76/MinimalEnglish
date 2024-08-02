@@ -22,8 +22,11 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                 <Image
                   src={image}
                   alt="image about class"
-                  layout="fill"
-                  objectFit="cover"
+                  fill={true}
+                  style={{
+                    objectFit: "cover"
+                  }}
+                  sizes="(max-width: 440px)"
                 />
               </CardHeader>
 

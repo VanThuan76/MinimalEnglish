@@ -1,7 +1,7 @@
 import { About } from "@/app/[locale]/type";
 import Image from "next/image";
 
-export const AboutUs = ({title,label,content}: About) => {
+export const AboutUs = ({title,label,content,image}: About) => {
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 gap-12 place-items-center">
@@ -9,13 +9,16 @@ export const AboutUs = ({title,label,content}: About) => {
         <div className="hidden lg:block">
           <div className="flex relative w-[330px] h-[330px] xl:w-[577px] xl:h-[577px]">
             <div className="flex absolute w-full h-full justify-start items-start mr-2.5">
-              <Image
-                width={360}
-                height={410}
-                src="/images/about/about_1.jpeg"
-                alt="about"
-                className="w-[230px] z-[2] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl object-cover object-center"
-              />
+              <div className="relative w-[230px] z-[2] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl overflow-hidden">
+                <Image
+                  fill={true}
+                  style={{
+                    objectFit: "cover"
+                  }}
+                  src={image.image_1}
+                  alt="about"
+                />
+              </div>
             </div>
 
             <div className="flex absolute w-full h-full justify-center items-center mr-2.5">
@@ -23,13 +26,16 @@ export const AboutUs = ({title,label,content}: About) => {
             </div>
 
             <div className="flex absolute w-full h-full justify-end items-end mr-2.5">
-              <Image
-                width={480}
-                height={360}
-                src="/images/about/about_2.png"
-                alt="about"
-                className="w-[230px] z-[1] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl object-cover object-center"
-              />
+              <div className="relativce w-[230px] z-[1] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl overflow-hidden">
+                <Image
+                  fill={true}
+                  style={{
+                    objectFit: "cover"
+                  }}
+                  src={image.image_2}
+                  alt="about"
+                /> 
+              </div>
             </div>
           </div>
         </div>
@@ -40,11 +46,11 @@ export const AboutUs = ({title,label,content}: About) => {
           </h2>
           
           <h2 className="text-[32px] font-[600] md:text-5xl md:mt-[10px] md:font-bold text-[#000F30]">
-            Là nơi khởi nguồn từ
+            {title[0]}
           </h2>
 
           <h2 className="text-[32px] font-[600] md:text-5xl md:mb-[30px] md:mt-[10px] md:font-bold mb-6 text-[#BE5C59]">
-            đam mê và nghị lực
+            {title[1]}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
             {content}
@@ -55,13 +61,16 @@ export const AboutUs = ({title,label,content}: About) => {
         <div className="block lg:hidden">
             <div className="flex relative w-[330px] h-[330px]">
                 <div className="flex absolute w-full h-full justify-start items-start mr-2.5">
-                <Image
-                    width={230}
-                    height={262}
-                    src="/images/about/about_1.jpeg"
-                    alt="about"
-                    className="w-[230px] z-[2] h-[230px] rounded-[32px] drop-shadow-2xl object-cover object-center"
-                />
+                  <div className="relative w-[230px] z-[2] h-[230px] rounded-[32px] drop-shadow-2xl overflow-hidden">
+                    <Image
+                      fill={true}
+                      style={{
+                        objectFit: "cover"
+                      }}
+                      src={image.image_1}
+                      alt="about"
+                    />
+                  </div>
                 </div>
 
                 <div className="flex absolute w-full h-full justify-center items-center mr-2.5">
@@ -69,13 +78,16 @@ export const AboutUs = ({title,label,content}: About) => {
                 </div>
 
                 <div className="flex absolute w-full h-full justify-end items-end mr-2.5">
-                <Image
-                    width={307}
-                    height={230}
-                    src="/images/about/about_2.png"
-                    alt="about"
-                    className="w-[230px] z-[1] h-[230px] rounded-[32px] drop-shadow-2xl object-cover object-center"
-                />
+                  <div className="relative w-[230px] z-[1] h-[230px] rounded-[32px] drop-shadow-2xl overflow-hidden">
+                    <Image
+                      fill={true}
+                      style={{
+                        objectFit: "cover"
+                      }}
+                      src={image.image_2}
+                      alt="about"
+                    />
+                  </div>
                 </div>
             </div>
         </div>

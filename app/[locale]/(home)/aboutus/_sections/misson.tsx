@@ -1,7 +1,7 @@
 import { Mission } from "@/app/[locale]/type";
 import Image from "next/image";
 
-export const Misson = ({label,content_1,content_2}: Mission) => {
+export const Misson = ({label,image,content_1,content_2}: Mission) => {
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 place-items-center gap-11">
@@ -17,13 +17,16 @@ export const Misson = ({label,content_1,content_2}: Mission) => {
 
         <div className="flex relative w-[330px] h-[330px] xl:w-[577px] xl:h-[577px]">
           <div className="flex absolute top-0 left-0 w-full h-full justify-end items-start mr-2.5">
-            <Image
-              width={550}
-              height={733}
-              src="/images/about/IMG_3106.png"
-              alt="about"
-              className="w-[310px] z-[2] h-[310px] rounded-[32px] xl:w-[530px] xl:h-[530px] drop-shadow-2xl object-cover object-center"
-            />
+            <div className="relative w-[310px] z-[2] h-[310px] rounded-[32px] xl:w-[530px] xl:h-[530px] drop-shadow-2xl overflow-hidden">
+              <Image
+                fill={true}
+                style={{
+                  objectFit: "cover"
+                }}
+                src={image}
+                alt="about"
+              />
+            </div>
           </div>
 
           <div className="flex absolute top-0 right-0 w-full h-full justify-start items-end mr-2.5">

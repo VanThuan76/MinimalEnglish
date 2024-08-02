@@ -34,11 +34,24 @@ export interface Data {
       export interface banner {
         title: string;
         slogan: string;
+        image: {
+          image_1: string,
+          image_2: string,
+          image_3: string,
+          image_4: string,
+          image_5: string,
+          image_6: string,
+          image_7: string,
+        };
         content: string;
       };
       export interface About{
         label: string;
-        title: string;
+        title: [string, string];
+        image: {
+          image_1: string;
+          image_2: string;
+        };
         content: string;
       };
 
@@ -83,10 +96,12 @@ export interface Data {
     };
     export interface vision{
       label: string;
+      image: string;
       content: string
     };
     export interface Mission{
       label: string;
+      image: string;
       content_1: string;
       content_2: string;
     };
