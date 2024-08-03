@@ -19,6 +19,7 @@ export interface Data {
       export interface Why_us{
         label: string;
         title: string;
+        image: string;
         info_why_us: Info_why_us[];
       }
       export interface Testimonial{

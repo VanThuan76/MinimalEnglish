@@ -80,12 +80,16 @@ export const Navbar = () => {
               <div>
                 <SheetHeader className="mb-4 ml-4">
                   <SheetTitle className="flex justify-between items-center">
-                    <Image 
-                      height={56}
-                      width={56}
-                      alt="logo"
-                      src="/images/logo.png"
-                    />
+                    <div className="relative w-[56px] h-[56px] overflow-hidden ">
+                      <Image
+                        alt="logo"
+                        src="/images/logo.png"
+                        fill={true}
+                        style={{
+                          objectFit: "cover"
+                        }}
+                      />
+                    </div>
 
                     <button 
                       onClick={() => setIsOpen(!isOpen)} 
