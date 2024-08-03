@@ -6,6 +6,7 @@ import React, {
   } from 'react'
   import { EmblaCarouselType } from 'embla-carousel'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
   
   type UsePrevNextButtonsType = {
     prevBtnDisabled: boolean
@@ -56,12 +57,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
     const { children, ...restProps } = props
   
     return (
-      <button
+      <Button
+        variant="ghost"
         {...restProps}
       >
         <ChevronLeft className="h-8 w-8" />
         {children}
-      </button>
+      </Button>
     )
   }
   
@@ -69,12 +71,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
     const { children, ...restProps } = props
   
     return (
-      <button
+      <Button
+        variant="ghost"
         {...restProps}
       >
           <ChevronRight className="h-8 w-8"/>
         {children}
-      </button>
+      </Button>
     )
   }
   
