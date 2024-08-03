@@ -12,6 +12,7 @@ import { TestimonialSection } from "./_sections/testimonial";
 import { AboutUs } from "@/app/[locale]/(home)/_sections/about_us";
 import { Data } from "@/app/[locale]/type";
 import { Class } from "@/app/[locale]/(home)/_sections/class";
+import { Testimonials } from "@/app/[locale]/(home)/_sections/testimonials";
 
 export async function getData() {
   const res = await fetch('https://siuuuu-8f55.onrender.com/api/users',{
@@ -31,6 +32,7 @@ export default async function Home() {
       <Banner title={data.home.banner.title} image={data.home.banner.image} slogan={data.home.banner.slogan} content={data.home.banner.content}/>
       <AboutUs title={data.home.about_us.title} label={data.home.about_us.label} content={data.home.about_us.content} image={data.home.about_us.image}/>
       <Class title={data.home.outstanding_class.title} label={data.home.outstanding_class.label} info_classes={data.home.outstanding_class.info_classes}/>
+      <Testimonials title={data.home.testimonial.title} label={data.home.testimonial.label} info_testimonials={data.home.testimonial.info_testimonials}/>
       <HeroSection />
       <SponsorsSection />
       <BenefitsSection />

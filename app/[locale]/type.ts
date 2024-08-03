@@ -64,6 +64,7 @@ export interface Data {
       export interface Info_testimonials{
         name: string;
         address : string;
+        image: string;
         content : string;
       }
       export interface Info_why_us{
@@ -92,7 +93,7 @@ export interface Data {
     export interface Brand_story{
       label: string;
       description: string;
-      detail_story: Detail_story[]
+      detail_stories: Detail_stories[]
     };
     export interface vision{
       label: string;
@@ -102,10 +103,9 @@ export interface Data {
     export interface Mission{
       label: string;
       image: string;
-      content_1: string;
-      content_2: string;
+      content: string;
     };
-    export interface Detail_story{
+    export interface Detail_stories{
       year: string;
       content: string;
     }

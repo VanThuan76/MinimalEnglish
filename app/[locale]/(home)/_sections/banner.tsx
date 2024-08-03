@@ -34,7 +34,9 @@ export const Banner = ({title, slogan, content, image} : banner) => {
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
               fill={true}
-              objectFit= "cover"
+              style={{
+                objectFit: "cover"
+              }}
               src={image.image_2}
               alt="image_2"
             />
