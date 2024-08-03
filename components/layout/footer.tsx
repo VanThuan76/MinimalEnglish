@@ -12,9 +12,9 @@ import YouTubeIcon from "@/components/icons/youtube-icon";
 
 export const FooterSection = () => {
   return (
-    <footer id="footer" className="container bg-card border border-secondary w-[1440px] h-[525px] gap-12 py-[60px] px-[120px] bg-white">
+    <footer id="footer" className="bg-card border border-secondary w-full h-[525px] gap-12 py-[60px] px-[120px] bg-[#f2f4f7]">
   
-        <div className="w-[1200px] h-[304px] justify-between">
+        <div className="w-full h-[304px]">
         <div className="top-4 grid grid-cols-3">
      
           <div className="w-[504] h-[282px] gap-5">

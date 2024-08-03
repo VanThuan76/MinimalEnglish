@@ -52,6 +52,7 @@ export interface Data {
         name: string;
         address : string;
         content : string;
+        image: string;
       }
       export interface Info_why_us{
         title: string;
@@ -63,7 +64,13 @@ export interface Data {
     vision: vision;
     brand_story: Brand_story;
     highlights: Highlights;
+    lectures: lectures;
   }
+  export interface lectures{
+    label: string;
+    description: string;
+    detail_lectures:Detail_lectures[];
+  }   
   export interface Highlights{
     label: string;
     description: string;
@@ -93,6 +100,10 @@ export interface Data {
     export interface Detail_story{
       year: string;
       content: string;
+    };
+    export interface Detail_lectures{
+      year: string;
+      content: string;
     }
-
+    
       type Content = string;

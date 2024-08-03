@@ -156,6 +156,67 @@
                     "Sử dụng công nghệ tiên tiến như AI và Gamification để hỗ trợ việc học."
                 ]
             }
-        }
+        },
+       "lectures": {
+            "label":"Giảng viên",
+            "description": "Các giảng viên tại Minimal English",
+            "detail_lectures": [
+                {
+                    "year": "Cô Hằng Nga Luna",
+                    "content": [
+                    "Founder kiêm giảng viên chính",
+                    "Tốt nghiệp Thạc sĩ Lý Luận và Phương Pháp Giảng Dạy Tiếng Anh  (MTESOL), Đại học Victoria - Melbourne - Australia cấp năm 2018",
+                    "8.0 IELTS Overall ( 8.5 Speaking & 7.5 Writing )",
+                    "Tác giả cuốn sách học ngữ pháp nền tảng qua Mindmap",
+                    "Tác giả cuốn sách luyện thi IELTS Key Grammar, nhà xuất bản Đại Học Quốc Gia Hà Nội.",
+                    "12 năm kinh nghiệm giảng dạy IELTS và tiếng Anh học thuật.",
+                    "8 năm kinh nghiệm phát triển khung chương trình Ngữ pháp tiếng Anh cho học viên mọi cấp độ."
+                    ]                    
+                },
+                {                    
+                    "year": "Cô Nguyễn Phương",
+                    "content": [
+                    "Giảng viên",
+                    "Tốt nghiệp loại giỏi Đại học ngành Khoa học Quản lý, Đại học KHXH & NV, ĐHQG Hà Nội. Học bổng loại giỏi tất cả các kỳ học.",
+                    "Tốt nghiệp ngành Ngôn ngữ Anh, đại học Hà Nội (hệ vừa học vừa làm)",
+                    "Học bổng cho Sinh viên tiêu biểu của Quỹ Chungsoo Foundation.",
+                    "Giải 3 nghiên cứu Khoa học SV.",
+                    "Học bổng ctr Thạc sĩ Quản trị Kinh doanh, Ctrinh đào tạo bằng Tiếng Anh, Đại học Việt Nhật, Đại học Quốc gia Hà Nội.",
+                    "Nghiên cứu Sinh tiến sĩ đại học Corvinus University of Budapest ",
+                    "Giảng viên tại Đại học Đại Nam 2022 - nay"
+                    ]
+                },
+                {
+                    "year": "Đỗ Đức",
+                    "content": [
+                    "Nhân viên học thuật",
+                    "Tốt nghiệp THPT Thăng Long",
+                    "Đạt danh hiệu học sinh giỏi trong 3 năm cấp 3, điểm trung bình môn tiếng anh luôn >9.0. Bài thi môn Tiếng Anh THPTQG đạt 9.6.)",
+                    "Hiện tại là sinh viên năm 2 trường Đại Học Ngoại Thương, khoa CLC Tiếng Anh Thương Mại.",
+                    "Từng làm trợ giảng tại Trung tâm AMES ENGLISH TIMES CITY"
+                    ]
+                },
+                {
+                    "year": "Nguyễn Anh Tú",
+                    "content": [
+                    "Giảng viên Junior",
+                    "Tốt nghiệp Cử nhân chuyên ngành Sư phạm, Vietnam University of Fine Arts ",
+                    "3 năm kinh nghiệm trong lĩnh vực giáo dục",
+                    "1 năm kinh nghiệm giảng dạy và ôn thi tiếng Anh các cấp"                    
+                    ]
+                },
+                {
+                    "year": "Sơn Nguyễn",
+                    "content": [
+                    "Trợ giảng & nhân viên học thuật",
+                    "Vinschool Times City Middle School & High School 2016 - 2023: GPA 8.8",
+                    "Cử nhân ngành khoa học máy tính (Đại học Công nghệ Swinburne Việt Nam) 2023 - 2026",
+                    "Thực tập sinh KITE (Kids Tech), đóng góp vào việc phát triển tài liệu học tập và hỗ trợ giảng viên trong việc chuẩn bị bài giảng cho trẻ em.",
+                    "Thực tập sinh tại Đơn vị Hỗ trợ và Chăm sóc Kỹ thuật Khách hàng, Phòng Hỗ trợ Kỹ thuật, GreenCloud (365 Group LLC)."                    
+                    ]
+                }
+
+            ]
+       }
     }
 }
