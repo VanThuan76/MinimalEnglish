@@ -14,6 +14,7 @@ import { Data } from "@/app/[locale]/type";
 import { Class } from "@/app/[locale]/(home)/_sections/class";
 import { Testimonials } from "@/app/[locale]/(home)/_sections/testimonials";
 import { WhyUs } from "@/app/[locale]/(home)/_sections/why_us";
+import { Video } from "@/app/[locale]/(home)/_sections/video";
 
 export async function getData() {
   const res = await fetch('https://siuuuu-8f55.onrender.com/api/users',{
@@ -35,6 +36,7 @@ export default async function Home() {
       <Class title={data.home.outstanding_class.title} label={data.home.outstanding_class.label} info_classes={data.home.outstanding_class.info_classes}/>
       <Testimonials title={data.home.testimonial.title} label={data.home.testimonial.label} info_testimonials={data.home.testimonial.info_testimonials}/>
       <WhyUs title={data.home.why_us.title} image={data.home.why_us.image} label={data.home.why_us.label} info_why_us={data.home.why_us.info_why_us}/>
+      <Video videoId={data.home.videoId}/>
       <HeroSection />
       <SponsorsSection />
       <BenefitsSection />

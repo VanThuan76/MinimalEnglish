@@ -8,7 +8,7 @@ export default async function About() {
   
   return (
     <>
-        <Misson label={data.about_us.mission.label} image={data.about_us.mission.image} content_1={data.about_us.mission.content_1} content_2={data.about_us.mission.content_2}/>
+        <Misson label={data.about_us.mission.label} image={data.about_us.mission.image} content={data.about_us.mission.content}/>
         <Vision label={data.about_us.vision.label} image={data.about_us.vision.image} content={data.about_us.vision.content}/>
     </>
   )

@@ -10,11 +10,11 @@ export interface Data {
 
   export interface HomeData {
     banner: banner;
-
     about_us: About;
     outstanding_class: Outstanding_class;
     testimonial: Testimonial;
     why_us: Why_us;
+    videoId: string;
   }
       export interface Why_us{
         label: string;

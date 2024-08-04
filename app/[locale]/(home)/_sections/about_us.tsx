@@ -26,7 +26,7 @@ export const AboutUs = ({title,label,content,image}: About) => {
             </div>
 
             <div className="flex absolute w-full h-full justify-end items-end mr-2.5">
-              <div className="relativce w-[230px] z-[1] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl overflow-hidden">
+              <div className="relative w-[230px] z-[1] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl overflow-hidden">
                 <Image
                   fill={true}
                   style={{
