@@ -38,7 +38,7 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                 </CardContent>
 
                 <Button 
-                  className="w-full h-14 rounded-2xl bg-[#D89E9C] border-solid border-[1px] font-[600] border-[#D0D5DD] gap-2"
+                  className="w-full h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] gap-2"
                   variant="ghost"
                 >
                   Khám phá
