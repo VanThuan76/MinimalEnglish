@@ -7,12 +7,13 @@ import FacebookIcon from "@/components/icons/facebook-icon";
 import MessengerIcon from "@/components/icons/messenger-icon";
 import ZaloIcon from "@/components/icons/Zalo-icon";
 import YouTubeIcon from "@/components/icons/youtube-icon";
+import TikTokIcon from "@/components/icons/Tiktok-icon";
 
 
 
 export const FooterSection = () => {
   return (
-    <footer id="footer" className="bg-card border border-secondary w-full h-[525px] gap-12 py-[60px] px-[120px] bg-[#f2f4f7]">
+    <footer id="footer" className="bg-card border border-secondary w-full h-[525px] gap-12 py-[60px] px-[120px] bg-white">
   
         <div className="w-full h-[304px]">
         <div className="top-4 grid grid-cols-3">
@@ -30,7 +31,7 @@ export const FooterSection = () => {
            
                <Link href="#" className="text-black item-center flex flex-row hover:opacity-100">
                 <PhoneIcon className="w-[24px] h-[24px]"/>
-                <h3 className="text-black i"> Hotline: 0936635052 </h3></Link>
+                <h3 className="text-black "> Hotline: 0936635052 </h3></Link>
             </div>
 
             <div className="w-[240px] h-[24px]">
@@ -84,12 +85,22 @@ export const FooterSection = () => {
               href="https://www.youtube.com/@minimalieltswithluna901"
               className="text-red-600  hover:border-b-2 ml-1"
             ><YouTubeIcon /></Link> 
+            <Link
+              target="_blank"
+              href="https://www.tiktok.com"
+              className="hover:border-b-2 ml-1"
+            ><TikTokIcon /></Link> 
        
             </div>
           </div>
                      
-          <div className="w-[94px] h-[172px] gap-[16px] flex flex-col justify-center text-center">
+          <div className="h-[222px] gap-[16px] flex flex-col justify-center">
             <h3 className="font-bold text-black">Danh mục</h3>
+            <div>
+              <Link href="/" className="text-black hover:opacity-100">
+                Trang chủ
+              </Link>
+            </div>
             <div>
               <Link href="/aboutus" className="text-black hover:opacity-100">
                 Về chúng tôi
@@ -113,9 +124,10 @@ export const FooterSection = () => {
                 News & Blog
               </Link>
             </div>
+            
           </div>
                
-          <div className="w-[350px] h-[304px] gap-4">
+          <div className="w-[350px] h-[304px] flex flex-col gap-4">
             <h3 className="font-bold text-black">Địa chỉ:</h3>
             <div className="overflow-hidden max-w-full w-[350px] h-[264px]">
               <div 

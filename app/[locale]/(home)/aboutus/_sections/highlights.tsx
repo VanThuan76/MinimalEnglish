@@ -4,8 +4,7 @@ import StarBlingIcon from '@/components/icons/star-bling-icon';
 import React from 'react';
 import { Highlights } from '@/app/[locale]/type';
 
-
-export const Highlight = ({label,description,lecturers,teaching_methods}:Highlights) => {
+export const Highlight = ({ label, description, lecturers, teaching_methods }: Highlights) => {
   return (
     <div className="px-[106px] py-[40px;80px] gap-20 font-sans bg-white">
       <h1 className="gap-6 text-center mb-5 font-[600] text-[#BE5C59] text-[48px] md:font-bold">{label}</h1>
@@ -13,44 +12,41 @@ export const Highlight = ({label,description,lecturers,teaching_methods}:Highlig
         {description}
       </p>
       <div className="grid lg:grid-cols-2 place-items-center gap-11">
-        
-          <div className="mb-10">
-            <div className="gap-5">
-              <LectureIcon />
-            </div>         
-          <div className="font-[400] text-black text-[30px] md:font-bold mb-[10px]">
+        <div className="mb-10">
+          <div className="gap-5">
+            <LectureIcon />
+          </div>
+          <div className="font-[400] text-black text-[30px] md:font-bold mb-[10px] ">
             {lecturers.title}
-            </div>
-            <p className="t-[17px] text-[#514F4f] text-[18px] flex flex-col">                   
-            {lecturers.content.map((content, index)=>(
-              <li key = {index} className="flex">
-                <StarBlingIcon className="mr-2" />   
+          </div>
+          <ul className="t-[17px] text-[#514F4f] text-[18px] flex flex-col space-y-2">                   
+            {lecturers.content.map((content, index) => (
+              <li key={index} className="flex flex-row">
+                <StarBlingIcon className="mr-2 text-[24px]" />   
                 {content}
               </li>
             ))}         
-            </p>                       
-          </div>
+          </ul>                       
+        </div>
 
-          <div className='mb-10'>
+        <div className='mb-10'>
           <div className="gap-5">
-              <TeachMethodIcon />
-            </div>
-          <div className="font-[400] text-black text-[30px] md:font-bold mb-[10px]">{teaching_methods.title}</div>         
-          <p className="t-[17px] text-[#514F4f] text-[18px] flex flex-col">
-          
-            {teaching_methods.content.map((content, index)=>(
-              
-              <li key = {index} className="flex">
-                <StarBlingIcon className="mr-2" />   
+            <TeachMethodIcon />
+          </div>
+          <div className="font-[400] text-black text-[30px] md:font-bold mb-[10px] ">
+            {teaching_methods.title}</div>         
+          <ul className="t-[17px] text-[#514F4f] text-[18px] flex flex-col space-y-2">
+            {teaching_methods.content.map((content, index) => (
+              <li key={index} className="flex flex-row">
+                <StarBlingIcon className="mr-2 text-[24px]" />                 
                 {content}
               </li>
-            ))}</p>    
-             
-          </div>
-        </div>       
-      </div>
+            ))}
+          </ul>    
+        </div>
+      </div>       
+    </div>
   );
 };
 
 export default Highlight;
-  

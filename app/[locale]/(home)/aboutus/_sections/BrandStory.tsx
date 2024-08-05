@@ -11,7 +11,7 @@ export const BrandStory: React.FC<Brand_story> = ({ label, description, detail_s
         {description}
       </p>
       <div className="relative grid lg:grid-cols-2 gap-10">
-        <div className="absolute inset-y-0 left-1/2 w-0.5 h-2/3 bg-[#BE5C59] transform -translate-x-1/2"></div>
+        <div className="absolute inset-y-0 left-1/2 w-0.5 h-3/4 bg-[#BE5C59] transform -translate-x-1/2"></div>
         <div className="relative">
           {detail_stories.map(({ year, content }, index) => (
             <div key={index} className="relative mb-20">
