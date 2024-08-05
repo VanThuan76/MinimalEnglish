@@ -60,14 +60,13 @@ export interface Data {
         name: string;
         description: string;
         image: string;
+        isComing: boolean
       }
 
       export interface Info_testimonials{
-        name: string;
-        address : string;
         image: string;
-        content : string;
       }
+      
       export interface Info_why_us{
         title: string;
         content: string;
