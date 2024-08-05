@@ -1,4 +1,5 @@
 import { Outstanding_class } from "@/app/[locale]/type";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
@@ -16,7 +17,7 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
       </h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 place-items-top">
-        {info_classes.map(({ name, description, image }, index) => (
+        {info_classes.map(({ name, description, image, isComing }, index) => (
           <div key={index} className={`${(info_classes.length % 3 === 1 && index + 1 === info_classes.length) && "xl:col-[2]"}`}>
             <Card className="w-full h-full border-0 shadow-none">
               <CardHeader className="relative overflow-hidden w-full h-[240px] rounded-xl shadow-md">
@@ -29,6 +30,13 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                   }}
                   sizes="(max-width: 440px)"
                 />
+                <Badge
+                  data-isComing={isComing}
+                  variant="secondary"
+                  className="absolute justify-center text-base font-normal top-4 left-4 data-[isComing=false]:hidden w-[130px] h-[40px] bg-[#59BBBE] rounded-xl "
+                >
+                  Coming soon
+                </Badge>
               </CardHeader>
 
               <div className="flex flex-col justify-between mt-4 h-52">

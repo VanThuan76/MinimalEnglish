@@ -109,7 +109,7 @@ export const Navbar = () => {
                           asChild
                           onClick={() => setIsOpen(false)}
                           variant="ghost"
-                          className="justify-start text-base"
+                          className="justify-start text-base w-full"
                         >
                           <Link href={href} className={pathname === href ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{label}</Link>
                         </Button>
