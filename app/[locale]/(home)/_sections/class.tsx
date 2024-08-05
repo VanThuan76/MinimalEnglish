@@ -31,7 +31,7 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                   sizes="(max-width: 440px)"
                 />
                 <Badge
-                  data-isComing={isComing}
+                  data-iscoming={isComing}
                   variant="secondary"
                   className="absolute justify-center text-base font-normal top-4 left-4 data-[isComing=false]:hidden w-[130px] h-[40px] bg-[#59BBBE] rounded-xl "
                 >
@@ -45,7 +45,7 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                   {description}
                 </CardContent>
 
-                <Button 
+                <Button
                   className="w-full h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] gap-2"
                   variant="ghost"
                 >
