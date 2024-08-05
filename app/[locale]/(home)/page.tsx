@@ -2,7 +2,6 @@ import { Banner } from "@/app/[locale]/(home)/_sections/banner";
 import { BenefitsSection } from "./_sections/benefits";
 import { FAQSection } from "./_sections/faq";
 import { FeaturesSection } from "./_sections/features";
-import { FooterSection } from "./_sections/footer";
 import { HeroSection } from "./_sections/hero";
 import { PricingSection } from "./_sections/pricing";
 import { ServicesSection } from "./_sections/services";
@@ -46,7 +45,6 @@ export default async function Home() {
       <TeamSection />
       <PricingSection />
       <FAQSection />
-      <FooterSection />
     </>
   );
 }
