@@ -1,159 +1,80 @@
 import { Separator } from "@/components/ui/separator";
-import { ChevronsDownIcon, MailIcon } from "lucide-react";
-import {Link} from "@/navigation";
+import { ChevronsDownIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { Link } from "@/navigation";
 import Image from "next/image";
-import { PhoneIcon } from "lucide-react";
-import FacebookIcon from "@/components/icons/facebook-icon";
 import MessengerIcon from "@/components/icons/messenger-icon";
-import ZaloIcon from "@/components/icons/Zalo-icon";
-import YouTubeIcon from "@/components/icons/youtube-icon";
-import TikTokIcon from "@/components/icons/Tiktok-icon";
-
-
 
 export const FooterSection = () => {
   return (
-    <footer id="footer" className="bg-card border border-secondary w-full h-[525px] gap-12 py-[60px] px-[120px] bg-white">
-  
-        <div className="w-full h-[304px]">
-        <div className="top-4 grid grid-cols-3">
-     
-          <div className="w-[504] h-[282px] gap-5">
+    <footer id="footer" className="bg-card border border-secondary w-full py-12 px-8 sm:px-16 lg:px-32 bg-white">
+      <div className="w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-col gap-4">
             <Link href="#" className="flex font-bold items-center">
-            <Image src='/images/logo.png'
-            alt='logo'
-            width={98}
-            height={98}
-            />
+              <Image src="/images/logo.png" alt="logo" width={98} height={98} />
             </Link>
-            
-            <div className="w-[190px] h-[24px] gap-3 ">
-           
-               <Link href="#" className="text-black item-center flex flex-row hover:opacity-100">
-                <PhoneIcon className="w-[24px] h-[24px]"/>
-                <h3 className="text-black "> Hotline: 0936635052 </h3></Link>
-            </div>
-
-            <div className="w-[240px] h-[24px]">
-              <Link href="#" className="text-black item-center flex flex-row hover:opacity-100">
-              
-              </Link>
-              <Link
-              target="_blank"
-              href="https://www.facebook.com/messages/t/998301663696890"
-              className="text-primary transition-all border-primary hover:border-b-2 ml-1"
-            ></Link>
-            </div>
-            
-            <div className="w-[240px] h-[48px] gap-3">
-          
-            <Link href="#" className="text-black tem-center flex flex-row hover:opacity-100">
-            <MessengerIcon className="w-[24px] h-[24px]"/>
-              Messenger:
-              <Link target="_blank"
-              href="https://www.facebook.com/messages/t/998301663696890"
-              className="text-black transition-all border-primary hover:border-b-2 ml-1"
-            >Ieltsfocusmode</Link>
-              </Link>
-                     
-            </div>
-            <div className="w-[315px] h-[48px] gap-3">
-              <Link href="#" className="text-black tem-center flex flex-row hover:opacity-100">
-              <MailIcon className="w-[24px] h-[24px] "/>
-                Email: tuvan@ielts-nguyenhuyen.com
-              </Link>
-              {/* <Link
-              target="_blank"
-              href="tuvan@ielts-nguyenhuyen.com"
-              className="text-primary transition-all border-primary hover:border-b-2 ml-1"
-            >tuvan@ielts-nguyenhuyen.com</Link> */}
-            </div>
-            <div className="w-[112px] h-[32px] gap-2 tem-center flex flex-row">
-     
-            <Link
-              target="_blank"
-              href="https://www.facebook.com/hangngaluna190188"
-              className="text-blue-600 hover:border-b-2 ml-1"
-            ><FacebookIcon /></Link>
-             <Link
-              target="_blank"
-              href="https://zalo.me/0365190188"
-              className="text-blue-600  hover:border-b-2 ml-1"
-            ><ZaloIcon /></Link>
-             <Link
-              target="_blank"
-              href="https://www.youtube.com/@minimalieltswithluna901"
-              className="text-red-600  hover:border-b-2 ml-1"
-            ><YouTubeIcon /></Link> 
-            <Link
-              target="_blank"
-              href="https://www.tiktok.com"
-              className="hover:border-b-2 ml-1"
-            ><TikTokIcon /></Link> 
-       
-            </div>
-          </div>
-                     
-          <div className="h-[222px] gap-[16px] flex flex-col justify-center">
-            <h3 className="font-bold text-black">Danh mục</h3>
-            <div>
-              <Link href="/" className="text-black hover:opacity-100">
-                Trang chủ
-              </Link>
-            </div>
-            <div>
-              <Link href="/aboutus" className="text-black hover:opacity-100">
-                Về chúng tôi
-              </Link>
-            </div>
-
-            <div>
-              <Link href="/class" className="text-black hover:opacity-100">
-                Lớp học
-              </Link>
-            </div>
-
-            <div>
-              <Link href="/Library" className="text-black hover:opacity-100">
-                Thư viện
-              </Link>
-            </div>
-            
-            <div>
-              <Link href="News & Blog" className="text-black hover:opacity-100">
-                News & Blog
-              </Link>
-            </div>
-            
-          </div>
-               
-          <div className="w-[350px] h-[304px] flex flex-col gap-4">
-            <h3 className="font-bold text-black">Địa chỉ:</h3>
-            <div className="overflow-hidden max-w-full w-[350px] h-[264px]">
-              <div 
-                id="my-map-display" 
-                className="h-full w-full max-w-full"
-              >
-                <iframe 
-                  className="h-full w-full outline-0" 
-                  src="https://www.google.com/maps/embed/v1/place?q=Park+5+Times+City&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
-                </iframe>
+            <div className="flex items-center gap-3">
+              <PhoneIcon className="w-6 h-6 mr-0 text-[#000F30]" />
+              <div className="flex flex-col">
+                <h3 className="font-semibold leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">Hotline: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">0936635052</span></h3>
               </div>
-              <a className="google-map-code-enabler" href="https://www.bootstrapskins.com/themes" id="get-data-for-embed-map">
-                premium bootstrap themes
-              </a>
-              <style>
-                #my-map-display .text-marker{}.map-generator max-width: 100%; max-height: 100%; background: none;
-              </style>
+            </div>
+            <div className="flex items-center gap-3">
+              <MessengerIcon className="w-6 h-6 mr-0 text-[#000F30]" />
+              <div className="flex flex-col">
+                <h3 className="font-semibold leading-[20.43px] text-justify text-[15px] text-[#000F30] inline">Messenger: <Link
+                  target="_blank"
+                  href="https://www.facebook.com/messages/t/998301663696890"
+                  className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">
+                  Ieltsfocusmode
+                </Link></h3>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <MailIcon className="w-6 h-6 mr-0 text-[#000F30]" />
+              <div className="">
+                <h3 className="font-semibold leading-[20.43px] text-justify text-[15px] text-[#000F30] mr-0 inline">Email: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">tuvan@ielts-nguyenhuyen.com</span></h3>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Link target="_blank" href="https://www.facebook.com/hangngaluna190188" className="w-8 h-8 hover:border-b-2">
+                <Image src="/images/logo_facebook.png" alt="logo" width={30} height={30} />
+              </Link>
+              <Link target="_blank" href="https://zalo.me/0365190188" className="w-8 h-8">
+                <Image src="/images/logozalo.png" alt="logo" width={30} height={30} />
+              </Link>
+              <Link target="_blank" href="https://www.youtube.com/@minimalieltswithluna901" className="w-8 h-8 hover:border-b-2 m-1.5">
+                <Image src="/images/logo_youtube.png" alt="logo" width={30} height={30} />
+              </Link>
+              <Link target="_blank" href="https://www.tiktok.com" className="w-8 h-8 hover:border-b-2">
+                <Image src="/images/logotiktok.png" alt="logo" width={30} height={30} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h3 className="font-bold text-[#000F30] text-[16px]">Danh mục</h3>
+            <Link href="/" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Trang chủ</Link>
+            <Link href="/aboutus" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Về chúng tôi</Link>
+            <Link href="/class" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Lớp học</Link>
+            <Link href="/Library" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Thư viện</Link>
+            <Link href="/news" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">News & Blog</Link>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h3 className="font-bold text-[#000F30] text-[16px] leading-6 text-justify">Địa chỉ:</h3>
+             <div className="overflow-hidden max-w-full w-full md:w-[350px] md:h-[264px] h-[200px]">
+              <iframe 
+                className="h-full w-full outline-0" 
+                src="https://www.google.com/maps/embed/v1/place?q=Park+5+Times+City&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+              </iframe>
             </div>
           </div>
         </div>
-         
-          <div className="w-[1200px] h-[53px] gap-8 py-8 ">
-          <h3 className="text-black">
-            &copy; COPYRIGHT 2024, - Minimal English
-                         
-          </h3>
+
+        <div className="w-full mt-12">
+          <Separator className="bg-[#E4E7EC]" />
+          <h3 className="text-[#514F4F] text-[14px] mt-4">© COPYRIGHT 2024, - Minimal English</h3>
         </div>
       </div>
     </footer>

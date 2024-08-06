@@ -3,6 +3,7 @@ import BrandStory from "@/app/[locale]/(home)/aboutus/_sections/BrandStory";
 import  Highlight from "@/app/[locale]/(home)/aboutus/_sections/highlights"
 
 import { Data } from "@/app/[locale]/type";
+import Lectures from "@/app/[locale]/(home)/aboutus/_sections/lectures";
 
 export default async function About() {
   const res = await fetch('https://siuuuu-8f55.onrender.com/api/users');
@@ -19,12 +20,17 @@ export default async function About() {
       description={data.about_us.highlights.description}
       lecturers={data.about_us.highlights.lecturers}
       teaching_methods={data.about_us.highlights.teaching_methods}
+      />
+      <Lectures
+       label={data.about_us.lectures.label}
+       description={data.about_us.lectures.description}      
+       detail_lectures={data.about_us.lectures.detail_lectures}
       />   
       <Testimonials
       label={data.home.testimonial.label}
       title={data.home.testimonial.title}
       info_testimonials={data.home.testimonial.info_testimonials}
-       />    
+      />          
     </>
   )
 }

@@ -3,7 +3,7 @@ import { Brand_story } from '@/app/[locale]/type';
 
 export const BrandStory: React.FC<Brand_story> = ({ label, description, detail_stories }) => {
   return (
-    <div className="px-[106px] py-[40px] gap-20 font-sans bg-white">
+    <div className="px-[106px] py-[40px] gap-20 font-sans bg-[#FDF6EB]">
       <h1 className="gap-6 text-center mb-5 font-[600] text-[#BE5C59] text-[48px] md:font-bold">
         {label}
       </h1>
@@ -16,7 +16,7 @@ export const BrandStory: React.FC<Brand_story> = ({ label, description, detail_s
           {detail_stories.map(({ year, content }, index) => (
             <div key={index} className="relative mb-20">
               {index % 2 === 0 ? (
-                <p className="text-[#514F4f] text-[18px] text-left right-2 w-7/8 h-[180px] gap-0">{content}</p>
+                <p className="text-[#514F4f] text-[18px] text-left w-7/8 h-[180px] gap-0">{content}</p>
               ) : (
                 <>
                   <p className="font-[400] text-[#BE5C59] text-[30px] md:font-bold leading-[0px] text-center h-[180px] gap-0">{year}                    

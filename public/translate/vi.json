@@ -166,8 +166,8 @@
             "detail_lectures": [
                 {
                     "year": "Cô Hằng Nga Luna",
-                    "content": [
-                    "Founder kiêm giảng viên chính",
+                    "username":"Founder kiêm giảng viên chính",
+                    "content": [                   
                     "Tốt nghiệp Thạc sĩ Lý Luận và Phương Pháp Giảng Dạy Tiếng Anh  (MTESOL), Đại học Victoria - Melbourne - Australia cấp năm 2018",
                     "8.0 IELTS Overall ( 8.5 Speaking & 7.5 Writing )",
                     "Tác giả cuốn sách học ngữ pháp nền tảng qua Mindmap",
@@ -178,8 +178,8 @@
                 },
                 {                    
                     "year": "Cô Nguyễn Phương",
-                    "content": [
-                    "Giảng viên",
+                    "username":"Giảng viên",
+                    "content": [                   
                     "Tốt nghiệp loại giỏi Đại học ngành Khoa học Quản lý, Đại học KHXH & NV, ĐHQG Hà Nội. Học bổng loại giỏi tất cả các kỳ học.",
                     "Tốt nghiệp ngành Ngôn ngữ Anh, đại học Hà Nội (hệ vừa học vừa làm)",
                     "Học bổng cho Sinh viên tiêu biểu của Quỹ Chungsoo Foundation.",
@@ -191,8 +191,8 @@
                 },
                 {
                     "year": "Thầy Tuấn Anh",
-                    "content": [
-                    "Giảng viên",
+                    "username":"Giảng viên",
+                    "content": [                    
                     "TIELTS 8.0 Overall, (8.5 speaking, 7.5 writting",
                     "Cử nhân Luật Quốc tế.",
                     "Kinh nhiệm giảng dạy: 7 năm",
@@ -203,8 +203,8 @@
                 },
                 {
                     "year": "Đỗ Đức",
-                    "content": [
-                    "Nhân viên học thuật",
+                    "username":"Nhân viên học thuật",
+                    "content": [                    
                     "Tốt nghiệp THPT Thăng Long",
                     "Đạt danh hiệu học sinh giỏi trong 3 năm cấp 3, điểm trung bình môn tiếng anh luôn >9.0. Bài thi môn Tiếng Anh THPTQG đạt 9.6.)",
                     "Hiện tại là sinh viên năm 2 trường Đại Học Ngoại Thương, khoa CLC Tiếng Anh Thương Mại.",
@@ -213,8 +213,8 @@
                 },
                 {
                     "year": "Nguyễn Anh Tú",
-                    "content": [
-                    "Giảng viên Junior",
+                    "username":"Giảng viên Junior",
+                    "content": [                   
                     "Tốt nghiệp Cử nhân chuyên ngành Sư phạm, Vietnam University of Fine Arts ",
                     "3 năm kinh nghiệm trong lĩnh vực giáo dục",
                     "1 năm kinh nghiệm giảng dạy và ôn thi tiếng Anh các cấp"                    
@@ -222,8 +222,8 @@
                 },
                 {
                     "year": "Sơn Nguyễn",
-                    "content": [
-                    "Trợ giảng & nhân viên học thuật",
+                    "username":"Trợ giảng & nhân viên học thuật",
+                    "content": [                    
                     "Vinschool Times City Middle School & High School 2016 - 2023: GPA 8.8",
                     "Cử nhân ngành khoa học máy tính (Đại học Công nghệ Swinburne Việt Nam) 2023 - 2026",
                     "Thực tập sinh KITE (Kids Tech), đóng góp vào việc phát triển tài liệu học tập và hỗ trợ giảng viên trong việc chuẩn bị bài giảng cho trẻ em.",

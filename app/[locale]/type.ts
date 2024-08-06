@@ -68,7 +68,7 @@ export interface Data {
   }
   export interface lectures{
     label: string;
-    description: string;
+    description: string;     
     detail_lectures:Detail_lectures[];
   }   
   export interface Highlights{
@@ -103,7 +103,9 @@ export interface Data {
     };
     export interface Detail_lectures{
       year: string;
+      username: string;
       content: string;
+      image: string;
     }
     
       type Content = string;
