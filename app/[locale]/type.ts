@@ -90,7 +90,7 @@ export interface Data {
   export interface Highlights{
     label: string;
     description: string;
-    lectures: {
+    lecturers: {
       title: string;
       content: Content[]
     }
@@ -112,8 +112,7 @@ export interface Data {
     export interface Mission{
       label: string;
       image: string;
-      content_1: string;
-      content_2: string;
+      content: string;
     };
     export interface Detail_story{
       year: string;
