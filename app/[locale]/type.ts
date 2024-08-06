@@ -102,7 +102,7 @@ export interface Data {
     export interface Brand_story{
       label: string;
       description: string;
-      detail_stories: Detail_stories[]
+      detail_stories: Detail_story[]
     };
     export interface vision{
       label: string;
