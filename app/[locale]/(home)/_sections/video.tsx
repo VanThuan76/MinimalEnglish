@@ -6,7 +6,7 @@ type youtubeVideoId = {
 
 export const Video: React.FC<youtubeVideoId> = ({videoId}) => {
   return (
-    <section className="px-4 lg:px-24 py-12 md:py-16 bg-white">
+    <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-white">
       <h2 className="text-center text-3xl font-bold text-black mb-6">video</h2>
       <div className="relative pb-[56.25%] h-0 overflow-hidden max-w-full bg-black border-none">
         <iframe 

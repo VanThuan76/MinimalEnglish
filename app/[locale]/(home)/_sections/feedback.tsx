@@ -5,7 +5,7 @@ import React from 'react'
 
 export const Feedback = ({title, label, info_testimonials}: Testimonial) => {
   return (
-    <section className='flex [@media(max-width:1023px)]:flex-col justify-between px-4 lg:px-24 py-12 md:py-16 bg-white'>
+    <section className='flex [@media(max-width:1023px)]:flex-col justify-between px-[16px] md:px-[80px] py-12 md:py-16 bg-white'>
         <div className='lg:w-[360px] xl:w-[460px]'>
           <h2 className='text-base text-[#BE5C59] font-bold mb-6'>{label}</h2>
           <h2 className='text-[32px] font-[600] xl:text-[48px] lg:font-bold text-[#000F30] leading-relaxed'>{title}</h2>

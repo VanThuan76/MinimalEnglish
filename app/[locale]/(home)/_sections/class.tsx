@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export const Class = ({label, title, info_classes}: Outstanding_class) => {
   return (
-    <section className="px-4 lg:px-24 py-12 md:py-16 bg-[#FDF6EB]">
+    <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">
       <h2 className="text-base text-[#BE5C59] text-left font-bold tracking-wider">
         {label}
       </h2>

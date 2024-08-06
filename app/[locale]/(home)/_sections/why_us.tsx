@@ -9,7 +9,7 @@ import Image from "next/image";
   
 export const WhyUs = ({title, label, image, info_why_us}: Why_us) => {
 return (
-    <section className="w-full px-4 lg:px-24 py-12 md:py-16 bg-[#FDF6EB]">
+    <section className="w-full px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">
       <div className="mb-8">
         <h2 className="text-base font-bold text-[#BE5C59] text-left tracking-wider mb-6">
             {label}

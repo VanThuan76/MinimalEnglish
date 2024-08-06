@@ -50,7 +50,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <header className="sticky flex flex-row justify-between items-center px-[20px] md:px-[106px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]">
+    <header className="sticky flex flex-row justify-between items-center px-[16px] md:px-[80px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]">
       <div className="flex flex-row justify-between items-center w-full h-full border-b-[2px] border-[#E0E2DE] md:border-b-0">
         <div className="relative w-[56px] h-[56px] md:w-[98px] md:h-[98px] overflow-hidden ">
           <Image
