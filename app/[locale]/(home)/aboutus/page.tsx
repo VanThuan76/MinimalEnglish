@@ -16,22 +16,21 @@ export default async function About() {
         <Misson label={data.about_us.mission.label} image={data.about_us.mission.image} content={data.about_us.mission.content}/>
         <Vision label={data.about_us.vision.label} image={data.about_us.vision.image} content={data.about_us.vision.content}/>
         <BrandStory
-          label={data2.about_us.brand_story.label}
-          description={data2.about_us.brand_story.description}
-          detail_stories={data2.about_us.brand_story.detail_stories}
+          label={data.about_us.brand_story.label}
+          description={data.about_us.brand_story.description}
+          detail_stories={data.about_us.brand_story.detail_stories}
         />
         <Highlight
-          label={data2.about_us.highlights.label}
-          description={data2.about_us.highlights.description}
-          lecturers={data2.about_us.highlights.lecturers}
-          teaching_methods={data2.about_us.highlights.teaching_methods}
+          label={data.about_us.highlights.label}
+          description={data.about_us.highlights.description}
+          lecturers={data.about_us.highlights.lecturers}
+          teaching_methods={data.about_us.highlights.teaching_methods}
         />
         <Feedback 
           title={data.home.testimonial.title}
           label={data.home.testimonial.label} 
           info_testimonials={data.home.testimonial.info_testimonials} 
         />
-
     </>
   )
 }
