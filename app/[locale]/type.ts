@@ -6,6 +6,12 @@ export interface Data {
     };
     home: HomeData;
     about_us: About_us;
+    news_blog: {
+      tips: {},
+      ieltsNews: IeltsNews[],
+      minimalNews: {},
+      faq: {},
+    }
 }
 
   export interface HomeData {
@@ -124,3 +130,11 @@ export interface Data {
     }
 
       type Content = string;
+
+  export interface IeltsNews {
+    tag: string,
+    image: string,
+    publishInfor: string,
+    title: string,
+    description: string
+  }

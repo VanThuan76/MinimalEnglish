@@ -87,7 +87,7 @@ export const SubNavbar = () => {
           </form>
           
         </div>
-      <Separator className="mb-2 bg-[#D0D5DD]"/>
+      <Separator className="flex bg-[#D0D5DD]"/>
     </div>
   );
 };

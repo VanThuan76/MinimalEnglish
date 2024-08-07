@@ -38,10 +38,11 @@ return (
         
         <div className="relative overflow-hidden w-full h-[500px] xl:h-[760px] rounded-[32px]">
           <Image
-            fill={true}
+            fill
             style={{objectFit: "cover"}}
             src={image}
             alt="why_us"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       </div>

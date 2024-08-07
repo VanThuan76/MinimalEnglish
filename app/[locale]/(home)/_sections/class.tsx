@@ -24,11 +24,11 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                 <Image
                   src={image}
                   alt="image about class"
-                  fill={true}
+                  fill
                   style={{
                     objectFit: "cover"
                   }}
-                  sizes="(max-width: 440px)"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <Badge
                   data-iscoming={isComing}
@@ -46,11 +46,11 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                 </CardContent>
 
                 <Button
-                  className="w-full h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] gap-2"
+                  className="w-full h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] gap-2 group/arrow"
                   variant="ghost"
                 >
                   Khám phá
-                  <ArrowRight />
+                  <ArrowRight className="group-hover/arrow:translate-x-2 transition-transform"/>
                 </Button>
               </div>
             </Card>

@@ -16,12 +16,13 @@ export const Misson = ({label,image, content}: Mission) => {
           <div className="flex absolute top-0 left-0 w-full h-full justify-end items-start mr-2.5">
             <div className="relative w-[310px] z-[2] h-[310px] rounded-[32px] xl:w-[530px] xl:h-[530px] drop-shadow-2xl overflow-hidden">
               <Image
-                fill={true}
+                fill
                 style={{
                   objectFit: "cover"
                 }}
                 src={image}
                 alt="about"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           </div>

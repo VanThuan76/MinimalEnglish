@@ -52,14 +52,16 @@ export const Navbar = () => {
   return (
     <header className="sticky flex flex-row justify-between items-center px-[16px] md:px-[80px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]">
       <div className="flex flex-row justify-between items-center w-full h-full border-b-[2px] border-[#E0E2DE] md:border-b-0">
-        <div className="relative w-[56px] h-[56px] md:w-[98px] md:h-[98px] overflow-hidden ">
+        <div className="relative w-[56px] h-[56px] md:w-[98px] md:h-[98px] overflow-hidden">
           <Image
             alt="logo"
             src="/images/logo.png"
-            fill={true}
+            fill
             style={{
               objectFit: "cover"
             }}
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         
@@ -84,10 +86,11 @@ export const Navbar = () => {
                       <Image
                         alt="logo"
                         src="/images/logo.png"
-                        fill={true}
+                        fill
                         style={{
                           objectFit: "cover"
                         }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
 

@@ -11,12 +11,13 @@ export const AboutUs = ({title,label,content,image}: About) => {
             <div className="flex absolute w-full h-full justify-start items-start mr-2.5">
               <div className="relative w-[230px] z-[2] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl overflow-hidden">
                 <Image
-                  fill={true}
+                  fill
                   style={{
                     objectFit: "cover"
                   }}
                   src={image.image_1}
                   alt="about"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             </div>
@@ -28,12 +29,13 @@ export const AboutUs = ({title,label,content,image}: About) => {
             <div className="flex absolute w-full h-full justify-end items-end mr-2.5">
               <div className="relative w-[230px] z-[1] h-[230px] rounded-[32px] xl:w-[360px] xl:h-[360px] drop-shadow-2xl overflow-hidden">
                 <Image
-                  fill={true}
+                  fill
                   style={{
                     objectFit: "cover"
                   }}
                   src={image.image_2}
                   alt="about"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 /> 
               </div>
             </div>

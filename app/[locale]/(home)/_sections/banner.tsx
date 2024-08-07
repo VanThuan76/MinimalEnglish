@@ -22,23 +22,25 @@ export const Banner = ({title, slogan, content, image} : banner) => {
 
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
-              fill={true}
+              fill
               style={{
                 objectFit: "cover"
               }}
               src={image.image_1}
               alt="image_1"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
-              fill={true}
+              fill
               style={{
                 objectFit: "cover"
               }}
               src={image.image_2}
               alt="image_2"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
@@ -49,56 +51,61 @@ export const Banner = ({title, slogan, content, image} : banner) => {
 
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
-              fill={true}
+              fill
               style={{
                 objectFit: "cover"
               }}
               src={image.image_3}
               alt="image_3"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
-              fill={true}
+              fill
               style={{
                 objectFit: "cover"
               }}
               src={image.image_4}
               alt="image_4"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
-              fill={true}
+              fill
               style={{
                 objectFit: "cover"
               }}
               src={image.image_5}
               alt="image_5"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
-              fill={true}
+              fill
               style={{
                 objectFit: "cover"
               }}
               src={image.image_6}
               alt="image_6"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
           <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-3xl overflow-hidden">
             <Image
-              fill={true}
+              fill
               style={{
                 objectFit: "cover"
               }}
               src={image.image_7}
               alt="image_7"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </div>

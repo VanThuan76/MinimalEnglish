@@ -7,13 +7,23 @@ import { ServicesSection } from "@/app/[locale]/(home)/_sections/services"
 import { SponsorsSection } from "@/app/[locale]/(home)/_sections/sponsors"
 import { TeamSection } from "@/app/[locale]/(home)/_sections/team"
 import { TestimonialSection } from "@/app/[locale]/(home)/_sections/testimonial"
+import { NewsBig } from "@/app/[locale]/(home)/new&blog/_sections/newsBig"
 import { getData } from "@/app/[locale]/(home)/page"
-import { Data } from "@/app/[locale]/type"
+import { Data, IeltsNews } from "@/app/[locale]/type"
 
 export default async function NewAndBlog(){
   const data: Data = await getData()
+  const listdata: IeltsNews[] = data.news_blog.ieltsNews.splice(1)
+
   return (
     <>
+      <NewsBig 
+        tag={data.news_blog.ieltsNews[0].tag}
+        image={data.news_blog.ieltsNews[0].image}
+        publishInfor={data.news_blog.ieltsNews[0].publishInfor}
+        title={data.news_blog.ieltsNews[0].title}
+        description={data.news_blog.ieltsNews[0].description}
+      />
       <HeroSection />
       <SponsorsSection />
       <BenefitsSection />
