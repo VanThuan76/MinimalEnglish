@@ -1,4 +1,4 @@
-import {Testimonials} from "@/app/[locale]/(home)/aboutus/_sections/testimonials";
+import {Feedback} from "@/app/[locale]/(home)/aboutus/_sections/feedback";
 import BrandStory from "@/app/[locale]/(home)/aboutus/_sections/BrandStory";
 import  Highlight from "@/app/[locale]/(home)/aboutus/_sections/highlights"
 
@@ -26,7 +26,7 @@ export default async function About() {
        description={data.about_us.lectures.description}      
        detail_lectures={data.about_us.lectures.detail_lectures}
       />   
-      <Testimonials
+      <Feedback
       label={data.home.testimonial.label}
       title={data.home.testimonial.title}
       info_testimonials={data.home.testimonial.info_testimonials}

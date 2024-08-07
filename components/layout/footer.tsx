@@ -3,10 +3,11 @@ import { ChevronsDownIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Link } from "@/navigation";
 import Image from "next/image";
 import MessengerIcon from "@/components/icons/messenger-icon";
+import { Data } from "@/app/[locale]/type";
 
 export const FooterSection = () => {
   return (
-    <footer id="footer" className="bg-card border border-secondary w-full py-12 px-8 sm:px-16 lg:px-32 bg-white">
+    <footer id="footer" className=" bg-card border-secondary w-full py-12 px-8 sm:px-16 lg:px-32 bg-[#f2f4f7]">
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="flex flex-col gap-4">
@@ -16,13 +17,13 @@ export const FooterSection = () => {
             <div className="flex items-center gap-3">
               <PhoneIcon className="w-6 h-6 mr-0 text-[#000F30]" />
               <div className="flex flex-col">
-                <h3 className="font-semibold leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">Hotline: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">0936635052</span></h3>
+                <h3 className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">Hotline: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">0936635052</span></h3>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <MessengerIcon className="w-6 h-6 mr-0 text-[#000F30]" />
               <div className="flex flex-col">
-                <h3 className="font-semibold leading-[20.43px] text-justify text-[15px] text-[#000F30] inline">Messenger: <Link
+                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] inline">Messenger: <Link
                   target="_blank"
                   href="https://www.facebook.com/messages/t/998301663696890"
                   className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">
@@ -33,7 +34,7 @@ export const FooterSection = () => {
             <div className="flex items-center gap-3">
               <MailIcon className="w-6 h-6 mr-0 text-[#000F30]" />
               <div className="">
-                <h3 className="font-semibold leading-[20.43px] text-justify text-[15px] text-[#000F30] mr-0 inline">Email: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">tuvan@ielts-nguyenhuyen.com</span></h3>
+                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] mr-0 inline">Email: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">tuvan@ielts-nguyenhuyen.com</span></h3>
               </div>
             </div>
             <div className="flex gap-3">
@@ -57,8 +58,8 @@ export const FooterSection = () => {
             <Link href="/" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Trang chủ</Link>
             <Link href="/aboutus" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Về chúng tôi</Link>
             <Link href="/class" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Lớp học</Link>
-            <Link href="/Library" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Thư viện</Link>
-            <Link href="/news" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">News & Blog</Link>
+            <Link href="/library" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Thư viện</Link>
+            <Link href="/new&blog" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">News & Blog</Link>
           </div>
 
           <div className="flex flex-col gap-4">
