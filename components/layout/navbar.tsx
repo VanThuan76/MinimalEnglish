@@ -50,15 +50,20 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <header className="sticky flex flex-row justify-between items-center px-[20px] md:px-[106px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]">
+    <header className="sticky flex flex-row justify-between items-center px-[16px] md:px-[80px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]">
       <div className="flex flex-row justify-between items-center w-full h-full border-b-[2px] border-[#E0E2DE] md:border-b-0">
-        <Image 
-          height={56}
-          width={56}
-          alt="logo"
-          src="/images/logo.png"
-          className="w-[56px] h-auto md:w-[98px]"
-        />
+        <div className="relative w-[56px] h-[56px] md:w-[98px] md:h-[98px] overflow-hidden">
+          <Image
+            alt="logo"
+            src="/images/logo.png"
+            fill
+            style={{
+              objectFit: "cover"
+            }}
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
         
         {/* <!-- Mobile --> */}
         <div className="flex items-center lg:hidden ">
@@ -77,12 +82,17 @@ export const Navbar = () => {
               <div>
                 <SheetHeader className="mb-4 ml-4">
                   <SheetTitle className="flex justify-between items-center">
-                    <Image 
-                      height={56}
-                      width={56}
-                      alt="logo"
-                      src="/images/logo.png"
-                    />
+                    <div className="relative w-[56px] h-[56px] overflow-hidden ">
+                      <Image
+                        alt="logo"
+                        src="/images/logo.png"
+                        fill
+                        style={{
+                          objectFit: "cover"
+                        }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
 
                     <button 
                       onClick={() => setIsOpen(!isOpen)} 
@@ -102,11 +112,11 @@ export const Navbar = () => {
                           asChild
                           onClick={() => setIsOpen(false)}
                           variant="ghost"
-                          className="justify-start text-base"
+                          className="justify-start text-base w-full"
                         >
                           <Link href={href} className={pathname === href ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{label}</Link>
                         </Button>
-                        <Separator className="mb-2 bg-[#D0D5DD]" />
+                        <Separator className="mb-2 bg-[#D0D5DD]"/>
                     </div>
                   ))}
                 </div>
@@ -122,7 +132,7 @@ export const Navbar = () => {
           <NavigationMenuList>
             <NavigationMenuItem className="flex justify-between w-[751px]">
               {routeList.map(({ href, label }) => (
-                  <Link key={href} href={href} className={pathname === href ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#000F30]"}>
+                  <Link key={href} href={href} className={pathname === href ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#000F30] hover:underline"}>
                     {label}
                   </Link>
               ))}

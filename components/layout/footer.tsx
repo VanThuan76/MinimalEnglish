@@ -7,7 +7,7 @@ import { Data } from "@/app/[locale]/type";
 
 export const FooterSection = () => {
   return (
-    <footer id="footer" className=" bg-card border-secondary w-full py-12 px-8 sm:px-16 lg:px-32 bg-[#f2f4f7]">
+    <footer id="footer" className="w-full py-12 px-8 sm:px-16 lg:px-[80px] bg-[#f2f4f7]">
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="flex flex-col gap-4">

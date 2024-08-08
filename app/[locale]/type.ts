@@ -54,7 +54,61 @@ export interface HomeData {
         image_2: string;
       };
       content: string;
-    };
+    };    
+
+  export interface News_blog {
+    tips: {},
+    ieltsNews: IeltsNews[],
+    minimalNews: {},
+    faq: {},
+  }
+  export interface HomeData {
+    banner: banner;
+    about_us: About;
+    outstanding_class: Outstanding_class;
+    testimonial: Testimonial;
+    why_us: Why_us;
+    videoId: string;
+  }
+      export interface Why_us{
+        label: string;
+        title: string;
+        image: string;
+        info_why_us: Info_why_us[];
+      }
+      export interface Testimonial{
+        label: string;
+        title: string;
+        info_testimonials: Info_testimonials[];
+      };
+      export interface Outstanding_class{
+        label: string;
+        title: string;
+        info_classes: InfoClass[];
+      };
+      export interface banner {
+        title: string;
+        slogan: string;
+        image: {
+          image_1: string,
+          image_2: string,
+          image_3: string,
+          image_4: string,
+          image_5: string,
+          image_6: string,
+          image_7: string,
+        };
+        content: string;
+      };
+      export interface About{
+        label: string;
+        title: [string, string];
+        image: {
+          image_1: string;
+          image_2: string;
+        };
+        content: string;
+      };
 
     export interface InfoClass {
       name: string;
@@ -121,8 +175,16 @@ export interface Highlights{
   export interface Detail_lectures{
     year: string;
     username: string;
-    content: string;
+    content: string[];
     image: string;
   }
 
     type Content = string;
+
+    export interface IeltsNews {
+      tag: string,
+      image: string,
+      publishInfor: string,
+      title: string,
+      description: string
+    }

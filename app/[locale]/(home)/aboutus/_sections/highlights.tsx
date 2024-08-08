@@ -6,7 +6,7 @@ import { Highlights } from '@/app/[locale]/type';
 
 export const Highlight = ({ label, description, lecturers, teaching_methods }: Highlights) => {
   return (
-    <div className="px-6 py-10 bg-[#FFFFFF] sm:px-[32px] lg:px-[106px] lg:py-[40px;80px]">
+    <div className="px-6 py-10 bg-[#FFFFFF] sm:px-[32px] lg:px-[80px] lg:py-[40px;80px]">
       <h1 className="text-center mb-5 leading-[76px] font-[700] text-[#BE5C59] text-[48px] sm:text-[48px] md:font-bold">{label}</h1>
       <p className="text-[#514F4F] text-[20px] leading-8 p-3 font-normal sm:text-[20px] list-disc mb-10 text-center">
         {description}
