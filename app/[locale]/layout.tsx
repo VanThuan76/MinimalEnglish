@@ -14,10 +14,10 @@ import { FooterSection } from "@/components/layout/footer";
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Shadcn - Landing template",
-  description: "Landing template from Shadcn",
+  title: "Minimal English",
+  description: "Minimal English",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.png',
   }
 };
 
@@ -32,7 +32,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="icon" href="/logo.png" sizes="any" />
       <body className={cn("min-h-screen bg-background", openSans.className)}>
         <NextIntlClientProvider messages={translate}>
           <ThemeProvider
