@@ -48,7 +48,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="flex lg:mt-0 h-full lg:flex-col">
         {info_testimonials.map(( {image}, index) => (
           <div 
-            className="relative touch-pan-x touch-pinch-zoom flex-[0_0_50%] lg:flex-[0_0_100%] w-[146px] h-[316px] lg:w-[230px] lg:h-[384px] xl:w-[280px] xl:h-[538px] lg:mt-6 mx-4 lg:mx-0" 
+            className="relative touch-pan-x touch-pinch-zoom flex-[0_0_50%] lg:flex-[0_0_100%] w-[146px] h-[316px] lg:w-[230px] lg:h-[384px] xl:w-[280px] xl:h-[538px] lg:mt-6 mx-2 lg:mx-0" 
             key={index}
           >
             <Image
@@ -66,4 +66,3 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 }
 
 export default EmblaCarousel
-

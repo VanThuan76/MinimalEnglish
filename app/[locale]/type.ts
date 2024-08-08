@@ -6,6 +6,14 @@ export interface Data {
   };
   home: HomeData;
   about_us: About_us;
+  news_blog: News_blog;
+}
+
+export interface News_blog {
+  tips: {},
+  ieltsNews: IeltsNews[],
+  minimalNews: {},
+  faq: {},
 }
 
 export interface HomeData {
