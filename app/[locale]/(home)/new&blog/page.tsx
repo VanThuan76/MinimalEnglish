@@ -7,6 +7,7 @@ import { ServicesSection } from "@/app/[locale]/(home)/_sections/services"
 import { SponsorsSection } from "@/app/[locale]/(home)/_sections/sponsors"
 import { TeamSection } from "@/app/[locale]/(home)/_sections/team"
 import { TestimonialSection } from "@/app/[locale]/(home)/_sections/testimonial"
+import { ListNews } from "@/app/[locale]/(home)/new&blog/_sections/listNews"
 import { NewsBig } from "@/app/[locale]/(home)/new&blog/_sections/newsBig"
 import { getData } from "@/app/[locale]/(home)/page"
 import { Data, IeltsNews } from "@/app/[locale]/type"
@@ -24,6 +25,7 @@ export default async function NewAndBlog(){
         title={data.news_blog.ieltsNews[0].title}
         description={data.news_blog.ieltsNews[0].description}
       />
+      <ListNews ieltsNews={listdata} />
       <HeroSection />
       <SponsorsSection />
       <BenefitsSection />

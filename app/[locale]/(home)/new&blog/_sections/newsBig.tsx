@@ -18,7 +18,7 @@ export const NewsBig = ({tag,image,description,publishInfor,title}: IeltsNews) =
           />
         </div>
 
-        <div className='w-[360px] xl:w-[430px] [@media(min-width:1440px)]:w-[559px] flex flex-col gap-3 xl:gap-[20px] text-black'>
+        <div className='w-full xl:w-[430px] [@media(min-width:1440px)]:w-[559px] flex flex-col gap-3 xl:gap-[20px] text-black'>
           <div className='w-full flex justify-between items-center'>
             <Badge variant={'secondary'} className='p-2 rounded-lg bg-[#E4E7EC] text-black text-xs font-normal hover:text-white'>{tag}</Badge>
             <div className='text-base font-normal'>{publishInfor}</div>
