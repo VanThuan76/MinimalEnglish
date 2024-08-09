@@ -62,8 +62,18 @@ export interface HomeData {
         image_2: string;
       };
       content: string;
-    };    
+    };
 
+  export interface Library {
+    writing: [],
+    speaking: {},
+    reading: {},
+    listening: {},
+    vocabulary: {},
+    pronunciation: {},
+    paraphrases: {},
+    selfstudy: {},
+  }
   export interface News_blog {
     tips: {},
     ieltsNews: IeltsNews[],
@@ -196,4 +206,12 @@ export interface Highlights{
       title: string,
       description: string,
       href: string,
+    }
+
+    export interface writing {
+      title: string,
+      image: string,
+      view: string,
+      time: string,
+      link: string
     }
