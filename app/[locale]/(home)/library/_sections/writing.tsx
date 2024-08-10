@@ -11,7 +11,7 @@ type WritingProps = {
 
 export const Writing: React.FC<WritingProps> = ({ title, image, view, time, link }) => {
     return (
-        <div className="relative p-3 bg-[#FDF6EB] border border-[#ffffff] rounded-lg shadow-lg overflow-hidden">
+        <div className="relative p-3 bg-[#ffffff] border border-[#ffffff] rounded-lg shadow-lg overflow-hidden">
             <div className="relative w-full h-[200px] mb-2">
                 <Image
                     src={image}
