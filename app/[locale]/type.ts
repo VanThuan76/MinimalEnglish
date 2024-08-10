@@ -67,6 +67,7 @@ export interface HomeData {
     pronunciation: {},
     paraphrases: {},
     selfstudy: {},
+    document: []
   }
   export interface News_blog {
     tips: {},
@@ -206,4 +207,10 @@ export interface Highlights{
       view: string,      
       time: string,
       link: string
+    }
+    export interface document {
+      title: string,      
+      downloads: string,      
+      time: string,
+      
     }

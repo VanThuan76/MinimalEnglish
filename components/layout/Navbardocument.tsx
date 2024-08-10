@@ -13,41 +13,33 @@ interface RouteProps {
 const routeList: RouteProps[] = [
   {
     href: "/library",
-    label: "Writing",
+    label: "Đề tài liệu",
   },
   {
-    href: "/library/speaking",
-    label: "Speaking",
+    href: "/document/examstest",
+    label: "Đề thi thử",
   },
   {
-    href: "/library/listening",
-    label: "Listening",
+    href: "/document/examsyear",
+    label: "đề thi các năm",
   },
   {
-    href: "/library/vocabulary",
-    label: "Vocabulary",
+    href: "/document/skilldocument",
+    label: "Tài liệu các kỹ năng",
   },
   {
-    href: "/library/pronunciation",
-    label: "Pronunciation",
-  },
-  {
-    href: "/library/paraphrases",
-    label: "Paraphrases",
-  },
-  {
-    href: "/library/selfstudy",
-    label: "Self Study",
-  },
+    href: "/document/usermanual",
+    label: "hướng dẫn sử dụng",
+  },  
 ];
 
-export const Navbarlibrary = () => {
+export const Navbardocument = () => {
   const [value, setValue] = useState("");
   const pathname = usePathname();
   return (
-    <div className="px-[16px] md:px-[0px] pt-3 md:pt-10 w-full bg-[#FDF6EB]">
+    <div className="px-[16px] md:px-[0px] pt-3 md:pt-6 w-full bg-[#FDF6EB]">
       
-      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">Bài giảng</h1>
+      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">Tài liệu</h1>
       
       <div className="lg:flex block justify-between mb-5">
         {/* desktop */}
