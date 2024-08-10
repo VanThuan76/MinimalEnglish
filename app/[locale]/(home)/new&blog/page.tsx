@@ -22,4 +22,4 @@ export default async function NewAndBlog(){
       <ListNews ieltsNews={listdata} />
     </>
   )
-}import { Writing } from "app/[locale]/(home)/library/_sections/writing";
+}

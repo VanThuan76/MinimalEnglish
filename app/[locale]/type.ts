@@ -7,6 +7,7 @@ export interface Data {
   home: HomeData;
   about_us: About_us;
   news_blog: News_blog;
+  library: Library
 }
 
 export interface News_blog {
@@ -215,3 +216,4 @@ export interface Highlights{
       time: string,
       link: string
     }
+
