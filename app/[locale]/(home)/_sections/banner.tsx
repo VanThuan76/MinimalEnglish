@@ -4,8 +4,8 @@ import Image from "next/image";
 export const Banner = ({title, slogan, content, image} : banner) => {
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]">
-      <div className="grid lg:grid-cols-2 place-items-center gap-11">
-        <div >
+      <div className="lg:flex justify-between">
+        <div className="lg:max-w-[460px] xl:max-w-[600px] [@media(min-width:1330px)]:max-w-[700px]">
           <h2 className="text-[32px] font-[600] md:text-5xl md:font-bold mb-4 text-[#000F30]">
             {title} - 
           </h2>
