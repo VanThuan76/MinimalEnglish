@@ -7,6 +7,8 @@ export default async function NewAndBlog(){
   const data: Data = await getData()
   const listdata: IeltsNews[] = data.news_blog.ieltsNews.splice(1)
 
+  console.log(listdata);
+  
   return (
     <>
       <NewsBig 
@@ -15,6 +17,7 @@ export default async function NewAndBlog(){
         publishInfor={data.news_blog.ieltsNews[0].publishInfor}
         title={data.news_blog.ieltsNews[0].title}
         description={data.news_blog.ieltsNews[0].description}
+        href={data.news_blog.ieltsNews[0].href}
       />
       <ListNews ieltsNews={listdata} />
     </>

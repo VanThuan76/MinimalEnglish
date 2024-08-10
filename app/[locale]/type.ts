@@ -194,5 +194,6 @@ export interface Highlights{
       image: string,
       publishInfor: string,
       title: string,
-      description: string
+      description: string,
+      href: string,
     }

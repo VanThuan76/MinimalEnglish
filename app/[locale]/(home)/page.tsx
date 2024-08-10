@@ -8,9 +8,8 @@ import { Feedback } from "@/app/[locale]/(home)/_sections/feedback";
 
 export async function getData() {
   const res = await fetch('https://siuuuu-8f55.onrender.com/api/users',{
-    headers: {
-      'Cache-Control': 'no-cache', // hoặc 'max-age=0'
-    }
+    method: 'GET',
+    cache: 'no-cache',
   });
   
   return res.json()

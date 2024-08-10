@@ -1,10 +1,14 @@
 import { IeltsNews } from '@/app/[locale]/type'
 import { Badge } from '@/components/ui/badge'
+import { Link } from '@/navigation'
 import { CircleArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
-export const SmNews = ({image, publishInfor ,title, tag, description} :IeltsNews) => {
+export const SmNews = ({image, publishInfor ,title, tag, description, href } :IeltsNews) => {  
+
+    console.log(href);
+    
   return (
     <div className='flex flex-col w-full max-w-[390px] justify-between gap-6'>
         <div className='relative w-full max-w-[390px] h-[200px] rounded-xl overflow-hidden'>
@@ -31,11 +35,11 @@ export const SmNews = ({image, publishInfor ,title, tag, description} :IeltsNews
             {description}
         </div>
 
-        <button className='flex items-center gap-3 w-fit font-semibold text-[20px] bg-white text-[#000F30] px-0 group/arrow'>
+        <Link href={href} className='flex items-center gap-3 w-fit font-semibold text-[20px] bg-white text-[#000F30] px-0 group/arrow'>
             Đọc bài 
             <CircleArrowRight strokeWidth={1.5} size={20} className='group-hover/arrow:translate-x-2 transition-transform'/>
-        </button>
+        </Link>
         </div>
     </div>
   )
-}
+} 
