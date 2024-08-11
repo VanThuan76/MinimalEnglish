@@ -17,19 +17,19 @@ const routeList: RouteProps[] = [
     label: "Tất cả",
   },
   {
-    href: "/new&blog/tips",
+    href: "/new&blog/#tips",
     label: "Mẹo học tập",
   },
   {
-    href: "/new&blog/ielts news",
+    href: "/new&blog/#ielts news",
     label: "IELTS News",
   },
   {
-    href: "/new&blog/minimal english news",
+    href: "/new&blog/#minimal english news",
     label: "Minimal English có gì mới",
   },
   {
-    href: "/new&blog/FAQ",
+    href: "/new&blog/#FAQ",
     label: "FAQ (Câu hỏi thường gặp)",
   },
 ];

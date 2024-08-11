@@ -1,11 +1,11 @@
-import { IeltsNews } from '@/app/[locale]/type'
+import { ListNews } from '@/app/[locale]/type'
 import { Badge } from '@/components/ui/badge'
 import { Link } from '@/navigation'
 import { CircleArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
-export const NewsBig = ({tag,image,description,publishInfor,title, href}: IeltsNews) => {
+export const NewsBig = ({tag,image,description,publishInfor,title, href}: ListNews) => {
   return (
     <section className='bg-white px-[16px] md:px-[80px] pt-3 md:pt-10'>
       <div className='flex [@media(max-width:1000px)]:flex-col w-full justify-between [@media(max-width:1000px)]:gap-6'>

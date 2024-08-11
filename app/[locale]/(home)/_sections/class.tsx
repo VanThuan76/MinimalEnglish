@@ -2,6 +2,7 @@ import { Outstanding_class } from "@/app/[locale]/type";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "@/navigation";
 import { ArrowRight } from 'lucide-react';
 import Image from "next/image";
 
@@ -17,7 +18,7 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
       </h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 place-items-top">
-        {info_classes.map(({ name, description, image, isComing }, index) => (
+        {info_classes.map(({ name, description, image, isComing, href }, index) => (
           <div key={index} className={`${(info_classes.length % 3 === 1 && index + 1 === info_classes.length) && "xl:col-[2]"}`}>
             <Card className="w-full h-full border-0 shadow-none">
               <CardHeader className="relative overflow-hidden w-full h-[240px] rounded-xl shadow-md">
@@ -46,11 +47,13 @@ export const Class = ({label, title, info_classes}: Outstanding_class) => {
                 </CardContent>
 
                 <Button
-                  className="w-full h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] gap-2 group/arrow"
+                  className="w-full h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] group/arrow"
                   variant="ghost"
                 >
-                  Khám phá
-                  <ArrowRight className="group-hover/arrow:translate-x-2 transition-transform"/>
+                  <Link href={href} className="flex gap-2">
+                    Khám phá
+                    <ArrowRight className="group-hover/arrow:translate-x-2 transition-transform"/>
+                  </Link>
                 </Button>
               </div>
             </Card>
