@@ -16,27 +16,27 @@ const routeList: RouteProps[] = [
     label: "Writing",
   },
   {
-    href: "/library/speaking",
+    href: "/library/#speaking",
     label: "Speaking",
   },
   {
-    href: "/library/listening",
+    href: "/library/#listening",
     label: "Listening",
   },
   {
-    href: "/library/vocabulary",
+    href: "/library/#vocabulary",
     label: "Vocabulary",
   },
   {
-    href: "/library/pronunciation",
+    href: "/library/#pronunciation",
     label: "Pronunciation",
   },
   {
-    href: "/library/paraphrases",
+    href: "/library/#paraphrases",
     label: "Paraphrases",
   },
   {
-    href: "/library/selfstudy",
+    href: "/library/#selfstudy",
     label: "Self Study",
   },
 ];

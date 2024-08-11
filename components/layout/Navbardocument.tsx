@@ -16,19 +16,19 @@ const routeList: RouteProps[] = [
     label: "Đề tài liệu",
   },
   {
-    href: "/document/examstest",
+    href: "/library/#examstest",
     label: "Đề thi thử",
   },
   {
-    href: "/document/examsyear",
+    href: "/library/#examsyear",
     label: "đề thi các năm",
   },
   {
-    href: "/document/skilldocument",
+    href: "/library#skilldocument",
     label: "Tài liệu các kỹ năng",
   },
   {
-    href: "/document/usermanual",
+    href: "/library/#usermanual",
     label: "hướng dẫn sử dụng",
   },  
 ];
