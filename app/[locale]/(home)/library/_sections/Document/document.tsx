@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 type DocumentProps = {
     title: string;
@@ -9,7 +8,7 @@ type DocumentProps = {
 
 export const Document: React.FC<DocumentProps> = ({ title, downloads, time }) => {
     return (
-        <div className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
+        <div id="document" className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
             <div className="relative w-full h-[200px] mb-5 bg-[#E4E7EC] rounded-lg shadow-lg overflow-hidden">                                 
             </div>
             <a className="md:w-[372px] w-full text-[20px] leading-8 font-semibold text-[#000F30]">{title}</a>
@@ -28,12 +27,12 @@ export default function Library({ document }: { document: DocumentProps[] }) {
     return (
         <section className="bg-[#FDF6EB] px-[16px] md:px-[80px] pt-3 md:pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#FDF6EB]">
-                {document.map((doc, index) => (
+                {document.map((document, index) => (
                     <Document
                         key={index}
-                        title={doc.title}                       
-                        downloads={doc.downloads}
-                        time={doc.time}                        
+                        title={document.title}                       
+                        downloads={document.downloads}
+                        time={document.time}                        
                     />
                 ))}
             </div>

@@ -59,15 +59,19 @@ export interface HomeData {
     };    
 
   export interface Library {
-    writing: [],
-    speaking: {},
-    reading: {},
-    listening: {},
-    vocabulary: {},
-    pronunciation: {},
-    paraphrases: {},
-    selfstudy: {},
-    document: []
+    writing: Lesson[],
+    speaking: Lesson[],
+    reading: Lesson[],
+    listening: Lesson[],
+    vocabulary: Lesson[],
+    pronunciation: Lesson[],
+    paraphrases: Lesson[],
+    selfstudy: Lesson[],
+    document: document[],
+    examstest: document[],
+    examsyear: document[],
+    skilldocument: document[],
+    usermanual: document[]
   }
   export interface News_blog {
     tips: {},
@@ -201,7 +205,7 @@ export interface Highlights{
       title: string,
       description: string
     }
-    export interface writing {
+    export interface Lesson {
       title: string,
       image: string,
       view: string,      
