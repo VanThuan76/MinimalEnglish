@@ -1,51 +1,56 @@
 "use client";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
-import { Link, usePathname } from "@/navigation";
 import clsx from "clsx";
 import { Search } from "lucide-react";
 import { useState } from "react";
 
 interface RouteProps {
-  href: string;
+  tab: string;
   label: string;
 }
 
 const routeList: RouteProps[] = [
   {
-    href: "/new&blog",
+    tab: "all",
     label: "Tất cả",
   },
   {
-    href: "/new&blog/#tips",
+    tab: "tips",
     label: "Mẹo học tập",
   },
   {
-    href: "/new&blog/#ielts news",
+    tab: "ielts news",
     label: "IELTS News",
   },
   {
-    href: "/new&blog/#minimal english news",
+    tab: "minimal english news",
     label: "Minimal English có gì mới",
   },
   {
-    href: "/new&blog/#FAQ",
+    tab: "FAQ",
     label: "FAQ (Câu hỏi thường gặp)",
   },
 ];
 
-export const SubNavbar = () => {
+export const SubNavbar: React.FC<{tabs: string, setTabs: any}> = ({tabs, setTabs}) => {
   const [value, setValue] = useState("")
-  const pathname = usePathname();
+  console.log(tabs);
+  
   return (
     <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]">
         <div className="lg:flex block justify-between mb-5">
           {/* desktop */}
           <div className="hidden lg:flex flex-row justify-between items-center w-[743px]">
-            {routeList.map(({ href, label }) => (
-              <Link key={href} href={href} className={pathname === href ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
+            {routeList.map(({ tab, label }) => (
+              <button 
+                onClick={() => {
+                  setTabs(tab)
+                }}
+                key={tab}
+                className={tabs=== tab ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
                 {label}
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -58,12 +63,16 @@ export const SubNavbar = () => {
             className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
           >
             <CarouselContent>
-              {routeList.map(({ href, label }) => (
-                <Link key={href} href={href} className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2",
-                  pathname === href ? "font-bold text-[#BE5C59]" : "hover:underline"
+              {routeList.map(({ tab, label }) => (
+                <button 
+                  onClick={() => {
+                    setTabs(tab)
+                  }}
+                  key={tab} 
+                  className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", tabs === tab ? "font-bold text-[#BE5C59]" : "hover:underline"
                 )}>
                   {label}
-                </Link>
+                </button>
               ))}
             </CarouselContent>
           </Carousel>
