@@ -10,6 +10,13 @@ export interface Data {
   library: Library
 }
 
+export interface News_blog {
+  tips: {},
+  ieltsNews: IeltsNews[],
+  minimalNews: {},
+  faq: {},
+}
+
 export interface HomeData {
   banner: banner;
   about_us: About;
@@ -56,7 +63,7 @@ export interface HomeData {
         image_2: string;
       };
       content: string;
-    };    
+    };
 
   export interface Library {
     writing: Lesson[],
@@ -203,12 +210,13 @@ export interface Highlights{
       image: string,
       publishInfor: string,
       title: string,
-      description: string
+      description: string,
+      href: string,
     }
     export interface Lesson {
       title: string,
       image: string,
-      view: string,      
+      view: string,
       time: string,
       link: string
     }

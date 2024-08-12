@@ -30,7 +30,6 @@ return (
                   {title}
                 </div>
               </AccordionTrigger>
-
               <AccordionContent>{content}</AccordionContent>
             </AccordionItem>
         ))}
