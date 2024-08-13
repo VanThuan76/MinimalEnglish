@@ -12,7 +12,7 @@ export const Highlight = ({ label, description, lecturers, teaching_methods }: H
         {description}
       </p>
       <div className="grid gap-8 md:grid-cols-2 lg:gap-11">
-        <div className="flex flex-col items-start mb-10">
+        <div className="flex flex-col items-start mb-10" style={{ borderTop: '1px solid #C1C5BF', paddingTop: '50px' }}>
           <div className="mb-5">
             <LectureIcon />
           </div>
@@ -29,7 +29,7 @@ export const Highlight = ({ label, description, lecturers, teaching_methods }: H
           </ul>
         </div>
 
-        <div className="flex flex-col items-start mb-10">
+        <div className="flex flex-col items-start mb-10" style={{ borderTop: '1px solid #C1C5BF', paddingTop: '50px' }}>
           <div className="mb-5">
             <TeachMethodIcon />
           </div>

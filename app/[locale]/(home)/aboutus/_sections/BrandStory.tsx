@@ -14,52 +14,74 @@ export const BrandStory: React.FC<Brand_story> = ({ label, description, detail_s
         </p>
       </div>
       <div className="relative w-full flex justify-center">
-      <div className="relative w-full max-w-[920px]">
-        {/* <div className="absolute left-1/2 w-0.5 h-[1000px] md:h-[640px] border-r-2 border-[#E5BEBD]"></div> */}
-        {detail_stories.map(({ year, content }, index) => (
-          <div key={index} className="flex items-start relative">
-            {index % 2 === 0 ? (
-              <>
-                <div className={clsx("w-1/2 text-left pr-5 relative border-solid border-r-[2px] border-[#E5BEBD] transform translate-x-[1px]", index === detail_stories.length - 1 && "border-r-0")}>
-                  <p className="text-[#514F4f] font-normal leading-6 md:text-[16px] mb-20">
-                    {content}
-                  </p>
-                </div>
-                <div className="w-1/2 text-center flex items-center relative justify-start">
-                  <div className="w-fit flex items-start relative -translate-x-[10px] z-[2]">
-                    <div className='flex items-center'>
-                      <div className="right-[-20px] bg-[#FDF6EB] border-2 border-[#A1423F] rounded-full w-5 h-5"></div>
-                      <hr className="border-[#E5BEBD] w-[40px] md:w-[90px] h-0.5"/>
-                    </div>
-                    <p className="font-semibold text-[24px] md:text-[32px] text-nowrap text-[#BE5C59] leading-[52px] transform translate-y-[-15px] bg-[#FDF6EB] w-[88px] sm:w-auto">
-                      {year}
+        <div className="relative w-full max-w-[920px]">
+          {detail_stories.map(({ year, content }, index) => (
+            <div key={index} className="flex items-start relative">
+              {index % 2 === 0 ? (
+                <>
+                  <div
+                    className={clsx(
+                      "w-1/2 text-left pr-5 relative border-solid border-r-[2px] border-[#E5BEBD] transform translate-x-[1px]",
+                      index === detail_stories.length - 1 && "border-r-0"
+                    )}
+                  >
+                    <p className="text-[#514F4f] font-normal leading-6 md:text-[16px] mb-20 translate-x-0 md:translate-x-[-20px]"
+                   >
+                      {content}
                     </p>
                   </div>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="w-1/2 text-center flex items-center relative justify-end">
-                  <div className="w-fit flex items-start relative translate-x-[10px] z-[2]">
-                    <p className="font-semibold mr-2 w-[88px] translate-y-[-8px] sm:w-auto text-[32px] text-[#BE5C59] leading-[52px] bg-[#FDF6EB]">
-                      {year}
-                    </p>
-                    <div className='flex items-center'>
-                      <hr className="border-[#E5BEBD] w-[40px] md:w-[90px] h-0.5 "/>
-                      <div className="right-[-20px] bg-[#FDF6EB] border-2 border-[#A1423F] rounded-full w-5 h-5"></div>
+                  <div className="w-1/2 text-center flex items-center relative justify-start">
+                    <div className="w-fit flex items-start relative -translate-x-[10px] z-[2]">
+                      <div className='flex items-center'>
+                        <div
+                          className="right-[-20px] bg-[#FDF6EB] border-2 border-[#A1423F] rounded-full w-5 h-5 translate-y-[-10px]"                       
+                        ></div>
+                        <hr
+                          className="border-[#E5BEBD] w-[40px] md:w-[90px] h-0.5 translate-y-[-10px]"
+                        />
+                      </div>
+                      <p
+                        className="font-semibold text-left text-[24px] md:text-[32px] text-nowrap text-[#BE5C59] leading-[52px] bg-[#FDF6EB] w-[88px] sm:w-auto md:translate-y-[-19px] md:translate-x-[20px] translate-x-1 translate-y-[-26px]"
+                      /* style={{minWidth: '74px', minHeight: '52px',maxWidth: '124px', maxHeight: '116px',}} */>
+                        {year}
+                      </p>
                     </div>
                   </div>
-                </div>
-                <div className={clsx("w-1/2 text-left pl-5 border-solid border-[#E5BEBD] transform -translate-x-[1px]", index < detail_stories.length - 1 && "border-l-2")}>
-                  <p className="text-[#514F4f] font-normal leading-6 md:text-[16px] mb-20">
-                    {content}
-                  </p>
-                </div>
-              </>
-            )}
-          </div>
-        ))}
-      </div>
+                </>
+              ) : (
+                <>
+                  <div className="w-1/2 text-center flex items-center relative justify-end">
+                    <div className="w-fit flex items-start relative translate-x-[10px] z-[2] ">
+                      <p
+                        className="font-semibold text-center mr-2 w-[120px] sm:w-auto text-[32px] text-[#BE5C59] md:text-center leading-[52px] bg-[#FDF6EB] translate-x-[25px] translate-y-[-18px] md:translate-x-[-15px] md:translate-y-[-18px] "                       
+                        >
+                        {year}
+                      </p>
+                      <div className='flex items-center'>
+                        <hr
+                          className="border-[#E5BEBD] w-[40px] md:w-[90px] h-0.5 translate-y-[-10px]"
+                        />
+                        <div
+                          className="right-[-20px] bg-[#FDF6EB] border-2 border-[#A1423F] rounded-full w-5 h-5 translate-y-[-10px]"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={clsx(
+                      "w-1/2 text-left pl-5 border-solid border-[#E5BEBD] transform -translate-x-[1px]",
+                      index < detail_stories.length - 1 && "border-l-2"
+                    )}
+                  >
+                    <p className="text-[#514F4f] font-normal leading-6 md:text-[16px] mb-20 translate-x-[0px] md:translate-x-[20px]">
+                      {content}
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

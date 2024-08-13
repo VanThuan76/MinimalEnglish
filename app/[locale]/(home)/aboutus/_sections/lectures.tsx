@@ -13,11 +13,11 @@ export const Lectures = ({ label, description, detail_lectures }: lectures) => {
       <p className="text-[#000F30] text-[32px] leading-[52px] font-semibold md:text-[48px] md:leading-[76px] md:font-bold text-left gap-2">
         {description}
       </p>
-      <div className="relative grid grid-cols-1 md:grid-cols-3 mt-5">
+      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
         {detail_lectures.map(({ year, username, content, image }, index) => (
           <div
             key={index}
-            className="relative p-4 border-[#ffffff]"
+            className="relative p-3 border rounded-lg bg-[#ffffff] border-[#ffffff]"
           >
            <div className="w-full h-[500px] relative mb-4 flex-shrink-0">
             <Image 

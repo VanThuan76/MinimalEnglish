@@ -6,6 +6,7 @@ import  Highlight from "@/app/[locale]/(home)/aboutus/_sections/highlights"
 
 import { Data } from "@/app/[locale]/type";
 import { Feedback } from "@/app/[locale]/(home)/aboutus/_sections/feedback copy";
+import Lectures from "@/app/[locale]/(home)/aboutus/_sections/lectures";
 
 export default async function About() {
   const data: Data = await getData();
@@ -26,6 +27,11 @@ export default async function About() {
           lecturers={data.about_us.highlights.lecturers}
           teaching_methods={data.about_us.highlights.teaching_methods}
         />
+        <Lectures
+         label={data.about_us.lectures.label}
+         description={data.about_us.lectures.description}
+         detail_lectures={data.about_us.lectures.detail_lectures}
+         />
         <Feedback 
           title={data.home.testimonial.title}
           label={data.home.testimonial.label} 
