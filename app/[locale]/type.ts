@@ -7,6 +7,7 @@ export interface Data {
   home: HomeData;
   about_us: About_us;
   news_blog: News_blog;
+  library: Library
 }
 
 export interface News_blog {
@@ -62,7 +63,29 @@ export interface HomeData {
         image_2: string;
       };
       content: string;
-    };    
+    };
+
+  export interface Library {
+    writing: Lesson[],
+    speaking: Lesson[],
+    reading: Lesson[],
+    listening: Lesson[],
+    vocabulary: Lesson[],
+    pronunciation: Lesson[],
+    paraphrases: Lesson[],
+    selfstudy: Lesson[],
+    document: document[],
+    examstest: document[],
+    examsyear: document[],
+    skilldocument: document[],
+    usermanual: document[]
+  }
+  export interface News_blog {
+    tips: {},
+    ieltsNews: IeltsNews[],
+    minimalNews: {},
+    faq: {},
+  }
   export interface HomeData {
     banner: banner;
     about_us: About;
@@ -190,4 +213,17 @@ export interface Highlights{
       title: string,
       description: string,
       href: string,
+    }
+    export interface Lesson {
+      title: string,
+      image: string,
+      view: string,
+      time: string,
+      link: string
+    }
+    export interface document {
+      title: string,      
+      downloads: string,      
+      time: string,
+      
     }
