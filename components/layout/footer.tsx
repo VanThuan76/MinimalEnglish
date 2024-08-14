@@ -75,7 +75,7 @@ export const FooterSection = () => {
 
         <div className="w-full mt-12">
           <Separator className="bg-[#E4E7EC]" />
-          <h3 className="text-[#514F4F] text-[14px] mt-4">© COPYRIGHT 2024, - Minimal English</h3>
+          <h3 className="text-[#514F4F] text-[14px] mt-4">© COPYRIGHT 2024 - Minimal English</h3>
         </div>
       </div>
     </footer>

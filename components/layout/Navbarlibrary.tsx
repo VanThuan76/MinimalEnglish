@@ -20,39 +20,38 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "/library",
+    href: "/library?tab=writing",
     label: "Writing",
   },
   {
-    href: "/library/#speaking",
+    href: "/library?tab=speaking",
     label: "Speaking",
   },
   {
-    href: "/library/#reading",
+    href: "/library?tab=reading",
     label: "Reading",
   },
   {
-    href: "/library/#listening",
+    href: "/library?tab=listening",
     label: "Listening",
   },
   {
-    href: "/library/#vocabulary",
+    href: "/library?tab=vocabulary",
     label: "Vocabulary",
   },
   {
-    href: "/library/#pronunciation",
+    href: "/library?tab=pronunciation",
     label: "Pronunciation",
   },
   {
-    href: "/library/#paraphrases",
+    href: "/library?tab=paraphrases",
     label: "Paraphrases",
   },
   {
-    href: "/library/#selfstudy",
+    href: "/library?tab=selfstudy",
     label: "Self Study",
   },
 ];
-
 
 export const Navbarlibrary = () => {
   const pathname = usePathname();
@@ -71,7 +70,7 @@ export const Navbarlibrary = () => {
 
   const handleTabClick = (href: string) => {
     setActiveTab(href);
-    router.push(href); 
+    router.prefetch(href); 
   }; 
   
   const writings = [   
@@ -266,7 +265,7 @@ const selfstudy = [
 
       <div className="lg:flex block justify-between mb-5">
         {/* desktop */}
-        <div className="hidden lg:flex flex-row justify-between items-center w-[743px]">
+        <div className="hidden lg:flex flex-row justify-between items-center w-[900px]">
           {routeList.map(({ href, label }) => (
             <button
               key={href}
@@ -309,7 +308,7 @@ const selfstudy = [
       
       {/* Nội dung của các tab */}
       <div className="tab-content mt-1 mx-[-10px]">
-        {activeTab === "/library" && (
+        {activeTab === "/library?tab=writing" && (
            <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
              {writings.map((writing, index) => (
@@ -325,7 +324,7 @@ const selfstudy = [
            </div>
          </section>
        )}
-        {activeTab === "/library/#speaking" && (
+        {activeTab === "/library?tab=speaking" && (
             <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {speaking.map((speaking, index) => (
@@ -341,7 +340,7 @@ const selfstudy = [
         </div>
       </section>
     )}
-    {activeTab === "/library/#reading" && (
+    {activeTab === "/library?tab=reading" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reading.map((reading, index) => (
@@ -357,7 +356,7 @@ const selfstudy = [
       </div>
     </section>
   )}
-        {activeTab === "/library/#listening" && (
+        {activeTab === "/library?tab=listening" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {listening.map((listening, index) => (
@@ -373,7 +372,7 @@ const selfstudy = [
       </div>
     </section>
   )}
-        {activeTab === "/library/#vocabulary" && (
+        {activeTab === "/library?tab=vocabulary" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {vocabulary.map((vocabulary, index) => (
@@ -389,7 +388,7 @@ const selfstudy = [
       </div>
     </section>
   )}
-        {activeTab === "/library/#pronunciation" && (
+        {activeTab === "/library?tab=pronunciation" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pronunciation.map((pronunciation, index) => (
@@ -405,7 +404,7 @@ const selfstudy = [
       </div>
     </section>
   )}
-        {activeTab === "/library/#paraphrases" && (
+        {activeTab === "/library?tab=paraphrases" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {paraphrases.map((paraphrases, index) => (
@@ -421,7 +420,7 @@ const selfstudy = [
       </div>
     </section>
   )}
-        {activeTab === "/library/#selfstudy" && (
+        {activeTab === "/library?tab=selfstudy" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {selfstudy.map((selfstudy, index) => (

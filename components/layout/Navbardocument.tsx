@@ -18,23 +18,23 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "/library",
+    href: "/library?tab=document",
     label: "Đề tài liệu",
   },
   {
-    href: "/library/#examstest",
+    href: "/library?tab=examstest",
     label: "Đề thi thử",
   },
   {
-    href: "/library/#examsyear",
+    href: "/library?tab=examsyear",
     label: "đề thi các năm",
   },
   {
-    href: "/library/#skilldocument",
+    href: "/library?tab=skilldocument",
     label: "Tài liệu các kỹ năng",
   },
   {
-    href: "/library/#usermanual",
+    href: "/library?tab=usermanual",
     label: "hướng dẫn sử dụng",
   },  
 ];   
@@ -56,7 +56,7 @@ export const Navbardocument = () => {
 
   const handleTabClick = (href: string) => {
     setActiveTab(href);
-    router.push(href); 
+    router.prefetch(href); 
   }; 
   
   const document = [
@@ -194,7 +194,7 @@ const usermanual = [
       
       {/* Nội dung của các tab */}
       <div className="tab-content mt-1 mx-[-10px]">
-        {activeTab === "/library" && (
+        {activeTab === "/library?tab=document" && (
            <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
              {document.map((document, index) => (
@@ -208,7 +208,7 @@ const usermanual = [
            </div>
          </section>
        )}
-        {activeTab === "/library/#examstest" && (
+        {activeTab === "/library?tab=examstest" && (
             <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {examstest.map((examstest, index) => (
@@ -222,7 +222,7 @@ const usermanual = [
         </div>
       </section>
     )}
-    {activeTab === "/library/#examsyear" && (
+    {activeTab === "/library?tab=examsyear" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {examsyear.map((examsyear, index) => (
@@ -236,7 +236,7 @@ const usermanual = [
       </div>
     </section>
   )}
-        {activeTab === "/library/#skilldocument" && (
+        {activeTab === "/library?tab=skilldocument" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skilldocument.map((skilldocument, index) => (
@@ -250,7 +250,7 @@ const usermanual = [
       </div>
     </section>
   )}
-        {activeTab === "/library/#usermanual" && (
+        {activeTab === "/library?tab=usermanual" && (
           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {usermanual.map((usermanual, index) => (
