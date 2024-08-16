@@ -18,6 +18,20 @@ export async function getData() {
 export default async function Home() {
   const data: Data = await getData();
 
+  const response = await fetch('https://dungtq.site/public/api/section/get-by-page', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      language: 'en',
+      page_id: 1
+    }),
+  });
+
+  const result = await response.json();
+  console.log(result);
+
   return (
     <>
       <Banner title={data.home.banner.title} image={data.home.banner.image} slogan={data.home.banner.slogan} content={data.home.banner.content}/>
