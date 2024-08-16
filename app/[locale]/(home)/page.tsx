@@ -5,6 +5,7 @@ import { Class } from "@/app/[locale]/(home)/_sections/class";
 import { WhyUs } from "@/app/[locale]/(home)/_sections/why_us";
 import { Video } from "@/app/[locale]/(home)/_sections/video";
 import { Feedback } from "@/app/[locale]/(home)/_sections/feedback";
+import { useGeData } from "@/schema/services/data";
 
 export async function getData() {
   const res = await fetch('https://siuuuu-8f55.onrender.com/api/users',{
@@ -17,21 +18,7 @@ export async function getData() {
 
 export default async function Home() {
   const data: Data = await getData();
-
-  const response = await fetch('https://dungtq.site/public/api/section/get-by-page', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      language: 'en',
-      page_id: 1
-    }),
-  });
-
-  const result = await response.json();
-  console.log(result);
-
+  const {data: t} = useGeData()
   return (
     <>
       <Banner title={data.home.banner.title} image={data.home.banner.image} slogan={data.home.banner.slogan} content={data.home.banner.content}/>
