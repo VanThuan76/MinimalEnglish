@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FooterSection } from "@/components/layout/footer";
+import Providers from '@/app/providers';
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -34,7 +35,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <link rel="icon" href="/logo.png" sizes="any" />
       <body className={cn("min-h-screen bg-background", openSans.className)}>
-        <NextIntlClientProvider messages={translate}>
+      <NextIntlClientProvider messages={translate}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -42,7 +43,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <Navbar />
-            {children}
+            <Providers>{children}</Providers>
             <FooterSection />
           </ThemeProvider>
         </NextIntlClientProvider>
