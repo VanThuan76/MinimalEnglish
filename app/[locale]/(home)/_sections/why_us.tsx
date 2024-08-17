@@ -21,16 +21,16 @@ return (
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-[120px]">
-        <Accordion type="single" collapsible className="AccordionRoot">
+        <Accordion type="single" collapsible className="AccordionRoot" defaultValue="0">
           {info_why_us.map(({title, content }, index) => (
-            <AccordionItem key={index} value={title}>
+            <AccordionItem key={index} value={`${index}`}>
               <AccordionTrigger className="text-left text-[#000F30]">
                 <div className="flex flex-row text-2xl py-3">
                   <div className="pr-4">{index + 1}</div>
                   {title}
                 </div>
               </AccordionTrigger>
-              <AccordionContent>{content}</AccordionContent>
+              <AccordionContent className="text-[#667085]">{content}</AccordionContent>
             </AccordionItem>
         ))}
         </Accordion>

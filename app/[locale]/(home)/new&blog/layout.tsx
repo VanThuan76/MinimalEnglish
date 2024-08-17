@@ -1,11 +1,12 @@
-import { SubNavbar } from "@/components/layout/subNavbar";
+import { GlobalStateProvider } from '@/components/hooks/GlobalStateContext.tsx'; 
+import { TabsBar } from '@/components/layout/Tabsbar';
+import { ReactNode } from 'react';
 
-export default function Layout({children}: {children: React.ReactNode}) {
+export default function GlobalLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-        
-        <SubNavbar />
-        {children}
-    </>
-  )
+    <GlobalStateProvider>
+      <TabsBar />
+      {children}
+    </GlobalStateProvider>
+  );
 }

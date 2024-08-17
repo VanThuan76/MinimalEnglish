@@ -11,10 +11,12 @@ export interface Data {
 }
 
 export interface News_blog {
-  tips: {},
-  ieltsNews: IeltsNews[],
-  minimalNews: {},
-  faq: {},
+  all: ListNews[],
+  tips: ListNews[],
+  ieltsNews: ListNews[],
+  minimalNews: ListNews[],
+  faq: ListNews[],
+  detail: Detail,
 }
 
 export interface HomeData {
@@ -80,12 +82,6 @@ export interface HomeData {
     skilldocument: document[],
     usermanual: document[]
   }
-  export interface News_blog {
-    tips: {},
-    ieltsNews: IeltsNews[],
-    minimalNews: {},
-    faq: {},
-  }
   export interface HomeData {
     banner: banner;
     about_us: About;
@@ -138,7 +134,8 @@ export interface HomeData {
       name: string;
       description: string;
       image: string;
-      isComing: boolean
+      isComing: boolean;
+      href: string
     }
 
     export interface Info_testimonials{
@@ -205,7 +202,7 @@ export interface Highlights{
 
     type Content = string;
 
-    export interface IeltsNews {
+    export interface ListNews {
       tag: string,
       image: string,
       publishInfor: string,
@@ -225,4 +222,20 @@ export interface Highlights{
       downloads: string,      
       time: string,
       
+    }
+
+    export interface Detail{
+      title: string,
+      description: string,
+      image: string,
+      content: string,
+      content1: string,
+      content2: string,
+      content3: string,
+      content4: string,
+      content5: {
+        ul: string,
+        li: string[]
+      },
+      content6: string,
     }

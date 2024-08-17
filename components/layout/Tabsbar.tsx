@@ -1,49 +1,63 @@
 "use client";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useGlobalState } from "@/components/hooks/GlobalStateContext.tsx";
+import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
-import { Link, usePathname } from "@/navigation";
+import { Link } from "@/navigation";
 import clsx from "clsx";
 import { Search } from "lucide-react";
 import { useState } from "react";
 
 interface RouteProps {
-  href: string;
+  href: string,
+  tab: string;
   label: string;
 }
 
 const routeList: RouteProps[] = [
   {
     href: "/new&blog",
+    tab: "all",
     label: "Tất cả",
   },
   {
-    href: "/new&blog/tips",
+    href: "/new&blog",
+    tab: "tips",
     label: "Mẹo học tập",
   },
   {
-    href: "/new&blog/ielts news",
+    href: "/new&blog",
+    tab: "ielts news",
     label: "IELTS News",
   },
   {
-    href: "/new&blog/minimal english news",
+    href: "/new&blog",
+    tab: "minimal english news",
     label: "Minimal English có gì mới",
   },
   {
-    href: "/new&blog/FAQ",
+    href: "/new&blog",
+    tab: "FAQ",
     label: "FAQ (Câu hỏi thường gặp)",
   },
 ];
 
-export const SubNavbar = () => {
+export const TabsBar = () => {
   const [value, setValue] = useState("")
-  const pathname = usePathname();
+  const {state, setState} = useGlobalState()
+  
   return (
     <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]">
         <div className="lg:flex block justify-between mb-5">
           {/* desktop */}
           <div className="hidden lg:flex flex-row justify-between items-center w-[743px]">
-            {routeList.map(({ href, label }) => (
-              <Link key={href} href={href} className={pathname === href ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
+            {routeList.map(({href, tab, label }) => (
+              <Link 
+                href={href}
+                onClick={() => {
+                  setState({value: tab})
+                }}
+                key={tab}
+                className={state.value === tab ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
                 {label}
               </Link>
             ))}
@@ -58,9 +72,14 @@ export const SubNavbar = () => {
             className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
           >
             <CarouselContent>
-              {routeList.map(({ href, label }) => (
-                <Link key={href} href={href} className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2",
-                  pathname === href ? "font-bold text-[#BE5C59]" : "hover:underline"
+              {routeList.map(({href, tab, label }) => (
+                <Link
+                  href={href} 
+                  onClick={() => {
+                    setState({value: tab})
+                  }}
+                  key={tab} 
+                  className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.value === tab ? "font-bold text-[#BE5C59]" : "hover:underline"
                 )}>
                   {label}
                 </Link>
