@@ -1,3 +1,6 @@
+import CopyPathnameButton from "@/app/[locale]/(home)/new&blog/detailNews/_section/copyPathname"
+import { ShareFacebook } from "@/app/[locale]/(home)/new&blog/detailNews/_section/shareFacebook"
+import { ShareZalo } from "@/app/[locale]/(home)/new&blog/detailNews/_section/shareZalo"
 import { Detail } from "@/app/[locale]/type"
 import QuoteIcon from "@/components/icons/quote-icon"
 import { Separator } from "@/components/ui/separator"
@@ -15,33 +18,9 @@ export const News: React.FC<{detail: Detail}> = ({detail}) => {
           <Separator className="bg-[#98A2B3] mb-4" />
           <div className="flex gap-2 items-center">
             <div className="text-black">Chia Sẻ:</div>
-            <Link href="https://www.facebook.com/hangngaluna190188" className="w-8 h-8 rounded-full border border-[#98A2B3] flex justify-center items-center">
-              <div className="relative w-5 h-5 overflow-hidden">
-                <Image 
-                  fill
-                  style={{objectFit: "cover"}}
-                  src="/images/facebook-logo.png"
-                  alt=""
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-            </Link>
-            <Link href="https://zalo.me/0365190188" className="w-8 h-8 rounded-full border border-[#98A2B3] flex justify-center items-center">
-              <div className="text-black text-xs">
-                Zalo
-              </div>
-            </Link>
-            <Link href="https://www.facebook.com/hangngaluna190188" className="w-8 h-8 rounded-full border border-[#98A2B3] flex justify-center items-center">
-              <div className="relative w-5 h-5 overflow-hidden">
-                <Image 
-                  fill
-                  style={{objectFit: "cover"}}
-                  src="/images/link-circle.png"
-                  alt=""
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-            </Link>
+            <ShareFacebook />
+            <ShareZalo />
+            <CopyPathnameButton />
           </div>
         </div>
       </div>
@@ -60,7 +39,7 @@ export const News: React.FC<{detail: Detail}> = ({detail}) => {
           <div className="text-black mb-8 leading-6">
             {detail.content}
           </div>
-          <QuoteIcon className="w-[230px]" fill="#98A2B3"/>
+          <QuoteIcon className="w-[230px]" stroke="#98A2B3" fill="#98A2B3"/>
         </div>
         <div className="text-white bg-[#667085] font-semibold text-2xl p-3 mb-8 leading-9">
           {detail.content1}
