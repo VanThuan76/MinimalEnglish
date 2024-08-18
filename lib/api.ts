@@ -1,13 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-// import { deleteCookie, getCookie } from 'cookies-next';
-
-// const APP_SAVE_KEY = {
-//   LOCALE: process.env.NEXT_PUBLIC_APP_NAME + '::locale',
-//   ROLE: process.env.NEXT_PUBLIC_APP_NAME + '::role',
-//   TOKEN_KEY: process.env.NEXT_PUBLIC_APP_NAME + '::token_key',
-//   LOGIN_STATUS: process.env.NEXT_PUBLIC_APP_NAME + '::login_status',
-//   USER_DATA: process.env.NEXT_PUBLIC_APP_NAME + ':user_data',
-// };
 
 class Axios {
   private api: AxiosInstance;
@@ -19,63 +10,8 @@ class Axios {
         'Content-Type': 'application/json',
       },
     });
-    // if (!noAuth) {
-    //   this.api.interceptors.request.use(
-    //     config => {
-    //       const accessToken = this.getAccessToken();
-    //       if (accessToken) {
-    //         config.headers.Authorization = `Bearer ${accessToken}`;
-    //       }
-    //       return config;
-    //     },
-    //     error => {
-    //       return Promise.reject(error);
-    //     },
-    //   );
-    // }
-
-    this.handleResponse(this.api);
   }
 
-  handleResponse(axios: AxiosInstance) {
-    axios.interceptors.response.use(
-      async (response: AxiosResponse) => {
-        // const originalRequest = response.config;
-        // if (typeof window !== 'undefined') {
-        //   const statusCode = response.data.statusCode;
-        //   switch (statusCode) {
-        //     case 403:
-        //       deleteCookie(APP_SAVE_KEY.TOKEN_KEY);
-        //       break;
-        //     case 401:
-        //       try {
-        //       } catch (e) {
-        //         return Promise.reject(response);
-        //       }
-        //       break;
-        //     case 400:
-        //       return Promise.reject(response);
-        //     default:
-        //       break;
-        //   }
-        // }
-        return response;
-      },
-      async error => {
-        // const originalRequest = error.config;
-        // if (error.response.status === 403 && typeof window !== 'undefined') {
-        //   window.location.href = '/login';
-        //   deleteCookie(APP_SAVE_KEY.TOKEN_KEY);
-        // }
-        // if (error.response.status === 401 && typeof window !== 'undefined') {
-        //   try {
-        //     window.location.href = '/login';
-        //   } catch (e) {}
-        // }
-        return Promise.reject(error);
-      },
-    );
-  }
   async get<T>(url: string, configs?: AxiosRequestConfig): Promise<T> {
     try {
       const response = await this.api.get<T>(url, configs);
@@ -89,7 +25,6 @@ class Axios {
   async post<T>(url: string, data: any, configs?: AxiosRequestConfig): Promise<T> {
     try {
       const response = await this.api.post<T>(url, data, configs);
-
       return response.data;
     } catch (error) {
       console.error('POST request failed:', error);
@@ -116,10 +51,6 @@ class Axios {
       throw error;
     }
   }
-
-  // private getAccessToken(): string {
-  //   return getCookie(APP_SAVE_KEY.TOKEN_KEY) as string;
-  // }
 }
 
 export const axiosInstance = new Axios(process.env.NEXT_PUBLIC_API_URL as string);

@@ -7,14 +7,13 @@ import { Info_testimonials } from '@/app/[locale]/type'
 import Image from 'next/image'
 
 type PropType = {
-  info_testimonials: Info_testimonials[]
+  info_testimonials: string[]
   options?: EmblaOptionsType
   scrollPrev?: boolean
-  mobile?: boolean
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { info_testimonials , options, scrollPrev, mobile } = props
+  const { info_testimonials , options, scrollPrev } = props
   const customOptions: EmblaOptionsType = { skipSnaps: true, duration: 350, ...options }
   const [emblaRef, emblaApi] = useEmblaCarousel(customOptions)
 
@@ -46,15 +45,15 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   return (
     <div className="overflow-hidden h-full [@media(max-width:1023px)]:w-full " ref={emblaRef}>
       <div className="flex lg:mt-0 h-full lg:flex-col">
-        {info_testimonials.map(( {image}, index) => (
+        {info_testimonials.map((image: any) => (
           <div 
             className="relative touch-pan-x touch-pinch-zoom flex-[0_0_50%] lg:flex-[0_0_100%] w-[146px] h-[316px] lg:w-[230px] lg:h-[384px] xl:w-[280px] xl:h-[538px] lg:mt-6 mx-2 lg:mx-0" 
-            key={index}
+            key={image}
           >
             <Image
               fill
               style={{objectFit: "cover"}}
-              src={image}
+              src={`/${image}`}
               alt="image"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />

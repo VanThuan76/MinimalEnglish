@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Minimal English",
   description: "Minimal English",
   icons: {
-    icon: '/logo.png',
+    icon: '/images/logo.png',
   }
 };
 
@@ -35,15 +35,17 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <link rel="icon" href="/logo.png" sizes="any" />
       <body className={cn("min-h-screen bg-background", openSans.className)}>
-      <NextIntlClientProvider messages={translate}>
+        <NextIntlClientProvider messages={translate}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
-            <Providers>{children}</Providers>
+            <Providers>
+              <Navbar />
+              {children}
+            </Providers>
             <FooterSection />
           </ThemeProvider>
         </NextIntlClientProvider>
