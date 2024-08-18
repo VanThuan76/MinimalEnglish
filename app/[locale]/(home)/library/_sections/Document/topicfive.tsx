@@ -1,14 +1,14 @@
 import React from "react";
 
-type ExamsyearProps = {
+type TopicfiveProps = {
     title: string;
     downloads: string;   
     time: string;    
 };
 
-export const Examsyear: React.FC<ExamsyearProps> = ({ title, downloads, time }) => {
+export const Topicfive: React.FC<TopicfiveProps> = ({ title, downloads, time }) => {
     return (
-        <div id="examsyear" className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
+        <div id="topicfive" className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
             <div className="relative w-full h-[200px] mb-5 bg-[#E4E7EC] rounded-lg shadow-lg overflow-hidden">                                 
             </div>
             <a className="md:w-[372px] w-full text-[20px] leading-8 font-semibold text-[#000F30]">{title}</a>
@@ -23,16 +23,16 @@ export const Examsyear: React.FC<ExamsyearProps> = ({ title, downloads, time }) 
     );
 };
 
-export default function Library({ examsyear }: { examsyear: ExamsyearProps[] }) {
+export default function Library({ topicfive }: { topicfive: TopicfiveProps[] }) {
     return (
         <section className="bg-[#FDF6EB] px-[16px] md:px-[80px] pt-3 md:pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#FDF6EB]">
-                {examsyear.map((examsyear, index) => (
-                    <Examsyear
+                {topicfive.map((topicfive, index) => (
+                    <Topicfive
                         key={index}
-                        title={examsyear.title}                       
-                        downloads={examsyear.downloads}
-                        time={examsyear.time}                        
+                        title={topicfive.title}                       
+                        downloads={topicfive.downloads}
+                        time={topicfive.time}                        
                     />
                 ))}
             </div>

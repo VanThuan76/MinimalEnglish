@@ -17,7 +17,7 @@ export const useGetNavbarLibrary = () => {
   const locale = useLocale();
   return useQuery({
     queryKey: ['sectionNavbarLibrary'],
-    queryFn: () => axiosInstance.post<{ statusCode: number; data: Section[] }>('/lecture-type/all', { language: locale }),
+    queryFn: () => axiosInstance.post<{ statusCode: number; data: Section[] }>('/lecture-type/all', { language: "en" }),
     select(data) {
       return data.data;
     },

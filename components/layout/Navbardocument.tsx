@@ -4,17 +4,30 @@ import { Separator } from "@/components/ui/separator";
 import { usePathname, useRouter } from "@/navigation";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
-import { Document } from "@/app/[locale]/(home)/library/_sections/Document/document";
-import { Examstest } from "@/app/[locale]/(home)/library/_sections/Document/examstest";
-import { Examsyear } from "@/app/[locale]/(home)/library/_sections/Document/examsyear";
-import { Skilldocument } from "@/app/[locale]/(home)/library/_sections/Document/skilldocument";
-import { Usermanual } from "@/app/[locale]/(home)/library/_sections/Document/usermanual";
+import { Excercises } from "@/app/[locale]/(home)/library/_sections/Document/exercises";
+import { Practivetest } from "@/app/[locale]/(home)/library/_sections/Document/practivetest";
+import { Topicfive } from "@/app/[locale]/(home)/library/_sections/Document/topicfive";
+import { Documentationofskills } from "@/app/[locale]/(home)/library/_sections/Document/documentationofskills";
+import { Instructionsforuse } from "@/app/[locale]/(home)/library/_sections/Document/instructionsforuse";
 import { useGetNavbarDocument } from "@/schema/services/Library/navbarDocument";
+import { useGetExcercisesData } from "@/schema/services/Library/Document/excercises";
+import { useGetPractivetestData } from "@/schema/services/Library/Document/practicetest";
+import { useGetTopicfiveData } from "@/schema/services/Library/Document/topicfive";
+import { useGetInstructionsforuseData } from "@/schema/services/Library/Document/instructionsforuse";
+import { useGetDocumentationofskillsData } from "@/schema/services/Library/Document/documentationofskill";
+
+
 
 export const Navbardocument = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { data: sections = [], isLoading, error } = useGetNavbarDocument();
+  const { data: excercisesData = [], isLoading: documentLoading } = useGetExcercisesData();
+  const { data: practivetestData = [], isLoading: Loading1 } = useGetPractivetestData();
+  const { data: topicfiveData = [], isLoading: Loading2 } = useGetTopicfiveData();
+  const { data: documentationofskillsData = [], isLoading: Loading3 } = useGetDocumentationofskillsData();
+  const { data: instructionsforuseData = [], isLoading: Loading4 } = useGetInstructionsforuseData();
+
   const [activeTab, setActiveTab] = useState<string>(pathname);
 
   useEffect(() => {
@@ -35,76 +48,73 @@ export const Navbardocument = () => {
   if (error) return <div>Error loading data</div>;
 
   const renderSectionContent = (sectionName: string) => {
+    console.log(sectionName);
     switch (sectionName) {
-      case "Document":
+      case "đề-luyện tập":
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.filter(section => section.name === "Document").map((item, index) => (
-              <Document
-                key={index}
-                title={item.name}
-                downloads={`item.description`}                
-                time="2 năm trước"                
+             {excercisesData.map((item: any) => (
+              <Excercises
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
               />
             ))}
           </div>
         );
-      case "Examstest":
+        case "đề-thi thử":
+          return (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+               {practivetestData.map((item: any) => (
+                <Practivetest
+                  key={item.id}
+                  title={item.title}
+                  downloads={`${item.downloaded} lượt tải`}               
+                  time={new Date(item.created_at).toLocaleDateString()}              
+                />
+              ))}
+            </div>
+          );
+          case "đề-các năm":
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.filter(section => section.name === "Examstest").map((item, index) => (
-              <Examstest
-                key={index}
-                title={item.name}
-                downloads={`item.description`}               
-                time="2 năm trước"               
+             {topicfiveData.map((item: any) => (
+              <Topicfive
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
               />
             ))}
           </div>
         );
-      case "Examsyear":
+        case "tài-liệu các kỹ năng":
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.filter(section => section.name === "Examsyear").map((item, index) => (
-              <Examsyear
-                key={index}
-                title={item.name}
-                downloads={`item.description`}                
-                time="2 năm trước"               
+             {documentationofskillsData.map((item: any) => (
+              <Documentationofskills
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
               />
             ))}
           </div>
         );
-      case "Skilldocument":
+        case "hướng-dẫn sử dụng":
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.filter(section => section.name === "Skilldocument").map((item, index) => (
-              <Skilldocument
-                key={index}
-                title={item.name}
-                downloads={`item.description`}               
-                time="2 năm trước"                
+             {instructionsforuseData.map((item: any) => (
+              <Instructionsforuse
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
               />
             ))}
           </div>
         );
-      case "Usermanual":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.filter(section => section.name === "Usermanual").map((item, index) => (
-              <Usermanual
-                key={index}
-                title={item.name}
-                downloads={`item.description`}
-                
-                time="2 năm trước"
-                
-              />
-            ))}
-          </div>
-        );
-      default:
-        return null;
     }
   };
 

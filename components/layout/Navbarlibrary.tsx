@@ -1,7 +1,7 @@
 "use client";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
-import { Link, usePathname, useRouter } from "@/navigation";
+import { usePathname, useRouter } from "@/navigation";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
 import { Writing } from "@/app/[locale]/(home)/library/_sections/Lesson/writing";
@@ -13,17 +13,31 @@ import { Paraphrases } from "@/app/[locale]/(home)/library/_sections/Lesson/para
 import { Selfstudy } from "@/app/[locale]/(home)/library/_sections/Lesson/selfstudy";
 import { Pronunciation } from "@/app/[locale]/(home)/library/_sections/Lesson/pronunciation";
 import { useGetNavbarLibrary } from "@/schema/services/Library/navbarlibrary";
-import { useGetWritingData } from "@/schema/services/Library/writing"; // Import hook mới
+import { useGetWritingData } from "@/schema/services/Library/Letures/writing";
+import { useGetListeningData } from "@/schema/services/Library/Letures/listening";
+import { useGetReadingData } from "@/schema/services/Library/Letures/reading";
+import { useGetSpeakingData } from "@/schema/services/Library/Letures/speaking";
+import { useGetVocabularyData } from "@/schema/services/Library/Letures/vocabulary";
+import { useGetPronunciationData } from "@/schema/services/Library/Letures/pronunciation";
+import { useGetParaphraseData } from "@/schema/services/Library/Letures/paraphrase";
+import { useGetSelfstudyData } from "@/schema/services/Library/Letures/selfstudy";
 
 export const NavbarLibrary = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const { data: sections = [], isLoading, error } = useGetNavbarLibrary();
-  const { data: writingData = [], isLoading: writingLoading, error: writingError } = useGetWritingData(); // Fetch writing data
+  const { data: sections = [], isLoading } = useGetNavbarLibrary();
+  const { data: writingData = [], isLoading: writingLoading } = useGetWritingData();
+  const { data: speakingData = [], isLoading: speakingLoading } = useGetSpeakingData();
+  const { data: readingData = [], isLoading: readingLoading } = useGetReadingData();
+  const { data: listeningData = [], isLoading: listeningLoading } = useGetListeningData();
+  const { data: vocabularyData = [], isLoading: vocabularyLoading } = useGetVocabularyData();
+  const { data: pronunciationData = [], isLoading: pronunciationLoading } = useGetPronunciationData();
+  const { data: paraphraseData = [], isLoading: paraphraseLoading } = useGetParaphraseData();
+  const { data: selfstudyData = [], isLoading: selfstudyLoading } = useGetSelfstudyData();
+
   const [activeTab, setActiveTab] = useState<string>(pathname);
 
   useEffect(() => {
-    
     const currentRoute = sections.find(section => pathname.includes(section.name.toLowerCase().replace(" ", "-")));
     if (currentRoute) {
       setActiveTab(`/library/#${currentRoute.name.toLowerCase().replace(" ", "-")}`);
@@ -37,44 +51,133 @@ export const NavbarLibrary = () => {
     router.prefetch(href);
   };
 
-  if (isLoading || writingLoading) return <div>Loading...</div>;
-  if (error || writingError) return <div>Error loading data</div>;
+  if (isLoading || writingLoading || speakingLoading || readingLoading || listeningLoading || vocabularyLoading || pronunciationLoading || paraphraseLoading || selfstudyLoading)  return <div>Loading...</div>; 
 
-  console.log('Writingdata:', writingData)
-
-  const renderSectionContent = (sectionName: string) => {
+  const renderSectionContent = (sectionName: string) => {  
+    console.log(sectionName);  
     switch (sectionName) {
-      case "Writing":
-        if (writingLoading) return <div>Loading Writing...</div>;
-      if (writingError) return <div>Error loading Writing data</div>;
-
-      return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="text-center mb-4">
-            <span>Data Length: {writingData.length}</span> {/* Hiển thị độ dài dữ liệu */}
-          </div>
-          {writingData.length > 0 ? (
-            writingData.map((item: any) => (
+   
+      case "writing":         
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {writingData.map((item: any) => (
               <Writing
                 key={item.id}
                 title={item.title}
-                image={item.image || `default-image.png`} // Hoặc URL mặc định
+                image={`/${item.image}`} // Hoặc URL mặc định
                 view={`${item.viewer} lượt xem`}
-                time={new Date(item.created_at).toLocaleDateString()} // Hoặc định dạng khác
+                time={new Date(item.created_at).toLocaleDateString()}
                 link="#"
               />
-            ))
-          ) : (
-            <div>No Writing data available</div>
-          )}
-        </div>
+            ))}
+          </div>
         );
-      case "Speaking":
-        // Tương tự như trên, nhưng với dữ liệu cho Speaking
-        return <div>Content for Speaking</div>;
-      // Add cases for other sections similarly
-      default:
-        return null;
+      case "speaking":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {speakingData.map((item: any) => (
+              <Speaking
+                key={item.id}
+                title={item.title}
+                image={`/${item.image}`} // Hoặc URL mặc định
+                view={`${item.viewer} lượt xem`}
+                time={new Date(item.created_at).toLocaleDateString()}
+                link="#"
+              />
+            ))}
+          </div>
+        );
+        case "reading":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {readingData.map((item: any) => (
+              <Reading
+                key={item.id}
+                title={item.title}
+                image={`/${item.image}`} 
+                view={`${item.viewer} lượt xem`}
+                time={new Date(item.created_at).toLocaleDateString()}
+                link="#"
+              />
+            ))}
+          </div>
+        );
+        case "listening":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {listeningData.map((item: any) => (
+              <Listening
+                key={item.id}
+                title={item.title}
+                image={`/${item.image}`} 
+                view={`${item.viewer} lượt xem`}
+                time={new Date(item.created_at).toLocaleDateString()}
+                link="#"
+              />
+            ))}
+          </div>
+        );
+        case "vocabulary":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {vocabularyData.map((item: any) => (
+              <Vocabulary
+                key={item.id}
+                title={item.title}
+                image={`/${item.image}`} // Hoặc URL mặc định
+                view={`${item.viewer} lượt xem`}
+                time={new Date(item.created_at).toLocaleDateString()}
+                link="#"
+              />
+            ))}
+          </div>
+        );
+        case "pronunciation":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pronunciationData.map((item: any) => (
+              <Pronunciation
+                key={item.id}
+                title={item.title}
+                image={`/${item.image}`} // Hoặc URL mặc định
+                view={`${item.viewer} lượt xem`}
+                time={new Date(item.created_at).toLocaleDateString()}
+                link="#"
+              />
+            ))}
+          </div>
+        );
+        case "paraphrase":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {paraphraseData.map((item: any) => (
+              <Paraphrases
+                key={item.id}
+                title={item.title}
+                image={`/${item.image}`} // Hoặc URL mặc định
+                view={`${item.viewer} lượt xem`}
+                time={new Date(item.created_at).toLocaleDateString()}
+                link="#"
+              />
+            ))}
+          </div>
+        );
+        
+        case "self-study":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {selfstudyData.map((item: any) => (
+              <Selfstudy
+                key={item.id}
+                title={item.title}
+                image={`/${item.image}`}
+                view={`${item.viewer} lượt xem`}
+                time={new Date(item.created_at).toLocaleDateString()}
+                link="#"
+              />
+            ))}
+          </div>
+        );      
     }
   };
 
