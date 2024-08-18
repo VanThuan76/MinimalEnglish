@@ -1,10 +1,5 @@
 import { axiosInstance } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
-interface IBaseResponse<T>{
-    status_code: number;
-    data: T;
-    message: string;
-}
 
 interface IZone{
     id: number;

@@ -57,27 +57,27 @@ const routeList: RouteProps[] = [
 
 const classList: ClassProps[] = [
   {
-    href: "/",
+    href: "/class/1",
     label: "Lớp Mầm"
   },
   {
-    href: "/",
+    href: "/class/2",
     label: "Lớp Rễ"
   },
   {
-    href: "/",
+    href: "/class/3",
     label: "Lớp Thân"
   },
   {
-    href: "/",
+    href: "/class/4",
     label: "Lớp Gốc Ngôn Ngữ"
   },
   {
-    href: "/",
+    href: "/class/5",
     label: "Lớp Nhánh L/R/S/W"
   },
   {
-    href: "/",
+    href: "/class/6",
     label: "Lớp Coach 1-1"
   },
 ]

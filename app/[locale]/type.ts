@@ -239,3 +239,28 @@ export interface Highlights{
       },
       content6: string,
     }
+
+export interface Class_Detail {
+  id: number,
+  image: string,
+  created_at: string,
+  updated_at: string,
+  created_by: string,
+  updated_by: string,
+  order: number,
+  status: number,
+  name: string,
+  description: string,
+  content: string,
+}
+
+export interface IBaseResponse<T>{
+  status_code: number;
+  data: T;
+  message: string;
+}
+
+export interface ClassData {
+  data_detail: Class_Detail | undefined
+  children: string;
+}
