@@ -23,7 +23,7 @@ export const SmNews = ({image, created_at, read_time ,title, tag, description, h
 
       <div className='w-full flex flex-col gap-3 text-black'>
         <div className='w-full flex justify-between items-center'>
-          <Badge variant={'secondary'} className='p-2 rounded-lg bg-[#E4E7EC] text-black text-xs font-normal hover:text-white'>{tag}</Badge>
+          <Badge variant={'secondary'} className='p-2 rounded-lg bg-[#E4E7EC] text-black text-xs font-normal'>{tag}</Badge>
           <div className='text-base font-normal'>{publishInfor}</div>
         </div>
 
