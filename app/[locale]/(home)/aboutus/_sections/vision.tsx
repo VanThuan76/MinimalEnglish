@@ -1,7 +1,15 @@
-import { vision } from "@/app/[locale]/type";
-import Image from "next/image";
+'use client'
 
-export const Vision = ({label, content, image}: vision) => {
+import Image from "next/image";
+import { useGetVision } from "@/schema/services/Aboutus/Vision";
+
+export const Vision = () => {
+  // Lấy dữ liệu từ hook useGetMisson
+  const { data:infor_vision, isLoading} = useGetVision();
+  
+  if (isLoading) return <div>Loading ....</div>;
+  console.log('Vision Data',infor_vision )
+
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 place-items-center gap-12">
@@ -15,7 +23,7 @@ export const Vision = ({label, content, image}: vision) => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={image}
+                  src={`/${infor_vision.image}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
@@ -30,10 +38,10 @@ export const Vision = ({label, content, image}: vision) => {
 
         <div >
           <h2 className="text-[32px] font-[600] md:text-5xl md:py-[40px] md:font-bold mb-4 text-[#BE5C59]">
-            {label}
+            {infor_vision.name}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            {content}
+            {infor_vision.vi_description}
           </p>
         </div>
 
@@ -47,7 +55,7 @@ export const Vision = ({label, content, image}: vision) => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={image}
+                  src={`/${infor_vision.image}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />

@@ -1,14 +1,14 @@
 import React from "react";
 
-type UsermanualProps = {
+type ExcercisesProps = {
     title: string;
     downloads: string;   
     time: string;    
 };
 
-export const Usermanual: React.FC<UsermanualProps> = ({ title, downloads, time }) => {
+export const Excercises: React.FC<ExcercisesProps> = ({ title, downloads, time }) => {
     return (
-        <div id="usermanual" className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
+        <div id="excercises" className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
             <div className="relative w-full h-[200px] mb-5 bg-[#E4E7EC] rounded-lg shadow-lg overflow-hidden">                                 
             </div>
             <a className="md:w-[372px] w-full text-[20px] leading-8 font-semibold text-[#000F30]">{title}</a>
@@ -23,21 +23,19 @@ export const Usermanual: React.FC<UsermanualProps> = ({ title, downloads, time }
     );
 };
 
-export default function Library({ usermanual }: { usermanual: UsermanualProps[] }) {
+export default function Library({ excercises }: { excercises: ExcercisesProps[] }) {
     return (
         <section className="bg-[#FDF6EB] px-[16px] md:px-[80px] pt-3 md:pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#FDF6EB]">
-                {usermanual.map((usermanual, index) => (
-                    <Usermanual
+                {excercises.map((excercises, index) => (
+                    <Excercises
                         key={index}
-                        title={usermanual.title}                       
-                        downloads={usermanual.downloads}
-                        time={usermanual.time}                        
+                        title={excercises.title}                       
+                        downloads={excercises.downloads}
+                        time={excercises.time}                        
                     />
                 ))}
             </div>
         </section>
     );
 }
-
-

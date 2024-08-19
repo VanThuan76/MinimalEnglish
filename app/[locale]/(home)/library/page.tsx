@@ -1,20 +1,20 @@
-import { Data, document, Lesson } from "@/app/[locale]/type";
-import { getData } from "@/app/[locale]/(home)/page";
+'use client'
+
 import { Navbardocument } from "@/components/layout/Navbardocument";
-import { Navbarlibrary } from "@/components/layout/Navbarlibrary";
+import { NavbarLibrary } from "@/components/layout/Navbarlibrary";
+import { Children } from "react";
 
 
-export default async function Library() {
-    const data: Data = await getData();
-    const res = await fetch('https://siuuuu-8f55.onrender.com/api/users');
-    const data2: Data = await res.json();
+export default function Library() {   
     
-    return (                 
+    return ( 
+        <>                
         <section className='bg-[#FDF6EB] px-[0px] md:px-[80px] pt-3 md:pt-10'>   
-            <Navbarlibrary />                                       
+            <NavbarLibrary /> 
+                                              
             <Navbardocument />
             <div className="w-full h-[120px] bg-[#FDF6EB]"></div>                
         </section>
-        
+        </>
     );
 }

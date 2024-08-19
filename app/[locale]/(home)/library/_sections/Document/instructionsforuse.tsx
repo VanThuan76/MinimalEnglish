@@ -1,14 +1,14 @@
 import React from "react";
 
-type SkilldocumentProps = {
+type InstructionsforuseProps = {
     title: string;
     downloads: string;   
     time: string;    
 };
 
-export const Skilldocument: React.FC<SkilldocumentProps> = ({ title, downloads, time }) => {
+export const Instructionsforuse: React.FC<InstructionsforuseProps> = ({ title, downloads, time }) => {
     return (
-        <div id="skilldocument" className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
+        <div id="instructionsforuse" className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
             <div className="relative w-full h-[200px] mb-5 bg-[#E4E7EC] rounded-lg shadow-lg overflow-hidden">                                 
             </div>
             <a className="md:w-[372px] w-full text-[20px] leading-8 font-semibold text-[#000F30]">{title}</a>
@@ -23,19 +23,21 @@ export const Skilldocument: React.FC<SkilldocumentProps> = ({ title, downloads, 
     );
 };
 
-export default function Library({ skilldocument }: { skilldocument: SkilldocumentProps[] }) {
+export default function Library({ instructionsforuse }: { instructionsforuse: InstructionsforuseProps[] }) {
     return (
         <section className="bg-[#FDF6EB] px-[16px] md:px-[80px] pt-3 md:pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#FDF6EB]">
-                {skilldocument.map((skilldocument, index) => (
-                    <Skilldocument
+                {instructionsforuse.map((instructionsforuse, index) => (
+                    <Instructionsforuse
                         key={index}
-                        title={skilldocument.title}                       
-                        downloads={skilldocument.downloads}
-                        time={skilldocument.time}                        
+                        title={instructionsforuse.title}                       
+                        downloads={instructionsforuse.downloads}
+                        time={instructionsforuse.time}                        
                     />
                 ))}
             </div>
         </section>
     );
 }
+
+
