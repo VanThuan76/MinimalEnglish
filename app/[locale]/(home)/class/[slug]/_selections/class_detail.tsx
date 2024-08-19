@@ -26,7 +26,7 @@ export const ClassDetail: React.FC<ClassData> = ({ data_detail}) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <div className="font-sans text-black md:px-[106px] md:py-[40px]">
+        <div className="font-sans text-black md:py-[40px]">
           <div className="text-container" dangerouslySetInnerHTML={{ __html: data_detail?.content || '' }} />
         </div>
       </>
