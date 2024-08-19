@@ -239,5 +239,13 @@
     "discovery": "Khám phá",
     "all": "Tất cả",
     "read": "Đọc bài",
-    "readtime": "phút đọc"
+    "readtime": "phút đọc",
+    "class": {
+        "label": {
+            "title": "CÁC LỚP HỌC",
+            "register-title": "Đăng ký tham gia lớp học",
+            "description": "Đăng ký tham gia lớp học để chinh phục những thử thách mới",
+            "register": "Xem cách đăng ký"
+        }
+    }
 }

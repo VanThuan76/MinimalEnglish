@@ -105,7 +105,7 @@
                     "content": ""
                 }
             ]
-        }    
+        }
     },
     "about_us":{
         "mission": {
@@ -155,89 +155,97 @@
                 "content": [
                     "Giảng dạy học viên theo tư lối tư duy tối giản Minimalism",
                     "Áp dụng phương pháp Hybrid Learning, kết hợp học trực tiếp và trực tuyến linh hoạt, không bị phụ thuộc vào vị điểm",
-                    "Bài giảng các lớp giống nhau xuyên suốt trong tuần, tạo sự linh hoạt về thời gian cho học viên, dễ dàng học bù, học xen kẽ.",                   
+                    "Bài giảng các lớp giống nhau xuyên suốt trong tuần, tạo sự linh hoạt về thời gian cho học viên, dễ dàng học bù, học xen kẽ.",
                     "Sử dụng công nghệ tiên tiến như AI và Gamification để hỗ trợ việc học."
                 ]
             }
         },
-       "lectures": {
+        "lectures": {
             "label":"Giảng viên",
             "description": "Các giảng viên tại Minimal English",
             "detail_lectures": [
                 {
                     "year": "Cô Hằng Nga Luna",
                     "username":"Founder kiêm giảng viên chính",
-                    "content": [                   
-                    "Tốt nghiệp Thạc sĩ Lý Luận và Phương Pháp Giảng Dạy Tiếng Anh  (MTESOL), Đại học Victoria - Melbourne - Australia cấp năm 2018",
-                    "8.0 IELTS Overall ( 8.5 Speaking & 7.5 Writing )",
-                    "Tác giả cuốn sách học ngữ pháp nền tảng qua Mindmap",
-                    "Tác giả cuốn sách luyện thi IELTS Key Grammar, nhà xuất bản Đại Học Quốc Gia Hà Nội.",
-                    "12 năm kinh nghiệm giảng dạy IELTS và tiếng Anh học thuật.",
-                    "8 năm kinh nghiệm phát triển khung chương trình Ngữ pháp tiếng Anh cho học viên mọi cấp độ."
-                    ]                    
+                    "content": [
+                        "Tốt nghiệp Thạc sĩ Lý Luận và Phương Pháp Giảng Dạy Tiếng Anh  (MTESOL), Đại học Victoria - Melbourne - Australia cấp năm 2018",
+                        "8.0 IELTS Overall ( 8.5 Speaking & 7.5 Writing )",
+                        "Tác giả cuốn sách học ngữ pháp nền tảng qua Mindmap",
+                        "Tác giả cuốn sách luyện thi IELTS Key Grammar, nhà xuất bản Đại Học Quốc Gia Hà Nội.",
+                        "12 năm kinh nghiệm giảng dạy IELTS và tiếng Anh học thuật.",
+                        "8 năm kinh nghiệm phát triển khung chương trình Ngữ pháp tiếng Anh cho học viên mọi cấp độ."
+                    ]
                 },
-                {                    
+                {
                     "year": "Cô Nguyễn Phương",
                     "username":"Giảng viên",
-                    "content": [                   
-                    "Tốt nghiệp loại giỏi Đại học ngành Khoa học Quản lý, Đại học KHXH & NV, ĐHQG Hà Nội. Học bổng loại giỏi tất cả các kỳ học.",
-                    "Tốt nghiệp ngành Ngôn ngữ Anh, đại học Hà Nội (hệ vừa học vừa làm)",
-                    "Học bổng cho Sinh viên tiêu biểu của Quỹ Chungsoo Foundation.",
-                    "Giải 3 nghiên cứu Khoa học SV.",
-                    "Học bổng ctr Thạc sĩ Quản trị Kinh doanh, Ctrinh đào tạo bằng Tiếng Anh, Đại học Việt Nhật, Đại học Quốc gia Hà Nội.",
-                    "Nghiên cứu Sinh tiến sĩ đại học Corvinus University of Budapest ",
-                    "Giảng viên tại Đại học Đại Nam 2022 - nay"
+                    "content": [
+                        "Tốt nghiệp loại giỏi Đại học ngành Khoa học Quản lý, Đại học KHXH & NV, ĐHQG Hà Nội. Học bổng loại giỏi tất cả các kỳ học.",
+                        "Tốt nghiệp ngành Ngôn ngữ Anh, đại học Hà Nội (hệ vừa học vừa làm)",
+                        "Học bổng cho Sinh viên tiêu biểu của Quỹ Chungsoo Foundation.",
+                        "Giải 3 nghiên cứu Khoa học SV.",
+                        "Học bổng ctr Thạc sĩ Quản trị Kinh doanh, Ctrinh đào tạo bằng Tiếng Anh, Đại học Việt Nhật, Đại học Quốc gia Hà Nội.",
+                        "Nghiên cứu Sinh tiến sĩ đại học Corvinus University of Budapest ",
+                        "Giảng viên tại Đại học Đại Nam 2022 - nay"
                     ]
                 },
                 {
                     "year": "Thầy Tuấn Anh",
                     "username":"Giảng viên",
-                    "content": [                    
-                    "IELTS 8.0 Overall, (8.5 speaking, 7.5 writting)",
-                    "Cử nhân Luật Quốc tế.",
-                    "Kinh nhiệm giảng dạy: 7 năm",
-                    "Kinh nghiệm làm việc 3.5 năm tại môi trường quốc tế.",
-                    "Kỹ năng giảng dạy hiện đại - Tâm Việt Group.",
-                    "Kỹ năng chấm bài Writing/ Speaking - Chuyên gia chấm thi Hội Đồng Anh, thầy Paul Varah "
+                    "content": [
+                        "IELTS 8.0 Overall, (8.5 speaking, 7.5 writting)",
+                        "Cử nhân Luật Quốc tế.",
+                        "Kinh nhiệm giảng dạy: 7 năm",
+                        "Kinh nghiệm làm việc 3.5 năm tại môi trường quốc tế.",
+                        "Kỹ năng giảng dạy hiện đại - Tâm Việt Group.",
+                        "Kỹ năng chấm bài Writing/ Speaking - Chuyên gia chấm thi Hội Đồng Anh, thầy Paul Varah "
                     ]
                 },
                 {
                     "year": "Đỗ Đức",
                     "username":"Nhân viên học thuật",
-                    "content": [                    
-                    "Tốt nghiệp THPT Thăng Long",
-                    "Đạt danh hiệu học sinh giỏi trong 3 năm cấp 3, điểm trung bình môn tiếng anh luôn >9.0. Bài thi môn Tiếng Anh THPTQG đạt 9.6.)",
-                    "Hiện tại là sinh viên năm 2 trường Đại Học Ngoại Thương, khoa CLC Tiếng Anh Thương Mại.",
-                    "Từng làm trợ giảng tại Trung tâm AMES ENGLISH TIMES CITY"
+                    "content": [
+                        "Tốt nghiệp THPT Thăng Long",
+                        "Đạt danh hiệu học sinh giỏi trong 3 năm cấp 3, điểm trung bình môn tiếng anh luôn >9.0. Bài thi môn Tiếng Anh THPTQG đạt 9.6.)",
+                        "Hiện tại là sinh viên năm 2 trường Đại Học Ngoại Thương, khoa CLC Tiếng Anh Thương Mại.",
+                        "Từng làm trợ giảng tại Trung tâm AMES ENGLISH TIMES CITY"
                     ]
                 },
                 {
                     "year": "Nguyễn Anh Tú",
                     "username":"Giảng viên Junior",
-                    "content": [                   
-                    "Tốt nghiệp Cử nhân chuyên ngành Sư phạm, Vietnam University of Fine Arts ",
-                    "3 năm kinh nghiệm trong lĩnh vực giáo dục",
-                    "1 năm kinh nghiệm giảng dạy và ôn thi tiếng Anh các cấp"                    
+                    "content": [
+                        "Tốt nghiệp Cử nhân chuyên ngành Sư phạm, Vietnam University of Fine Arts ",
+                        "3 năm kinh nghiệm trong lĩnh vực giáo dục",
+                        "1 năm kinh nghiệm giảng dạy và ôn thi tiếng Anh các cấp"
                     ]
                 },
                 {
                     "year": "Sơn Nguyễn",
                     "username":"Trợ giảng & nhân viên học thuật",
-                    "content": [                    
-                    "Vinschool Times City Middle School & High School 2016 - 2023: GPA 8.8",
-                    "Cử nhân ngành khoa học máy tính (Đại học Công nghệ Swinburne Việt Nam) 2023 - 2026",
-                    "Thực tập sinh KITE (Kids Tech), đóng góp vào việc phát triển tài liệu học tập và hỗ trợ giảng viên trong việc chuẩn bị bài giảng cho trẻ em.",
-                    "Thực tập sinh tại Đơn vị Hỗ trợ và Chăm sóc Kỹ thuật Khách hàng, Phòng Hỗ trợ Kỹ thuật, GreenCloud (365 Group LLC)."                    
+                    "content": [
+                        "Vinschool Times City Middle School & High School 2016 - 2023: GPA 8.8",
+                        "Cử nhân ngành khoa học máy tính (Đại học Công nghệ Swinburne Việt Nam) 2023 - 2026",
+                        "Thực tập sinh KITE (Kids Tech), đóng góp vào việc phát triển tài liệu học tập và hỗ trợ giảng viên trong việc chuẩn bị bài giảng cho trẻ em.",
+                        "Thực tập sinh tại Đơn vị Hỗ trợ và Chăm sóc Kỹ thuật Khách hàng, Phòng Hỗ trợ Kỹ thuật, GreenCloud (365 Group LLC)."
                     ]
                 }
 
             ]
-       }
+        }
     },
-    "related": "Related articles",
-    "article": "Read more",
-    "discovery": "Explore",
-    "all": "All",
-    "read": "Read the article",
-    "readtime": "minutes read"
+    "related": "Bài viết liên quan",
+    "article": "Đọc thêm",
+    "discovery": "Khám phá",
+    "all": "Tất cả",
+    "read": "Đọc bài",
+    "readtime": "phút đọc",
+    "class": {
+        "label": {
+            "title": "CÁC LỚP HỌC",
+            "register-title": "Đăng ký tham gia lớp học",
+            "description": "Đăng ký tham gia lớp học để chinh phục những thử thách mới",
+            "register": "Xem cách đăng ký"
+        }
+    }
 }
