@@ -12,5 +12,4 @@ export const useGetBrandStory = () => {
             return data.data[2]            
         },
     })
-    
 }

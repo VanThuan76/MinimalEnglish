@@ -247,5 +247,11 @@
             "description": "Đăng ký tham gia lớp học để chinh phục những thử thách mới",
             "register": "Xem cách đăng ký"
         }
+    },
+    "register": {
+        "label": {
+            "title": "CÁCH ĐĂNG KÝ",
+            "name": "CÁCH ĐĂNG KÝ THAM GIA LỚP HỌC"
+        }
     }
 }
