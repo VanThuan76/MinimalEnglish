@@ -1,167 +1,140 @@
 "use client";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
-import { Link, usePathname, useRouter } from "@/navigation";
+import { usePathname, useRouter } from "@/navigation";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
-import { Document } from "@/app/[locale]/(home)/library/_sections/Document/document";
-import { Examstest } from "@/app/[locale]/(home)/library/_sections/Document/examstest";
-import { Examsyear } from "@/app/[locale]/(home)/library/_sections/Document/examsyear";
-import { Skilldocument } from "@/app/[locale]/(home)/library/_sections/Document/skilldocument";
-import { Usermanual } from "@/app/[locale]/(home)/library/_sections/Document/usermanual";
+import { Excercises } from "@/app/[locale]/(home)/library/_sections/Document/exercises";
+import { Practivetest } from "@/app/[locale]/(home)/library/_sections/Document/practivetest";
+import { Topicfive } from "@/app/[locale]/(home)/library/_sections/Document/topicfive";
+import { Documentationofskills } from "@/app/[locale]/(home)/library/_sections/Document/documentationofskills";
+import { Instructionsforuse } from "@/app/[locale]/(home)/library/_sections/Document/instructionsforuse";
+import { useGetNavbarDocument } from "@/schema/services/Library/navbarDocument";
+import { useGetExcercisesData } from "@/schema/services/Library/Document/excercises";
+import { useGetPractivetestData } from "@/schema/services/Library/Document/practicetest";
+import { useGetTopicfiveData } from "@/schema/services/Library/Document/topicfive";
+import { useGetInstructionsforuseData } from "@/schema/services/Library/Document/instructionsforuse";
+import { useGetDocumentationofskillsData } from "@/schema/services/Library/Document/documentationofskill";
 
 
-interface RouteProps {
-  href: string;
-  label: string;
-}
-
-const routeList: RouteProps[] = [
-  {
-    href: "/library",
-    label: "Đề tài liệu",
-  },
-  {
-    href: "/library/#examstest",
-    label: "Đề thi thử",
-  },
-  {
-    href: "/library/#examsyear",
-    label: "đề thi các năm",
-  },
-  {
-    href: "/library/#skilldocument",
-    label: "Tài liệu các kỹ năng",
-  },
-  {
-    href: "/library/#usermanual",
-    label: "hướng dẫn sử dụng",
-  },  
-];   
 
 export const Navbardocument = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState(routeList[0].href); 
-  
+  const { data: sections = [], isLoading, error } = useGetNavbarDocument();
+  const { data: excercisesData = [], isLoading: Loading0 } = useGetExcercisesData();
+  const { data: practivetestData = [], isLoading: Loading1 } = useGetPractivetestData();
+  const { data: topicfiveData = [], isLoading: Loading2 } = useGetTopicfiveData();
+  const { data: documentationofskillsData = [], isLoading: Loading3 } = useGetDocumentationofskillsData();
+  const { data: instructionsforuseData = [], isLoading: Loading4 } = useGetInstructionsforuseData();
+
+  const [activeTab, setActiveTab] = useState<string>(pathname);
 
   useEffect(() => {
-    const currentRoute = routeList.find(route => pathname.includes(route.href.split("#")[1]));    
+    const currentRoute = sections.find(section => pathname.includes(section.name.toLowerCase().replace(" ", "-")));
     if (currentRoute) {
-      setActiveTab(currentRoute.href);
+      setActiveTab(`/library/#${currentRoute.name.toLowerCase().replace(" ", "-")}`);
     } else {
-      setActiveTab(routeList[0].href);
+      setActiveTab("/library/#đề-luyện tập");
     }
-  }, [pathname]);
+  }, [pathname, sections]);
 
   const handleTabClick = (href: string) => {
     setActiveTab(href);
-    router.push(href); 
-  }; 
-  
-  const document = [
-    {
-        title: "Đề luyện tập cho lớp Rễ",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Chuyên Speaking",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Mầm",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
+    router.prefetch(href);
+  };
+
+  if (isLoading || Loading0 || Loading1 || Loading2 || Loading3 || Loading4 ) return <div>Loading...</div>;
+  if (error) return <div>Error loading data</div>;
+
+  const renderSectionContent = (sectionName: string) => {
+    console.log(sectionName);
+    switch (sectionName) {
+      case "đề-luyện tập":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+             {excercisesData.map((item: any) => (
+              <Excercises
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
+              />
+            ))}
+          </div>
+        );
+        case "đề-thi thử":
+          return (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+               {practivetestData.map((item: any) => (
+                <Practivetest
+                  key={item.id}
+                  title={item.title}
+                  downloads={`${item.downloaded} lượt tải`}               
+                  time={new Date(item.created_at).toLocaleDateString()}              
+                />
+              ))}
+            </div>
+          );
+          case "đề-các năm":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+             {topicfiveData.map((item: any) => (
+              <Topicfive
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
+              />
+            ))}
+          </div>
+        );
+        case "tài-liệu các kỹ năng":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+             {documentationofskillsData.map((item: any) => (
+              <Documentationofskills
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
+              />
+            ))}
+          </div>
+        );
+        case "hướng-dẫn sử dụng":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+             {instructionsforuseData.map((item: any) => (
+              <Instructionsforuse
+                key={item.id}
+                title={item.title}
+                downloads={`${item.downloaded} lượt tải`}               
+                time={new Date(item.created_at).toLocaleDateString()}              
+              />
+            ))}
+          </div>
+        );
     }
-];
-const examstest = [
-    {
-        title: "Đề luyện tập cho lớp Rễ",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Chuyên Speaking",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Mầm",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    }
-];
-const examsyear = [
-    {
-        title: "Đề luyện tập cho lớp Rễ",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Chuyên Speaking",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Mầm",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    }
-];
-const skilldocument = [
-    {
-        title: "Đề luyện tập cho lớp Rễ",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Chuyên Speaking",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Mầm",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    }
-];
-const usermanual = [
-    {
-        title: "Đề luyện tập cho lớp Rễ",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Chuyên Speaking",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    },
-    {
-        title: "Đề luyện tập cho lớp Mầm",
-        downloads: "100 lượt tải",
-        time: "2 năm trước"
-    }
-]; 
+  };
 
   return (
     <div className="px-[16px] md:px-[0px] pt-3 md:pt-10 w-full bg-[#FDF6EB]">
-      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">Bài giảng</h1>
+      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">Tài liệu</h1>
 
       <div className="lg:flex block justify-between mb-5">
         {/* desktop */}
         <div className="hidden lg:flex flex-row justify-between items-center w-[743px]">
-          {routeList.map(({ href, label }) => (
+          {sections.map(({ name }) => (
             <button
-              key={href}
-              onClick={() => handleTabClick(href)}
+              key={name}
+              onClick={() => handleTabClick(`/library/#${name.toLowerCase().replace(" ", "-")}`)}
               className={clsx(
                 "text-base text-left",
-                activeTab === href ? "font-bold text-[#BE5C59]" : "text-[#514F4F] hover:underline"
+                activeTab === `/library/#${name.toLowerCase().replace(" ", "-")}` ? "font-bold text-[#BE5C59]" : "text-[#514F4F] hover:underline"
               )}
             >
-              {label}
+              {name}
             </button>
           ))}
         </div>
@@ -175,16 +148,16 @@ const usermanual = [
           className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
         >
           <CarouselContent>
-            {routeList.map(({ href, label }) => (
+            {sections.map(({ name }) => (
               <button
-                key={href}
-                onClick={() => handleTabClick(href)}
+                key={name}
+                onClick={() => handleTabClick(`/library/#${name.toLowerCase().replace(" ", "-")}`)}
                 className={clsx(
                   "text-base text-[#000F30] flex-[0_0_auto] mx-2",
-                  activeTab === href ? "font-bold text-[#BE5C59]" : "hover:underline"
+                  activeTab === `/library/#${name.toLowerCase().replace(" ", "-")}` ? "font-bold text-[#BE5C59]" : "hover:underline"
                 )}
               >
-                {label}
+                {name}
               </button>
             ))}
           </CarouselContent>
@@ -194,76 +167,7 @@ const usermanual = [
       
       {/* Nội dung của các tab */}
       <div className="tab-content mt-1 mx-[-10px]">
-        {activeTab === "/library" && (
-           <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-             {document.map((document, index) => (
-               <Document
-                  key={index}
-                  title={document.title}                       
-                  downloads={document.downloads}
-                  time={document.time}
-               />
-             ))}
-           </div>
-         </section>
-       )}
-        {activeTab === "/library/#examstest" && (
-            <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {examstest.map((examstest, index) => (
-                <Examstest
-                   key={index}
-                   title={examstest.title}                       
-                   downloads={examstest.downloads}
-                   time={examstest.time}
-               />
-             ))}
-        </div>
-      </section>
-    )}
-    {activeTab === "/library/#examsyear" && (
-          <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {examsyear.map((examsyear, index) => (
-              <Examsyear
-                  key={index}
-                  title={examsyear.title}                       
-                  downloads={examsyear.downloads}
-                  time={examsyear.time}
-             />
-           ))}
-      </div>
-    </section>
-  )}
-        {activeTab === "/library/#skilldocument" && (
-          <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skilldocument.map((skilldocument, index) => (
-              <Skilldocument
-                  key={index}
-                  title={skilldocument.title}                       
-                  downloads={skilldocument.downloads}
-                  time={skilldocument.time}
-             />
-           ))}
-      </div>
-    </section>
-  )}
-        {activeTab === "/library/#usermanual" && (
-          <section className="bg-[#FDF6EB] px-[16px] md:px-[0px] pt-3 md:pt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {usermanual.map((usermanual, index) => (
-              <Usermanual
-                  key={index}
-                  title={usermanual.title}                       
-                  downloads={usermanual.downloads}
-                  time={usermanual.time}
-             />
-           ))}
-      </div>
-    </section>
-  )}        
+        {renderSectionContent(activeTab.replace("/library/#", ""))}
       </div>
     </div>
   );

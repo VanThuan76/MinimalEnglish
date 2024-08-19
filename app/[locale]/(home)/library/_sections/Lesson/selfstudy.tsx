@@ -11,7 +11,7 @@ type SelfstudyProps = {
 
 export const Selfstudy: React.FC<SelfstudyProps> = ({ title, image, view, time, link }) => {
     return (
-        <div id="selfstudy" className="relative p-3 bg-[#ffffff] border border-[#ffffff] rounded-lg shadow-lg overflow-hidden">
+        <div className="relative p-3 bg-[#ffffff] border border-[#ffffff] rounded-lg shadow-lg overflow-hidden">
             <div className="relative w-full h-[200px] mb-2">
                 <Image
                     src={image}

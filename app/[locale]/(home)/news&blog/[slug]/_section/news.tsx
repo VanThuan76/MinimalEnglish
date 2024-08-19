@@ -35,7 +35,7 @@ export const News: React.FC<{detail: Detail}> = ({detail}) => {
             priority
           />
         </div>
-        <div dangerouslySetInnerHTML={{__html: detail.content}}/>
+        <div className="text-black" dangerouslySetInnerHTML={{__html: detail.content}}/>
       </div>
       <Separator className="lg:col-span-3 bg-[#98A2B3] mt-7 lg:mt-0"/>
     </section>
