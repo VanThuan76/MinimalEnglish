@@ -42,7 +42,7 @@ export const NavbarLibrary = () => {
     if (currentRoute) {
       setActiveTab(`/library/#${currentRoute.name.toLowerCase().replace(" ", "-")}`);
     } else {
-      setActiveTab("/library");
+      setActiveTab("/library/#writing");
     }
   }, [pathname, sections]);
 
@@ -67,7 +67,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`} // Hoặc URL mặc định
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>
@@ -82,7 +82,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`} // Hoặc URL mặc định
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>
@@ -97,7 +97,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`} 
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>
@@ -112,7 +112,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`} 
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>
@@ -127,7 +127,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`} // Hoặc URL mặc định
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>
@@ -142,7 +142,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`} // Hoặc URL mặc định
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>
@@ -157,7 +157,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`} // Hoặc URL mặc định
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>
@@ -173,7 +173,7 @@ export const NavbarLibrary = () => {
                 image={`/${item.image}`}
                 view={`${item.viewer} lượt xem`}
                 time={new Date(item.created_at).toLocaleDateString()}
-                link="#"
+                link="https://www.youtube.com/@minimalieltswithluna901"
               />
             ))}
           </div>

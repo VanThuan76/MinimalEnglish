@@ -12,17 +12,3 @@ export const useGetClass = () => {
     },
   })
 }
-
-//   useQuery({
-//     queryKey: ['sectionClass'],
-//     queryFn: () => axiosInstance.post<any>('/section/get-by-page', {language: locale, page: 1}),
-//     select(data) {
-//       return data.data.map((item: any) => {
-//         const description = locale + '_description'
-//         ({
-//         label: item.name,
-//         title: item._description
-//      })})
-//     },
-//   }),
-// ]

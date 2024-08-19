@@ -4,7 +4,8 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Định nghĩa kiểu dữ liệu cho state
 interface GlobalState {
-  value: string;
+  order: number;
+  title: string;
 }
 
 // Định nghĩa kiểu cho Context
@@ -19,7 +20,8 @@ const GlobalStateContext = createContext<GlobalStateContextProps | undefined>(un
 // Tạo provider để bao bọc các component
 export function GlobalStateProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<GlobalState>({
-    value: 'all', // Giá trị khởi tạo
+    order: 0, // Giá trị khởi tạo
+    title: ""
   });
 
   return (

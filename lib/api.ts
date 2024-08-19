@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 class Axios {
   private api: AxiosInstance;
@@ -11,6 +11,7 @@ class Axios {
       },
     });
   }
+
   async get<T>(url: string, configs?: AxiosRequestConfig): Promise<T> {
     try {
       const response = await this.api.get<T>(url, configs);

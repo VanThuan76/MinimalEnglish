@@ -22,7 +22,7 @@ export const Navbardocument = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { data: sections = [], isLoading, error } = useGetNavbarDocument();
-  const { data: excercisesData = [], isLoading: documentLoading } = useGetExcercisesData();
+  const { data: excercisesData = [], isLoading: Loading0 } = useGetExcercisesData();
   const { data: practivetestData = [], isLoading: Loading1 } = useGetPractivetestData();
   const { data: topicfiveData = [], isLoading: Loading2 } = useGetTopicfiveData();
   const { data: documentationofskillsData = [], isLoading: Loading3 } = useGetDocumentationofskillsData();
@@ -35,7 +35,7 @@ export const Navbardocument = () => {
     if (currentRoute) {
       setActiveTab(`/library/#${currentRoute.name.toLowerCase().replace(" ", "-")}`);
     } else {
-      setActiveTab("/library");
+      setActiveTab("/library/#đề-luyện tập");
     }
   }, [pathname, sections]);
 
@@ -44,7 +44,7 @@ export const Navbardocument = () => {
     router.prefetch(href);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading || Loading0 || Loading1 || Loading2 || Loading3 || Loading4 ) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
 
   const renderSectionContent = (sectionName: string) => {

@@ -1,30 +1,21 @@
-'use client'
-
 import { Banner } from "@/app/[locale]/(home)/_sections/banner";
 import { AboutUs } from "@/app/[locale]/(home)/_sections/about_us";
-import { Data } from "@/app/[locale]/type";
 import { Class } from "@/app/[locale]/(home)/_sections/class";
 import { WhyUs } from "@/app/[locale]/(home)/_sections/why_us";
 import { Video } from "@/app/[locale]/(home)/_sections/video";
 import { Feedback } from "@/app/[locale]/(home)/_sections/feedback";
 
-export async function getData() {
-  const res = await fetch('https://siuuuu-8f55.onrender.com/api/users',{
-    method: 'GET',
-    cache: 'no-cache',
-  });  
-  return res.json()
-}
-export default  function Home() {
-
+export default function Home() {
+  
   return (
     <>
-      {/*<Banner title={data.home.banner.title} image={data.home.banner.image} slogan={data.home.banner.slogan} content={data.home.banner.content}/>*/}
-      {/* <AboutUs title={t.home.about_us.title} label={t.home.about_us.label} content={t.home.about_us.content} image={t.home.about_us.image}/> */}
+      <Banner />
+      <AboutUs />
       <Class />
-      {/*<Feedback title={data.home.testimonial.title} label={data.home.testimonial.label} info_testimonials={data.home.testimonial.info_testimonials} />*/}
-      {/*<WhyUs title={data.home.why_us.title} image={data.home.why_us.image} label={data.home.why_us.label} info_why_us={data.home.why_us.info_why_us}/>*/}
-      {/*<Video videoId={data.home.videoId}/>*/}
+      <Feedback />
+      <WhyUs />
+      <Video />
     </>
   );
 }
+

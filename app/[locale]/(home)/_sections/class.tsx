@@ -1,23 +1,31 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "@/navigation";
-import { useGetClass } from "@/schema/services/hlClass";
+import { useGetClass, useGetTitleClass } from "@/schema/services/home/class";
 import { ArrowRight } from 'lucide-react';
+import { useLocale } from "next-intl";
 import Image from "next/image";
 
 export const Class = () => {
-  const { data: info_classes, isLoading } = useGetClass();
-  if (isLoading) return <div>Loading...</div>
+  const locale = useLocale()
   
+  const {data: titleClass, isLoading: isLoading1} = useGetTitleClass()
+  const {data: info_classes, isLoading: isLoading2} = useGetClass();
+  
+  let discover = "Khám phá"
+  if(locale === "en") discover = "Discovery"
+  if (isLoading1 || isLoading2) return <section className="px-[16px] md:px-[80px] h-[400px] py-12 md:py-16 bg-[#FDF6EB]" />
+
   return (
     <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">
       <h2 className="text-base text-[#BE5C59] text-left font-bold tracking-wider">
-        LỚP HỌC NỔI BẬT
+        {titleClass.name}
       </h2>
-
       <h2 className="flex text-3xl text-[#000F30] md:text-5xl text-left font-[600] md:font-bold mt-4 mb-10 gap-2">
-        Các lớp học tại Minimal English
+        {titleClass.en_description || titleClass.vi_description}
       </h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 place-items-top">
@@ -58,7 +66,7 @@ export const Class = () => {
                   variant="ghost"
                   >
                   <Link href={item.content} className="flex gap-2">
-                    Khám phá
+                    {discover}
                     <ArrowRight className="group-hover/arrow:translate-x-2 transition-transform"/>
                   </Link>
                 </Button>

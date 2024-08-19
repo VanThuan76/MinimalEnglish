@@ -5,60 +5,43 @@ import { Separator } from "@/components/ui/separator";
 import { Link } from "@/navigation";
 import clsx from "clsx";
 import { Search } from "lucide-react";
-import { useState } from "react";
-
-interface RouteProps {
-  href: string,
-  tab: string;
-  label: string;
-}
-
-const routeList: RouteProps[] = [
-  {
-    href: "/new&blog",
-    tab: "all",
-    label: "Tất cả",
-  },
-  {
-    href: "/new&blog",
-    tab: "tips",
-    label: "Mẹo học tập",
-  },
-  {
-    href: "/new&blog",
-    tab: "ielts news",
-    label: "IELTS News",
-  },
-  {
-    href: "/new&blog",
-    tab: "minimal english news",
-    label: "Minimal English có gì mới",
-  },
-  {
-    href: "/new&blog",
-    tab: "FAQ",
-    label: "FAQ (Câu hỏi thường gặp)",
-  },
-];
+import { useRouter } from "@/navigation"; 
+import { useGetAllCategory } from "@/schema/services/news&blog/allcategory";
+import { useTranslations } from "next-intl";
 
 export const TabsBar = () => {
-  const [value, setValue] = useState("")
+  const {data: category, isLoading} = useGetAllCategory()
   const {state, setState} = useGlobalState()
+  const router = useRouter()
+  const t = useTranslations()
+
+  if(isLoading) return <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]"></div>
+
+  
   
   return (
     <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]">
         <div className="lg:flex block justify-between mb-5">
           {/* desktop */}
-          <div className="hidden lg:flex flex-row justify-between items-center w-[743px]">
-            {routeList.map(({href, tab, label }) => (
+          <div className="hidden lg:flex flex-row justify-between items-center w-[760px]">
+            <Link 
+              href="/news&blog"
+              onClick={() => {
+                setState({...state, order: 0})
+              }}
+              className={state.order === 0 ? "text-sm px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}
+            >
+              {t("all")}
+            </Link>
+            {category.map((item: any) => (
               <Link 
-                href={href}
+                href="/news&blog"
                 onClick={() => {
-                  setState({value: tab})
+                  setState({...state, order: item.order})
                 }}
-                key={tab}
-                className={state.value === tab ? "text-base px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
-                {label}
+                key={item.order}
+                className={state.order === item.order ? "text-sm px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
+                {item.name}
               </Link>
             ))}
           </div>
@@ -72,16 +55,25 @@ export const TabsBar = () => {
             className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
           >
             <CarouselContent>
-              {routeList.map(({href, tab, label }) => (
+              <Link
+                href="/news&blog"
+                onClick={() => {
+                  setState({...state, order: 0})
+                }} 
+                className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.order === 0 ? "font-bold text-[#BE5C59]" : "hover:underline"
+              )}>
+                {t("all")}
+              </Link>
+              {category.map((item: any) => (
                 <Link
-                  href={href} 
+                  href="/news&blog"
                   onClick={() => {
-                    setState({value: tab})
+                    setState({...state, order: item.order})
                   }}
-                  key={tab} 
-                  className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.value === tab ? "font-bold text-[#BE5C59]" : "hover:underline"
+                  key={item.order} 
+                  className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.order === item.order ? "font-bold text-[#BE5C59]" : "hover:underline"
                 )}>
-                  {label}
+                  {item.name}
                 </Link>
               ))}
             </CarouselContent>
@@ -94,13 +86,15 @@ export const TabsBar = () => {
           >
             <input 
               placeholder="Tìm kiếm"
-              value={value}
+              value={state.title}
               onChange={(e) => {
-                setValue(e.target.value)
+                setState({...state, title: e.target.value})
               }}
               className="bg-white outline-none w-full text-[#000F30] text-base"
             />
-            <button>
+            <button onClick={() => {
+              router.push("/news&blog")
+            }}>
               <Search color="#000F30" strokeWidth={1.5}/>
             </button>
           </form>
