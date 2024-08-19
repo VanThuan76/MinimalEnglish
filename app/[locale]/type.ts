@@ -205,10 +205,11 @@ export interface Highlights{
     export interface ListNews {
       tag: string,
       image: string,
-      publishInfor: string,
+      read_time: number,
       title: string,
       description: string,
       href: string,
+      created_at: string
     }
     export interface Lesson {
       title: string,

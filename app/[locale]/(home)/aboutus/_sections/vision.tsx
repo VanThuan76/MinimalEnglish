@@ -41,7 +41,7 @@ export const Vision = () => {
             {infor_vision.name}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            {infor_vision.vi_description}
+            {infor_vision.vi_description || infor_vision.en_description}
           </p>
         </div>
 

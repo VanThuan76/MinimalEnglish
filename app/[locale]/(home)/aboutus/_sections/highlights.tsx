@@ -13,8 +13,8 @@ export const Highlight = () => {
 
   if (Loading1||Loading2||Loading3) return <div>Loading ....</div>;
 
-  const filterLetures = lectures_hl.filter((item: any)=> item.title === 'Leture' || item.title === 'Giảng viên' ) || [];
-  const filteredTeachermethods = teachermethod_hl.filter((item: any) => item.title === 'teaching methods' || item.title === 'Phương pháp giảng dạy' ) || [];
+  const filterLetures = lectures_hl.filter((item: any)=> item.title === 'Lecture' || item.title === 'Giảng viên' ) || [];
+  const filteredTeachermethods = teachermethod_hl.filter((item: any) => item.title === 'Teaching methods' || item.title === 'Phương pháp giảng dạy' ) || [];
 
   // Kiểm tra dữ liệu
   console.log('Lectures HL:', lectures_hl);
@@ -23,10 +23,10 @@ export const Highlight = () => {
   return (
     <div className="px-6 py-10 bg-[#FFFFFF] sm:px-[32px] lg:px-[80px] lg:py-[40px;80px]">
       <h1 className="text-center mb-5 leading-[76px] font-[700] text-[#BE5C59] text-[48px] sm:text-[48px] md:font-bold">
-        {infor_highlight?.name}
+        {infor_highlight.name}
       </h1>
       <p className="text-[#514F4F] text-[20px] leading-8 p-3 font-normal sm:text-[20px] list-disc mb-10 text-center">
-        {infor_highlight?.vi_description}
+        {infor_highlight.vi_description || infor_highlight.en_description}
       </p>
       <div className="grid gap-8 md:grid-cols-2 lg:gap-11">
         {/* Section for Lectures */}
@@ -35,7 +35,7 @@ export const Highlight = () => {
             <LectureIcon />
           </div>
           <div className="font-[600] text-[#000F30] p-3 leading-[52px] text-[32px] sm:text-[32px] md:font-bold mb-[10px]">            
-            {lectures_hl[0].title}
+            {lectures_hl[3].title}
           </div>
           <ul className="text-[20px] sm:text-[20px] leading-8 font-normal p-3 text-[#282B27] flex flex-col space-y-4"> 
                 {filterLetures.map((item: any) =>(            

@@ -233,5 +233,11 @@
 
             ]
        }
-    }
+    },
+    "related": "Bài viết liên quan",
+    "article": "Đọc thêm",
+    "discovery": "Khám phá",
+    "all": "Tất cả",
+    "read": "Đọc bài",
+    "readtime": "phút đọc"
 }

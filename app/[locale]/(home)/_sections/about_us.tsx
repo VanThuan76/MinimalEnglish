@@ -1,7 +1,13 @@
-import { About } from "@/app/[locale]/type";
+"use client"
+
+import { useGetAbout, useGetTitleAbout } from "@/schema/services/home/aboutMinimal";
 import Image from "next/image";
 
-export const AboutUs = ({title,label,content,image}: About) => {
+export const AboutUs = () => {
+  const {data: titleAbout, isLoading: isLoading1} = useGetTitleAbout()
+  const {data: about, isLoading: isLoading2} = useGetAbout()
+  if(isLoading1 || isLoading2) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
+
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 gap-12 place-items-center">
@@ -15,7 +21,7 @@ export const AboutUs = ({title,label,content,image}: About) => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={image.image_1}
+                  src={`/${about.image}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
@@ -33,7 +39,7 @@ export const AboutUs = ({title,label,content,image}: About) => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={image.image_2}
+                  src={`/${about.image_2}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 /> 
@@ -44,18 +50,18 @@ export const AboutUs = ({title,label,content,image}: About) => {
 
         <div>
           <h2 className="text-[16px] font-bold md:mt-[10px] mb-4 text-[#BE5C59]">
-            {label}           
+            {titleAbout.name}           
           </h2>
           
           <h2 className="text-[32px] font-[600] md:text-5xl md:mt-[10px] md:font-bold text-[#000F30]">
-            {title[0]}
+            {titleAbout.en_description || titleAbout.vi_description}
           </h2>
 
           <h2 className="text-[32px] font-[600] md:text-5xl md:mb-[30px] md:mt-[10px] md:font-bold mb-6 text-[#BE5C59]">
-            {title[1]}
+            {about.title}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            {content}
+            {about.content}
           </p>
         </div>
 
@@ -69,8 +75,9 @@ export const AboutUs = ({title,label,content,image}: About) => {
                       style={{
                         objectFit: "cover"
                       }}
-                      src={image.image_1}
+                      src={`/${about.image}`}
                       alt="about"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 </div>
@@ -86,8 +93,9 @@ export const AboutUs = ({title,label,content,image}: About) => {
                       style={{
                         objectFit: "cover"
                       }}
-                      src={image.image_2}
+                      src={`/${about.image_2}`}
                       alt="about"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 </div>
