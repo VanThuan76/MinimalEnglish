@@ -20,7 +20,7 @@ const GlobalStateContext = createContext<GlobalStateContextProps | undefined>(un
 // Tạo provider để bao bọc các component
 export function GlobalStateProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<GlobalState>({
-    order: 1, // Giá trị khởi tạo
+    order: 0, // Giá trị khởi tạo
     title: ""
   });
 
