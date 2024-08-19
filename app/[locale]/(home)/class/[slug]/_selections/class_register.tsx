@@ -1,10 +1,8 @@
 import React from 'react';
-import { ClassData } from '@/app/[locale]/type';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/navigation';
-import { ArrowRight } from 'lucide-react';
 
 
 export const ClassRegister = () => {
