@@ -1,9 +1,5 @@
-"use client";
-
-import { useGlobalState } from '@/components/hooks/GlobalStateContext.tsx';
 import { Carousel, CarouselContent } from '@/components/ui/carousel';
 import { Separator } from '@/components/ui/separator';
-import { Link, useRouter } from '@/navigation';
 import clsx from 'clsx';
 import { useGetNavbarDocument } from '@/schema/services/Library/navbarDocument';
 import { useTranslations } from 'next-intl';
@@ -25,7 +21,7 @@ export const Navbardocument = () => {
       <div className="lg:flex block justify-between mb-5">
         {/* desktop */}
         <div className="hidden lg:flex flex-row justify-between items-center w-[760px]">                    
-          {document.map((item: any) => (
+          {document && document.map((item: any) => (
             <Button
               onClick={() => {
                 dispatch(setActiveDocument(item?.id));
@@ -46,7 +42,7 @@ export const Navbardocument = () => {
           className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
         >
           <CarouselContent>              
-            {document.map((item: any) => (
+            {document && document.map((item: any) => (
               <Button
                 onClick={() => {
                   dispatch(setActiveDocument(item?.id));

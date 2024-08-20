@@ -1,10 +1,6 @@
-"use client";
-
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
-import { Link } from "@/navigation";
 import clsx from "clsx";
-import { useRouter } from "@/navigation";
 import { useGetNavbarLesson } from "@/schema/services/Library/navbarLesson";
 import { useTranslations } from "next-intl";
 import { useAppDispatch, useAppSelector } from '@/components/hooks/useRedux';
@@ -25,7 +21,7 @@ export const NavbarLesson = () => {
       <div className="lg:flex justify-between mb-5">
         {/* desktop */}
         <div className="hidden lg:flex flex-row justify-between items-center w-[1000px]">
-          {lesson.map((item: any, index: number) => (
+          {lesson && lesson.map((item: any, index: number) => (
             <div key={item.order} className={index === 0 ? "flex-1 text-left" : "flex-1 mx-4 text-center"}>
               <Button
                 onClick={() => {
@@ -48,7 +44,7 @@ export const NavbarLesson = () => {
           className="hidden [@media(max-width:1000px)]:flex w-full mb-4"
         >
           <CarouselContent>
-            {lesson.map((item: any) => (
+            {lesson && lesson.map((item: any) => (
               <div key={item.order} className="flex-[0_0_auto] mx-1.5"> {/* Adjusted margin here */}
                 <Button
                   onClick={() => {

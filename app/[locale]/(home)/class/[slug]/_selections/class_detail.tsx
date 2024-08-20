@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { ClassData } from '@/app/[locale]/type';
 import { useTranslations } from 'next-intl';
@@ -16,7 +18,7 @@ export const ClassDetail: React.FC<ClassData> = ({ data_detail}) => {
         </div>
         <div className={"relative w-full h-[428px] md:h-[740px] mb-4"}>
           <Image
-            src={`/${data_detail?.image}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${data_detail?.image} ` as string}
             alt="image about class"
             fill
             style={{
