@@ -10,7 +10,7 @@ export const useSectionByPage = (page_id: number) => {
     queryKey: [page_id],
     queryFn: () => axiosInstance.post<any>('/section/get-by-page', {language: locale, page_id: activeMenuId}),
     select(data){
-      return data.data
+      return data.data || []
     },
   })
 };

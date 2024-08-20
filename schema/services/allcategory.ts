@@ -8,7 +8,7 @@ export const useGetAllCategory = () => {
     queryKey: ["AllCategory"],
     queryFn: () => axiosInstance.post<any>('/news-category/all', {language: locale}),
     select(data) {
-      return data.data
+      return data.data || []
     },
   })
 }

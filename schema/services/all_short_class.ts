@@ -8,7 +8,7 @@ export const useGetAllClass = () => {
     queryKey: ['section_All_Class'],
     queryFn: () => axiosInstance.post<any>('/class/all-short', {language: locale}),
     select(data) {
-      return data.data
+      return data.data || []
     },
   })
 }

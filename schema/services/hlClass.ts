@@ -8,7 +8,7 @@ export const useGetHLClass = () => {
     queryKey: ['sectionHLClass'],
     queryFn: () => axiosInstance.post<any>('/class/high-light', {language: locale, page: 1, size: 12}),
     select(data) {
-      return data.data.data
+      return data.data.data || []
     },
   })
 }
