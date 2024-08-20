@@ -7,7 +7,7 @@ export const useGetAll = () => {
   const locale = useLocale()
   return useQuery({
     queryKey: ["getAllPage"],
-    queryFn: () => axiosInstance.get<IBaseResponse<All_Page[]>>(`/page/all?language=${locale}`),
+    queryFn: () => axiosInstance.get<IBaseResponse<any>>(`/page/all?language=${locale}`),
     select(data) {
       return data.data
     },

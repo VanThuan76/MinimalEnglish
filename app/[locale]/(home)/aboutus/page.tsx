@@ -22,7 +22,7 @@ export default function AboutUs() {
       <BrandStory data={sections?.[2]} />   
       <Highlight data={sections?.[3]} />
       <Lectures data={sections?.[4]} />
-      {/* <Feedback /> */}
+      <Feedback />
     </>
   );
 }

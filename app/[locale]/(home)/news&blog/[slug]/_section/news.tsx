@@ -11,9 +11,9 @@ export const News: React.FC<{detail: Detail}> = ({detail}) => {
   return (
     <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-white lg:grid grid-cols-3 gap-10">
       <div>
-        <h2 className="font-semibold text-[32px] text-black leading-[52px] mb-8">{detail.title}</h2>
+        <h2 className="font-semibold text-[32px] text-black leading-[52px] mb-8" dangerouslySetInnerHTML={{__html: detail.title}}/>
         <Separator className="bg-[#98A2B3] mb-8"/>
-        <p className="text-[#514F4F] mb-10">{detail.description}</p>
+        <div className="text-[#514F4F] mb-10" dangerouslySetInnerHTML={{__html: detail.description}} />
         <div className="w-[300px]">
           <Separator className="bg-[#98A2B3] mb-4" />
           <div className="flex gap-2 items-center">

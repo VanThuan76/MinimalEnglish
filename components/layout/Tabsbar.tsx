@@ -7,7 +7,7 @@ import { Link } from "@/navigation";
 import clsx from "clsx";
 import { Search } from "lucide-react";
 import { useRouter } from "@/navigation"; 
-import { useGetAllCategory } from "@/schema/services/news&blog/allcategory"; 
+import { useGetAllCategory } from "@/schema/services/allcategory"; 
 import { useTranslations } from "next-intl";
 
 export const TabsBar = () => {

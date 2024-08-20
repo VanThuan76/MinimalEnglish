@@ -10,7 +10,7 @@ export const SmNews = ({image, created_at, read_time ,title, tag, description, h
   const [year, month, day] = created_at.split(' ')[0].split('-');
   const publishInfor = `${day}/${month}/${year} - ${read_time} ${t("readtime")}`
   return (
-    <div className='flex flex-col w-full max-w-[390px] justify-between gap-6'>
+    <div className='flex flex-col w-full max-w-[390px] gap-6 h-full'>
       <div className='relative w-full max-w-[390px] h-[200px] rounded-xl overflow-hidden'>
         <Image 
           fill
@@ -21,9 +21,9 @@ export const SmNews = ({image, created_at, read_time ,title, tag, description, h
         />
       </div>
 
-      <div className='w-full flex flex-col gap-3 text-black'>
+      <div className='w-full flex flex-col gap-3 justify-between text-black flex-grow'>
         <div className='w-full flex justify-between items-center'>
-          <Badge variant={'secondary'} className='p-2 rounded-lg bg-[#E4E7EC] text-black text-xs font-normal'>{tag}</Badge>
+          <Badge variant={'secondary'} className='flex justify-center p-2 rounded-lg bg-[#E4E7EC] text-black text-xs font-normal min-w-[74px]'>{tag}</Badge>
           <div className='text-base font-normal'>{publishInfor}</div>
         </div>
 

@@ -23,7 +23,7 @@ import { Link, usePathname } from "@/navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import clsx from "clsx";
 import { useGetAll } from "@/schema/services/all";
-import { useGetAllClass } from "@/schema/services/home/class";
+import { useGetAllClass } from "@/schema/services/all_short_class";
 import { All_Page } from "@/app/[locale]/type";
 
 export const Navbar = () => {

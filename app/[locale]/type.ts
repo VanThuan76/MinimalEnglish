@@ -1,13 +1,46 @@
-export interface Data {
-  infomation: {
-    hotline : string;
-    message: string;
-    email: string;
-  };
-  home: HomeData;
-  about_us: About_us;
-  news_blog: News_blog;
-  library: Library
+export interface All_Page {
+  id: string,
+  url: string,
+  created_at: string,
+  updated_at: string,
+  created_by: string,
+  updated_by: string,
+  order: number,
+  status: number,
+  name: string,
+}
+
+export interface Section {
+  id: number,
+  image: string,
+  created_at: string,
+  updated_at: string,
+  created_by: string,
+  updated_by: string,
+  order: number,
+  status: number,
+  name: string,
+  description: string
+}
+
+export interface Component {
+  id: number,
+  image: string,
+  image_2: string,
+  image_3: string,
+  image_4: string,
+  image_5: string,
+  image_6: string,
+  image_7: string,
+  section_id: number,
+  created_at: string,
+  updated_at: string,
+  created_by: string,
+  updated_by: string,
+  order: string,
+  status: number,
+  title: string,
+  content:string,
 }
 
 export interface News_blog {

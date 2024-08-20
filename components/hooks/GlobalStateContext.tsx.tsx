@@ -22,7 +22,7 @@ const GlobalStateContext = createContext<GlobalStateContextProps | undefined>(un
 export function GlobalStateProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<GlobalState>({
     order: 0, // Giá trị khởi tạo
-    title: "",
+    title: "",  
     value: 1
   });
 

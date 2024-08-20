@@ -7,7 +7,7 @@ import { Info_testimonials } from '@/app/[locale]/type'
 import Image from 'next/image'
 
 type PropType = {
-  info_testimonials: string[]
+  info_testimonials: any
   options?: EmblaOptionsType
   scrollPrev?: boolean
 }
@@ -45,17 +45,18 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   return (
     <div className="overflow-hidden h-full [@media(max-width:1023px)]:w-full " ref={emblaRef}>
       <div className="flex lg:mt-0 h-full lg:flex-col">
-        {info_testimonials.map((image: any) => (
+        {info_testimonials.map((item: any) => (
           <div 
             className="relative touch-pan-x touch-pinch-zoom flex-[0_0_50%] lg:flex-[0_0_100%] w-[146px] h-[316px] lg:w-[230px] lg:h-[384px] xl:w-[280px] xl:h-[538px] lg:mt-6 mx-2 lg:mx-0" 
-            key={image}
+            key={item?.image}
           >
             <Image
               fill
               style={{objectFit: "cover"}}
-              src={`/${image}`}
+              src={`/${item?.image}`}
               alt="image"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
             />
           </div>
         ))}
