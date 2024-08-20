@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import React from "react";
-import LessonList from "@/app/[locale]/(home)/library/_sections/Lesson/LessonList";
-import { GlobalStateProvider } from "@/components/hooks/GlobalStateContext.tsx";
-import { NavbarLesson } from "@/components/layout/Navbarlesson";
-import { Navbardocument } from "@/components/layout/Navbardocument";
-import DocumentList from "@/app/[locale]/(home)/library/_sections/Document/DocumentList";
+import React from 'react';
+import LessonList from '@/app/[locale]/(home)/library/_sections/Lesson/LessonList';
+import { GlobalStateProvider } from '@/components/hooks/GlobalStateContext.tsx';
+import { NavbarLesson } from '@/components/layout/Navbarlesson';
+import { Navbardocument } from '@/components/layout/Navbardocument';
+import DocumentList from '@/app/[locale]/(home)/library/_sections/Document/DocumentList';
 
 export default function Library() {   
     
@@ -13,7 +13,7 @@ export default function Library() {
         <>                     
                 <GlobalStateProvider>
                 <NavbarLesson />
-                {/*<LessonList />*/}
+                  <LessonList />
                 </GlobalStateProvider>                
                 <GlobalStateProvider>
                 <Navbardocument />

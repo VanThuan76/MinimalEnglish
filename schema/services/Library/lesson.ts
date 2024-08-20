@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "@/lib/api";
 import { useLocale } from "next-intl";
+import { useAppSelector } from '@/components/hooks/useRedux';
 
-export const useGetlecture = ({lecture_type_id, page , size} : {page: number, lecture_type_id: number, size: number} ) => {
+export const useGetLecture = ({page , size} : {page: number, size: number} ) => {
   const locale = useLocale();
+  const lecture_type_id = useAppSelector(state => state.activeLecture);
+  console.log(lecture_type_id);
   return useQuery({
     queryKey: ['lectures'],
     queryFn: async () => {

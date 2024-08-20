@@ -1,18 +1,20 @@
 "use client";
 
-import { useGlobalState } from "@/components/hooks/GlobalStateContext.tsx";
-import { Carousel, CarouselContent } from "@/components/ui/carousel";
-import { Separator } from "@/components/ui/separator";
-import { Link } from "@/navigation";
-import clsx from "clsx";
-import { useRouter } from "@/navigation"; 
-import { useGetNavbarDocument } from "@/schema/services/Library/navbarDocument";
-import { useTranslations } from "next-intl";
+import { useGlobalState } from '@/components/hooks/GlobalStateContext.tsx';
+import { Carousel, CarouselContent } from '@/components/ui/carousel';
+import { Separator } from '@/components/ui/separator';
+import { Link, useRouter } from '@/navigation';
+import clsx from 'clsx';
+import { useGetNavbarDocument } from '@/schema/services/Library/navbarDocument';
+import { useTranslations } from 'next-intl';
+import { useAppDispatch, useAppSelector } from '@/components/hooks/useRedux';
+import { setActiveDocument } from '@/lib/stores/appSlice';
+import { Button } from '@/components/ui/button';
 
 export const Navbardocument = () => {
   const {data: document, isLoading} = useGetNavbarDocument();
-  const {state, setState} = useGlobalState();
-  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const document_type_id = useAppSelector(state => state.activeDocument);
   const t = useTranslations();
   
   if(isLoading) return <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#FDF6EB]"></div>;
@@ -24,15 +26,14 @@ export const Navbardocument = () => {
         {/* desktop */}
         <div className="hidden lg:flex flex-row justify-between items-center w-[760px]">                    
           {document.map((item: any) => (
-            <Link 
-              href="/library"
+            <Button
               onClick={() => {
-                setState({...state, value: item.order});
+                dispatch(setActiveDocument(item?.id));
               }}
               key={item.order}
-              className={state.value === item.order ? "text-sm px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
+              className={document_type_id === item.id ? 'text-sm px-2 font-bold text-[#BE5C59] bg-transparent' : 'text-base px-2 text-[#514F4F] hover:underline bg-transparent'}>
               {item.name}
-            </Link>
+            </Button>
           ))}
         </div>
 
@@ -46,16 +47,15 @@ export const Navbardocument = () => {
         >
           <CarouselContent>              
             {document.map((item: any) => (
-              <Link
-                href="/library"
+              <Button
                 onClick={() => {
-                  setState({...state, value: item.order});
+                  dispatch(setActiveDocument(item?.id));
                 }}
-                key={item.value} 
-                className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.value === item.order ? "font-bold text-[#BE5C59]" : "hover:underline")}
+                key={item.value}
+                className={clsx('text-base text-[#000F30] flex-[0_0_auto] mx-2', document_type_id === item.id ? 'font-bold text-[#BE5C59] bg-transparent' : 'hover:underline bg-transparent')}
               >
                 {item.name}
-              </Link>
+              </Button>
             ))}
           </CarouselContent>
         </Carousel>          
