@@ -10,7 +10,7 @@ export const NewsBig = ({tag,image,description,created_at, read_time,title, href
   const [year, month, day] = created_at.split(' ')[0].split('-');
   const publishInfor = `${day}/${month}/${year} - ${read_time} ${t("readtime")}`
   return (
-    <section className='bg-white px-[16px] md:px-[80px] pt-3 md:pt-10'>
+    <section className='bg-white px-[16px] md:px-[80px] pt-3 md:pt-20'>
       <div className='flex [@media(max-width:1000px)]:flex-col w-full justify-between [@media(max-width:1000px)]:gap-6'>
         <div className='relative w-full h-[200px] lg:w-[450px] lg:h-[285px] xl:w-[634px] xl:h-[402px] rounded-xl overflow-hidden'>
           <Image 

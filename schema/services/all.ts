@@ -1,3 +1,4 @@
+import { All_Page, IBaseResponse } from '@/app/[locale]/type';
 import { axiosInstance } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 import { useLocale } from 'next-intl';
@@ -5,8 +6,8 @@ import { useLocale } from 'next-intl';
 export const useGetAll = () => {
   const locale = useLocale()
   return useQuery({
-    queryKey: ['sectionAll'],
-    queryFn: () => axiosInstance.get<any>(`/page/all?language=${locale}`),
+    queryKey: ["getAllPage"],
+    queryFn: () => axiosInstance.get<IBaseResponse<any>>(`/page/all?language=${locale}`),
     select(data) {
       return data.data
     },

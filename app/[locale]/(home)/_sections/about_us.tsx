@@ -1,12 +1,14 @@
 "use client"
 
-import { useGetAbout, useGetTitleAbout } from "@/schema/services/home/aboutMinimal";
+import { Section } from "@/app/[locale]/type";
+import { useGetComponent } from "@/schema/services/component";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-export const AboutUs = () => {
-  const {data: titleAbout, isLoading: isLoading1} = useGetTitleAbout()
-  const {data: about, isLoading: isLoading2} = useGetAbout()
-  if(isLoading1 || isLoading2) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
+export const AboutUs = ({data}: {data: Section}) => {
+  const t = useTranslations("home.about_us")
+  const {data: about, isLoading} = useGetComponent({section_id: data.id, queryKey: "section_about_ME"})
+  if(isLoading) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
 
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
@@ -21,9 +23,10 @@ export const AboutUs = () => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={`/${about.image}`}
+                  src={`/${about[0]?.image}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
                 />
               </div>
             </div>
@@ -39,9 +42,10 @@ export const AboutUs = () => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={`/${about.image_2}`}
+                  src={`/${about[0]?.image_2}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
                 /> 
               </div>
             </div>
@@ -50,18 +54,18 @@ export const AboutUs = () => {
 
         <div>
           <h2 className="text-[16px] font-bold md:mt-[10px] mb-4 text-[#BE5C59]">
-            {titleAbout.name}           
+            {data.name}           
           </h2>
           
           <h2 className="text-[32px] font-[600] md:text-5xl md:mt-[10px] md:font-bold text-[#000F30]">
-            {titleAbout.en_description || titleAbout.vi_description}
+            {t("title1")}
           </h2>
 
           <h2 className="text-[32px] font-[600] md:text-5xl md:mb-[30px] md:mt-[10px] md:font-bold mb-6 text-[#BE5C59]">
-            {about.title}
+            {t("title2")}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            {about.content}
+            {about[0]?.content}
           </p>
         </div>
 
@@ -75,9 +79,10 @@ export const AboutUs = () => {
                       style={{
                         objectFit: "cover"
                       }}
-                      src={`/${about.image}`}
+                      src={`/${about[0]?.image}`}
                       alt="about"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority
                     />
                   </div>
                 </div>
@@ -93,9 +98,10 @@ export const AboutUs = () => {
                       style={{
                         objectFit: "cover"
                       }}
-                      src={`/${about.image_2}`}
+                      src={`/${about[0]?.image_2}`}
                       alt="about"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority
                     />
                   </div>
                 </div>

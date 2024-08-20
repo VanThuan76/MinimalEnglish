@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import { useGlobalState } from "@/components/hooks/GlobalStateContext.tsx";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
@@ -6,7 +7,7 @@ import { Link } from "@/navigation";
 import clsx from "clsx";
 import { Search } from "lucide-react";
 import { useRouter } from "@/navigation"; 
-import { useGetAllCategory } from "@/schema/services/news&blog/allcategory";
+import { useGetAllCategory } from "@/schema/services/allcategory"; 
 import { useTranslations } from "next-intl";
 
 export const TabsBar = () => {
@@ -14,11 +15,8 @@ export const TabsBar = () => {
   const {state, setState} = useGlobalState()
   const router = useRouter()
   const t = useTranslations()
-
   if(isLoading) return <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]"></div>
 
-  
-  
   return (
     <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]">
         <div className="lg:flex block justify-between mb-5">

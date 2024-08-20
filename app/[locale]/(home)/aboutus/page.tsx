@@ -16,7 +16,7 @@ export default  function AboutUs() {
         <BrandStory /> 
         <Highlight />
         <Lectures />
-        <Feedback />
+        {/* <Feedback /> */}
     </>
   )
 }

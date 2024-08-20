@@ -2,11 +2,11 @@ import { axiosInstance } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 import { useLocale } from 'next-intl';
 
-export const useGetFeedback = () => {
+export const useGetNewsBySlug = ({slug}: {slug: string}) => {
   const locale = useLocale()
   return useQuery({
-    queryKey: ['sectionFeedback'],
-    queryFn: () => axiosInstance.post<any>('/component/get-by-section', {language: locale, section_id: 8}),
+    queryKey: [slug],
+    queryFn: () => axiosInstance.post<any>('/news/get-by-slug', {language: locale, slug: slug}),
     select(data) {
       return data.data[0]
     },

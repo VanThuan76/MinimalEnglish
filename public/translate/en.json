@@ -6,13 +6,14 @@
     },
     "home": {
         "banner": {
-            "title": "Minimal English",
+            "title": "Minimal English -",
             "slogan": "Học giản đơn, đạt aim hơn!",
             "content": "Minimal English là lớp học IELTS chuyên biệt với mục tiêu giúp học viên đạt mục tiêu trong kỳ thi IELTS thông qua phương pháp học tối giản và hiệu quả. Chúng tôi kết hợp giữa phương pháp Hybrid Learning và sự phân hóa trình độ để cá nhân hóa việc học, đảm bảo mỗi học viên đều nhận được sự chú ý và hỗ trợ tối đa."
         },
         "about_us": {
             "label": "VỀ MINIMAL ENGLISH",
-            "title": "Là nơi khởi nguồn từ '/'đam mê và nghị lực",
+            "title1": "Là nơi khởi nguồn từ",
+            "title2": "đam mê và nghị lực",
             "content": "Với phương pháp Hybrid Learning, kết hợp giữa học trực tiếp và học trực tuyến, chúng tôi mang đến cho học viên môi trường thân thiện, phương pháp học tập tối giản nhưng hiệu quả. Tại Minimal English, học viên không chỉ học kiến thức mà còn nhận được sự tự tin và động lực để phát triển. Chúng tôi cam kết mang lại chất lượng giảng dạy tốt nhất, giúp học viên đạt được mục tiêu học tập và vượt qua mọi thử thách."
         },
         "outstanding_class": {
@@ -105,7 +106,8 @@
                     "content": ""
                 }
             ]
-        }
+        },
+        "video": "video"
     },
     "about_us":{
         "mission": {
@@ -234,12 +236,14 @@
             ]
         }
     },
+    "notFound": "No results found",
     "related": "Bài viết liên quan",
     "article": "Đọc thêm",
     "discovery": "Khám phá",
     "all": "Tất cả",
     "read": "Đọc bài",
     "readtime": "phút đọc",
+    "come": "Coming soon",
     "class": {
         "label": {
             "title": "CÁC LỚP HỌC",

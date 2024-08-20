@@ -2,13 +2,13 @@ import { axiosInstance } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 import { useLocale } from 'next-intl';
 
-export const useGetVideo = () => {
+export const useGetFeedback = () => {
   const locale = useLocale()
   return useQuery({
-    queryKey: ['sectionVideo'],
-    queryFn: () => axiosInstance.post<any>('/section/get-by-page', {language: locale, page_id: 1}),
+    queryKey: ['sectionFeedback'],
+    queryFn: () => axiosInstance.post<any>('/feedback/all', {language: locale, page: 1, size: 18}),
     select(data) {
-      return data.data[5]
+      return data.data.data
     },
   })
 }
