@@ -11,7 +11,7 @@ export const useGetNavbarDocument = () => {
       return data; 
     },
     select(data) {
-      return data;
+      return data || [];
     },
   });
 };

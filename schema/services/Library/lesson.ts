@@ -11,10 +11,10 @@ export const useGetLecture = ({page , size} : {page: number, size: number} ) => 
     queryKey: ['lectures'],
     queryFn: async () => {
       const { data } = await axiosInstance.post<any>('/lecture/get-by-lecture-type', { language: locale, page: page, lecture_type_id: lecture_type_id, size: size });
-      return data.data;
+      return data.data || [];
     },
     select(data) {
-      return data;
+      return data || [];
     },
   });
 };

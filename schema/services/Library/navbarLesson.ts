@@ -11,7 +11,7 @@ export const useGetNavbarLesson = () => {
       return data; 
     },
     select(data) {
-      return data;
+      return data || [];
     },
   });
 };

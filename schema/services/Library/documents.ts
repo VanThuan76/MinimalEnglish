@@ -10,10 +10,10 @@ export const useGetDocuments = ({size} : {size: number} ) => {
     queryKey: ['documents'],
     queryFn: async () => {
       const { data } = await axiosInstance.post<any>('/document/get-by-document-type', { language: locale, document_type_id: document_type_id, size: size  });
-      return data.data;
+      return data.data || [];
     },
     select(data) {
-      return data;
+      return data || [];
     },
   });
 };
