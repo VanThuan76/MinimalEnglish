@@ -2,12 +2,12 @@ import { axiosInstance } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { useLocale } from "next-intl";
 
-export const useGetNavbarDocument = () => {
+export const useGetNavbarLesson = () => {
   const locale = useLocale();
   return useQuery({
-    queryKey: ['NavbarDocument'],
+    queryKey: ['NavbarLesson'],
     queryFn: async () => {
-      const { data } = await axiosInstance.post<any>('/document-type/all', { language: locale });
+      const { data } = await axiosInstance.post<any>('/lecture-type/all', { language: "en" });
       return data; 
     },
     select(data) {

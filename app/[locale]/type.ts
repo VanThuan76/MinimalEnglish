@@ -265,3 +265,60 @@ export interface ClassData {
   data_detail: Class_Detail | undefined
   children: string;
 }
+
+export interface Section {
+  id: number,
+  image: string,
+  created_at: string,
+  updated_at: string,
+  created_by: string,
+  updated_by: string,
+  order: number,
+  status: number,
+  name: string,
+  description: string
+}
+
+export interface Component {
+  id: number,
+  image: string,
+  image_2: string,
+  image_3: string,
+  image_4: string,
+  image_5: string,
+  image_6: string,
+  image_7: string,
+  section_id: number,
+  created_at: string,
+  updated_at: string,
+  created_by: string,
+  updated_by: string,
+  order: string,
+  status: number,
+  title: string,
+  content:string,
+}
+
+export interface All_Page {
+  id: string,
+  url: string,
+  created_at: string,
+  updated_at: string,
+  created_by: string,
+  updated_by: string,
+  order: number,
+  status: number,
+  name: string,
+}
+
+interface getDocument {
+  id: number;
+  created_at: string;
+  updated_at: string;
+  created_by: string;
+  update_by: string;
+  order: number;
+  status: number;
+  name: string;
+  description: string | null;   
+}

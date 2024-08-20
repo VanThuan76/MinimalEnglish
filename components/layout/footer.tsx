@@ -1,11 +1,20 @@
+'use client';
+
 import { Separator } from "@/components/ui/separator";
-import { ChevronsDownIcon, MailIcon, PhoneIcon } from "lucide-react";
-import { Link } from "@/navigation";
+import {  MailIcon, PhoneIcon } from "lucide-react";
+import { Link, usePathname } from "@/navigation";
 import Image from "next/image";
 import MessengerIcon from "@/components/icons/messenger-icon";
-import { Data } from "@/app/[locale]/type";
+
+import { useGetAll } from "@/schema/services/all";
+import { All_Page } from "@/app/[locale]/type";
 
 export const FooterSection = () => {
+  const {data: menu, isLoading: isLoading} = useGetAll()
+  const pathname = usePathname();
+
+  if (isLoading) return<></>
+
   return (
     <footer id="footer" className="w-full py-12 px-8 sm:px-16 lg:px-[80px] bg-[#f2f4f7]">
       <div className="w-full">
@@ -55,11 +64,15 @@ export const FooterSection = () => {
 
           <div className="flex flex-col gap-4">
             <h3 className="font-bold text-[#000F30] text-[16px]">Danh mục</h3>
-            <Link href="/" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Trang chủ</Link>
-            <Link href="/aboutus" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Về chúng tôi</Link>
+            {menu?.map((item: All_Page) => (                    
+                       <div key={item?.url}>                       
+
+            <Link href={item?.url} className={pathname === `${item?.url}` ? 'text-[#000F30] text-[16px] hover:opacity-100 font-normal': "text-[#282B27]"}>{item?.name}</Link>
+            {/* <Link href="/aboutus" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Về chúng tôi</Link>
             <Link href="/class" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Lớp học</Link>
             <Link href="/library" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">Thư viện</Link>
-            <Link href="/new&blog" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">News & Blog</Link>
+            <Link href="/news&blog" className="text-[#000F30] text-[16px] hover:opacity-100 font-normal">News & Blog</Link> */}
+            </div> ))}
           </div>
 
           <div className="flex flex-col gap-4">

@@ -1,22 +1,21 @@
 'use client'
 
 import Image from "next/image";
-import { useGetMisson } from "@/schema/services/Aboutus/Misson";
+import { useTranslations } from 'next-intl';
 
-export const Misson = () => {
-  // Lấy dữ liệu từ hook useGetMisson
-  const { data:infor_mission, isLoading} = useGetMisson();
-  
-  if (isLoading) return <div>Loading ....</div>;
+export const Misson = ({ data }: { data: any }) => { 
+  const t = useTranslations();
+
+  if (!data) return <div></div>;
 
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
       <div className="grid lg:grid-cols-2 place-items-center gap-11">
         <div>
           <h2 className="text-[32px] font-[600] md:text-5xl md:py-[40px] md:font-bold mb-4 text-[#BE5C59]">
-            {infor_mission.name}
+            {data?.name || t('mission.label.Title')}
           </h2>
-          <p className="text-[#514F4F] text-[18px] ">{infor_mission.vi_description || infor_mission.en_description}</p>
+          <p className="text-[#514F4F] text-[18px] ">{data?.description || t('mission.Description')}</p>
         </div>
 
         <div className="flex relative w-[330px] h-[330px] xl:w-[577px] xl:h-[577px]">
@@ -27,8 +26,8 @@ export const Misson = () => {
                 style={{
                   objectFit: "cover",
                 }}
-                src={`/${infor_mission.image}`} 
-                alt="about"
+                src={`/${data?.image}`} 
+                alt={t('mission.imageAlt')}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>

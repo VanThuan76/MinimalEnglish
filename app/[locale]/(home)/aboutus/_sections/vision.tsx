@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
 import Image from "next/image";
-import { useGetVision } from "@/schema/services/Aboutus/Vision";
+import { useTranslations } from 'next-intl';
 
-export const Vision = () => {
-  // Lấy dữ liệu từ hook useGetMisson
-  const { data:infor_vision, isLoading} = useGetVision();
-  
-  if (isLoading) return <div>Loading ....</div>;
-  console.log('Vision Data',infor_vision )
+export const Vision = ({ data }: { data: any }) => {
+  const t = useTranslations();
+
+  if (!data) return <div></div>;
+
+ /*  console.log('Vision Data', data); */
 
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
@@ -20,11 +20,9 @@ export const Vision = () => {
               <div className="relative w-[310px] z-[2] h-[310px] rounded-[32px] xl:w-[530px] xl:h-[530px] drop-shadow-2xl overflow-hidden">
                 <Image
                   fill
-                  style={{
-                    objectFit: "cover"
-                  }}
-                  src={`/${infor_vision.image}`}
-                  alt="about"
+                  style={{ objectFit: "cover" }}
+                  src={`/${data?.image}`}
+                  alt={t('visionTitle')}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
@@ -36,12 +34,12 @@ export const Vision = () => {
           </div>
         </div>
 
-        <div >
+        <div>
           <h2 className="text-[32px] font-[600] md:text-5xl md:py-[40px] md:font-bold mb-4 text-[#BE5C59]">
-            {infor_vision.name}
+            {data?.name || t('vision.label.Title')}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            {infor_vision.vi_description || infor_vision.en_description}
+            {data?.description || t('vision.Description')}
           </p>
         </div>
 
@@ -52,14 +50,12 @@ export const Vision = () => {
               <div className="relative w-[310px] z-[2] h-[310px] rounded-[32px]  drop-shadow-2xl overflow-hidden">
                 <Image
                   fill
-                  style={{
-                    objectFit: "cover"
-                  }}
-                  src={`/${infor_vision.image}`}
-                  alt="about"
+                  style={{ objectFit: "cover" }}
+                  src={`/${data.image}`}
+                  alt={t('visionTitle')}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-              </div> 
+              </div>
             </div>
 
             <div className="flex absolute top-0 right-0 w-full h-full justify-start items-end mr-2.5">

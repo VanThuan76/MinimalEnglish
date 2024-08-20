@@ -45,8 +45,9 @@ export default async function RootLayout({
             <Providers>
               <Navbar />
               {children}
+              <FooterSection />
             </Providers>
-            <FooterSection />
+            
           </ThemeProvider>
         </NextIntlClientProvider>
         <Script

@@ -6,6 +6,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface GlobalState {
   order: number;
   title: string;
+  value: number;
 }
 
 // Định nghĩa kiểu cho Context
@@ -21,7 +22,8 @@ const GlobalStateContext = createContext<GlobalStateContextProps | undefined>(un
 export function GlobalStateProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<GlobalState>({
     order: 0, // Giá trị khởi tạo
-    title: ""
+    title: "",
+    value: 1
   });
 
   return (
@@ -34,6 +36,7 @@ export function GlobalStateProvider({ children }: { children: ReactNode }) {
 // Custom hook để sử dụng context
 export function useGlobalState() {
   const context = useContext(GlobalStateContext);
+
   if (!context) {
     throw new Error('useGlobalState phải được sử dụng bên trong GlobalStateProvider');
   }
