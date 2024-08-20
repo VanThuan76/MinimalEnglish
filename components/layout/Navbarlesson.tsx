@@ -29,7 +29,7 @@ export const NavbarLesson = () => {
                 }}
                 className={lecture_type_id === item?.id ? "text-sm px-2 font-bold text-[#BE5C59] bg-transparent" : "text-center px-2 text-[#514F4F] hover:underline bg-transparent"}
               >
-                {item.name}
+                {item?.name}
               </Button>
             </div>
           ))}
@@ -52,7 +52,7 @@ export const NavbarLesson = () => {
                   }}
                   className={clsx("text-base text-[#000F30]", lecture_type_id === item?.id  ? "font-bold text-[#BE5C59] bg-transparent" : "hover:underline bg-transparent")}
                 >
-                  {item.name}
+                  {item?.name}
                 </Button>
                 {/* Add horizontal line below name */}
               </div>

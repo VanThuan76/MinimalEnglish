@@ -28,7 +28,7 @@ export const Navbardocument = () => {
               }}
               key={item.order}
               className={document_type_id === item.id ? 'text-sm px-2 font-bold text-[#BE5C59] bg-transparent' : 'text-base px-2 text-[#514F4F] hover:underline bg-transparent'}>
-              {item.name}
+              {item?.name}
             </Button>
           ))}
         </div>
@@ -50,7 +50,7 @@ export const Navbardocument = () => {
                 key={item.value}
                 className={clsx('text-base text-[#000F30] flex-[0_0_auto] mx-2', document_type_id === item.id ? 'font-bold text-[#BE5C59] bg-transparent' : 'hover:underline bg-transparent')}
               >
-                {item.name}
+                {item?.name}
               </Button>
             ))}
           </CarouselContent>

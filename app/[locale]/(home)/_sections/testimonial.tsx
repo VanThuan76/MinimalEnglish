@@ -98,7 +98,7 @@ export const TestimonialSection = () => {
         <CarouselContent>
           {reviewList.map((review) => (
             <CarouselItem
-              key={review.name}
+              key={review?.name}
               className="md:basis-1/2 lg:basis-1/3"
             >
               <Card className="bg-muted/50 dark:bg-card">
@@ -124,8 +124,8 @@ export const TestimonialSection = () => {
                     </Avatar>
 
                     <div className="flex flex-col">
-                      <CardTitle className="text-lg">{review.name}</CardTitle>
-                      <CardDescription>{review.userName}</CardDescription>
+                      <CardTitle className="text-lg">{review?.name}</CardTitle>
+                      <CardDescription>{review?.userName}</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
