@@ -11,6 +11,9 @@ import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FooterSection } from "@/components/layout/footer";
 import Providers from '@/app/providers';
+import { Provider } from 'react-redux';
+import { store } from '@/lib/stores';
+import Providers_redux from '@/app/providers_redux';
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -36,19 +39,20 @@ export default async function RootLayout({
       <link rel="icon" href="/logo.png" sizes="any" />
       <body className={cn("min-h-screen bg-background", openSans.className)}>
         <NextIntlClientProvider messages={translate}>
+          <Providers>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <Providers>
-              <Navbar />
-              {children}
-              <FooterSection />
-            </Providers>
-            
+            <Providers_redux>
+                <Navbar />
+                {children}
+                <FooterSection />
+            </Providers_redux>
           </ThemeProvider>
+          </Providers>
         </NextIntlClientProvider>
         <Script
           type='text/javascript'

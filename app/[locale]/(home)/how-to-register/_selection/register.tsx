@@ -5,7 +5,6 @@ import { useSectionByPage } from '@/schema/services/common';
 
 export const Register = () => {
   const page_content = useSectionByPage(5).data
-  console.log(page_content);
   const t = useTranslations();
   return (
     <div

@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export const AboutUs = ({data}: {data: Section}) => {
   const t = useTranslations("home.about_us")
-  const {data: about, isLoading} = useGetComponent({section_id: data.id, queryKey: "section_about_ME"})
+  const {data: about, isLoading} = useGetComponent({section_id: data?.id, queryKey: "section_about_ME"})
   if(isLoading) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
 
   return (

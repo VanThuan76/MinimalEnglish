@@ -13,7 +13,7 @@ export default function Library() {
         <>                     
                 <GlobalStateProvider>
                 <NavbarLesson />
-                <LessonList />
+                {/*<LessonList />*/}
                 </GlobalStateProvider>                
                 <GlobalStateProvider>
                 <Navbardocument />
