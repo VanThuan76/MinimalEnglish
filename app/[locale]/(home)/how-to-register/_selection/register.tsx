@@ -17,7 +17,7 @@ export const Register = () => {
         {t('register.label.name')}
       </div>
       <div className={"text-black"}>
-        <div className="text-container" dangerouslySetInnerHTML={{ __html: page_content ? page_content[0]?.vi_description || page_content[0]?.en_description  : '' }} />
+        <div className="text-container" dangerouslySetInnerHTML={{ __html: page_content ? page_content[0]?.description : '' }} />
       </div>
     </div>
 
