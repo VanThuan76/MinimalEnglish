@@ -16,12 +16,16 @@ export default function Home() {
   
   return (
     <>
-      <Banner data={section[0]}/>
-      <AboutUs data={section[1]}/> 
-      <Class />
-      <Feedback />
-      <WhyUs data={section[4]}/>
-      <Video data={section[5]}/>
+      {
+        section && <>
+          <Banner data={section[0]}/>
+          <AboutUs data={section[1]}/>
+          <Class />
+          <Feedback />
+          <WhyUs data={section[4]}/>
+          <Video data={section[5]}/>
+        </>
+      }
   </>
   );
 }
