@@ -1,4 +1,4 @@
-import { IBaseResponse } from '@/app/[locale]/type';
+import { Component, IBaseResponse } from '@/app/[locale]/type';
 import { axiosInstance } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 import { useLocale } from 'next-intl';
