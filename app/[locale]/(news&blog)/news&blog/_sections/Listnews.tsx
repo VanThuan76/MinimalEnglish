@@ -1,17 +1,13 @@
 import { useTranslations } from "next-intl";
-
-import { useGlobalState } from "@/components/hooks/GlobalStateContext.tsx";
-
 import { SmNews } from "@/components/ui/smnews";
 import { useGetAllCategory } from "@/schema/services/allcategory";
 
 export const LiNews = ({ data }: { data: any }) => {
     let orderdata
     const t = useTranslations()
-    const { state } = useGlobalState()
 
-    state.order > 0 ? orderdata = data.filter((item: any) => item.news_category_id === state.order) : orderdata = data
-    const filterLiNews = orderdata.filter((item: any) => item.title.toLowerCase().includes(state.title.toLowerCase()))
+     orderdata = data
+    const filterLiNews = orderdata
     const { data: category, isLoading } = useGetAllCategory()
     if (isLoading) return <></>
 

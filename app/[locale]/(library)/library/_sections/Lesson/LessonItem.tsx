@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 type LessonItemProps = {
     title: string;
@@ -12,6 +13,7 @@ type LessonItemProps = {
 };
 
 export const LessonItem: React.FC<LessonItemProps> = ({ title, image, view, time, link }) => {
+    const t = useTranslations()
     return (
         <a 
             href={link} 
@@ -21,7 +23,7 @@ export const LessonItem: React.FC<LessonItemProps> = ({ title, image, view, time
         >
             <div className="relative w-full h-[200px] mb-2">
                 <Image
-                    src={`/${image}`}
+                    src={ `${process.env.NEXT_PUBLIC_IMAGE_URL}/${image}`}
                     priority={true}
                     alt="image"
                     layout="fill"
@@ -36,7 +38,7 @@ export const LessonItem: React.FC<LessonItemProps> = ({ title, image, view, time
                 {title}
             </h2>
             <div className="flex items-center gap-1 text-[16px] leading-6 font-normal text-[#514F4F]">
-                <span className="text-left mr-1.5">{view} lượt xem</span>
+                <span className="text-left mr-1.5">{view} {t('lesson.label.view')}</span>
                 <span className="text-black">•</span>
                 <span className="text-left ml-1.5">{time}</span>
             </div>

@@ -1,22 +1,33 @@
 import MailIcon from "@/components/icons/document-download-icon";
 import React from "react";
+import Image from 'next/image';
 
 
 type DocumentItemProps = {
     title: string;
     downloaded: string;   
     created_at: string;
-    link_file: string;   
+    link_file: string;
+    image: string;
 };
 
-const DocumentItem: React.FC<DocumentItemProps> = ({ title, downloaded, created_at, link_file }) => {
+const DocumentItem: React.FC<DocumentItemProps> = ({ title, downloaded, created_at, link_file, image }) => {
     const handleDownload = () => {
-        window.open(link_file, '_blank');
+      window.open(`${process.env.NEXT_PUBLIC_IMAGE_URL}/${link_file}`, '_blank');
     };
 
     return (
         <div className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
-            <div className="relative w-full h-[200px] mb-5 bg-[#E4E7EC] rounded-lg shadow-lg overflow-hidden"></div>
+            <div className="relative w-full h-[200px] mb-5 bg-[#E4E7EC] rounded-lg shadow-lg overflow-hidden">
+              <Image
+                src={ `${process.env.NEXT_PUBLIC_IMAGE_URL}/${image}`}
+                priority={true}
+                alt="image"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
+            </div>
             <a className="md:w-[372px] w-full text-[20px] leading-8 font-semibold text-[#000F30]">{title}</a>
             <div className="flex items-center gap-1 mt-3 space-x-2">
                 <MailIcon />

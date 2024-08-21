@@ -32,7 +32,7 @@ export const WhyUs = ({ data }: { data: Section }) => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-[120px]">
                 <Accordion type="multiple" className="AccordionRoot" defaultValue={["0"]}>
-                    {whyUs?.map((item: any, index: number) => (
+                    {whyUs && Array.isArray(whyUs) && whyUs?.map((item: any, index: number) => (
                         <AccordionItem key={index} value={`${index}`}>
                             <AccordionTrigger className="text-left text-[#000F30]">
                                 <div className="flex flex-row text-2xl py-3">

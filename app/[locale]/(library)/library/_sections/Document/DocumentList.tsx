@@ -19,13 +19,14 @@ const DocumentList: React.FC<DocumentListProps> = () => {
     return (
         <section className="bg-[#FDF6EB] px-[16px] md:px-[80px] pt-3 md:pt-14">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#FDF6EB]">
-                {document && document?.map((item: any, index: number ) => (
+                {document && Array.isArray(document) && document?.map((item: any, index: number ) => (
                     <DocumentItem
                         key={index}
                         title={item.title}
                         downloaded={item.downloaded}
                         created_at={item.created_at}
                         link_file={item.link_file}
+                        image={item.image}
                     />
                 ))}
             </div>
