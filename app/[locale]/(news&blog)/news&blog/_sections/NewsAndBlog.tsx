@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { useGetAllCategory } from '@/schema/services/allcategory'
-import { useGetNews } from '@/schema/services/AllNews'
+import { useGetNews } from '@/schema/services/allNews'
 
 import { LiNews } from '@/app/[locale]/(news&blog)/news&blog/_sections/Listnews'
 import { NewsBig } from '@/app/[locale]/(news&blog)/news&blog/_sections/NewsBig'
