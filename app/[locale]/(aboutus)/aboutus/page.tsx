@@ -12,9 +12,8 @@ import { useSectionByPage, useSectionByUrl } from '@/schema/services/common';
 import { Feedback } from '@/components/layout/feedback';
 
 export default function AboutUs() {
-  const { data: sections, isLoading } = useSectionByPage(2);
-
-  // const { data: sections, isLoading } = useSectionByUrl('/aboutus');
+  // const { data: sections, isLoading } = useSectionByPage(2);
+  const { data: sections, isLoading } = useSectionByUrl('/aboutus');
 
     if (isLoading) return <></>;
 

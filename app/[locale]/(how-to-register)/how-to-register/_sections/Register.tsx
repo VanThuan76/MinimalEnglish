@@ -1,11 +1,11 @@
 'use client'
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { useSectionByPage } from '@/schema/services/common';
+import { useSectionByPage, useSectionByUrl } from '@/schema/services/common';
 
 
 export const Register = () => {
-    const page_content = useSectionByPage(5).data
+    const page_content = useSectionByUrl('/how-to-register')
     const t = useTranslations();
     return (
         <div
@@ -17,7 +17,7 @@ export const Register = () => {
                 {t('register.label.name')}
             </div>
             <div className={"text-black"}>
-                <div className="text-container" dangerouslySetInnerHTML={{ __html: page_content ? page_content[0]?.description : '' }} />
+                <div className="text-container" dangerouslySetInnerHTML={{ __html: page_content && page_content.data ? page_content.data[0]?.description : '' }} />
             </div>
         </div>
 

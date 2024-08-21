@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-import { useSectionByPage } from "@/schema/services/common";
+import { useSectionByPage, useSectionByUrl } from '@/schema/services/common';
 import { Banner } from '@/app/[locale]/(home)/_sections/banner';
 import { AboutUs } from '@/app/[locale]/(home)/_sections/about_us';
 import { Class } from '@/app/[locale]/(home)/_sections/class';
@@ -14,7 +14,7 @@ import { Video } from '@/app/[locale]/(home)/_sections/video';
 
 
 export default function Home() {
-    const { data: section, isLoading } = useSectionByPage(1)
+    const { data: section, isLoading } = useSectionByUrl('/')
 
     if (isLoading || !section) return <></>
 
