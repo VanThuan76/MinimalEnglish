@@ -36,7 +36,7 @@ export const Highlight = ({ data }: { data: any }) => {
             {components[3]?.title}
           </div>
           <ul className="text-[20px] sm:text-[20px] leading-8 font-normal p-3 text-[#282B27] flex flex-col space-y-4"> 
-                {filterLetures.map((item: any) =>(            
+                {filterLetures && Array.isArray(filterLetures) && filterLetures.map((item: any) =>(            
                 <li key={item.id} className="flex items-start space-x-3">
                   <StarBlingIcon className="w-[24px] h-[24px] flex-shrink-0" />
                   <span className="flex-1" dangerouslySetInnerHTML={{ __html: item?.content }} />
@@ -54,7 +54,7 @@ export const Highlight = ({ data }: { data: any }) => {
             {components[2]?.title}              
           </div>      
           <ul className="text-[20px] sm:text-[20px] leading-8 font-normal p-3 text-[#282B27] flex flex-col space-y-4">
-                {filteredTeachermethods.map((item: any) =>(                          
+                {filteredTeachermethods && Array.isArray(filteredTeachermethods) && filteredTeachermethods.map((item: any) =>(                          
                 <li key={item.id} className="flex items-start space-x-3">
                   <StarBlingIcon className="w-[24px] h-[24px] flex-shrink-0" />
                   <span className="flex-1" dangerouslySetInnerHTML={{ __html: item?.content }} />

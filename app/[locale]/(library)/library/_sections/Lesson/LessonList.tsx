@@ -22,11 +22,11 @@ const LessonList: React.FC<LessonListProps> = () => {
     return (
         <section className="bg-[#FDF6EB] px-[16px] md:px-[80px] pt-3 md:pt-14">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#FDF6EB]">
-                {lecture && lecture?.map((item: any, index: number) => (
+                {lecture && Array.isArray(lecture) && lecture?.map((item: any, index: number) => (
                     <LectureItem
                         key={index}
                         title={item.title}
-                        image={item.image}
+                        image={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item.image}` as string }
                         view={item.viewer}
                         time={item.created_at}
                         link={item.associcate_link}
