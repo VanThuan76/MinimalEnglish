@@ -1,12 +1,16 @@
 import Image from 'next/image'
 import { CircleArrowRight } from 'lucide-react'
+
+import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/navigation'
+
 import { Badge } from '@/components/ui/badge'
 import { ListNews } from '@/app/[locale]/type'
 
 export const NewsBig = ({ tag, image, description, created_at, read_time, title, href }: ListNews) => {
     const t = useTranslations()
+    const router = useRouter()
+
     const [year, month, day] = created_at.split(' ')[0].split('-');
     const publishInfor = `${day}/${month}/${year} - ${read_time} ${t("readtime")}`
 
@@ -37,10 +41,10 @@ export const NewsBig = ({ tag, image, description, created_at, read_time, title,
                         {description}
                     </div>
 
-                    <Link href={`/news&blog/${href}`} className='flex items-center gap-3 w-fit font-semibold text-[20px] bg-white text-[#000F30] lg:text-2xl px-0 group/arrow'>
+                    <div onClick={() => router.push(`/news&blog/${href}`)} className='flex items-center gap-3 w-fit font-semibold text-[20px] bg-white text-[#000F30] lg:text-2xl px-0 group/arrow'>
                         {t("read")}
                         <CircleArrowRight strokeWidth={1.5} size={20} className='transition-transform group-hover/arrow:translate-x-2' />
-                    </Link>
+                    </div>
                 </div>
             </div>
         </section>

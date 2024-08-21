@@ -1,10 +1,11 @@
 "use client"
 
-import { Link } from '@/navigation'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export const ShareZalo = () => {
     const pathname = usePathname()
+
     return (
         <Link
             target="_blank"

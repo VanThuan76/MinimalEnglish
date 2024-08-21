@@ -1,7 +1,8 @@
 'use client';
 
 import Image from "next/image";
-import { Link, usePathname } from "@/navigation";
+import Link from "next/link";
+import { usePathname } from "@/navigation";
 import { MailIcon, PhoneIcon } from "lucide-react";
 
 import { All_Page } from "@/app/[locale]/type";

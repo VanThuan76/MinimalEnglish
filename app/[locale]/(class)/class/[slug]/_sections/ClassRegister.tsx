@@ -2,13 +2,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/navigation';
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 
 
 export const ClassRegister = () => {
     const t = useTranslations();
+    const router = useRouter()
+
     return (
         <div className="px-[7px] py-[12px] h-[700px] md:h-[538px] rounded-[16px] font-sans text-black md:px-[40px] md:py-[80px]
        flex flex-col md:flex-row justify-between gap-5 bg-[#F8EDED] md:rounded-[24px]">
@@ -23,9 +25,9 @@ export const ClassRegister = () => {
                     className="w-[240px] h-[56px] rounded-[16px] bg-[#BE5C59] text-white text-center font-[700] mt-[16px]"
                     variant="ghost"
                 >
-                    <Link href={"/how-to-register"} className="flex gap-2">
+                    <div onClick={() => router.push("/how-to-register")} className="flex gap-2">
                         {t('class.label.register')}
-                    </Link>
+                    </div>
                 </Button>
             </div>
             <div className={"rounded-[32px] w-full h-full md:w-[483px] md:h-[378px] border border-solid  border-[#C1C5BF] flex justify-end relative"}>

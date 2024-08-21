@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
-import { Link } from "@/navigation";
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from "next-intl";
+import { useRouter } from 'next/navigation';
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,8 @@ import { useGetHLClass } from "@/schema/services/hlClass";
 
 export const Class = () => {
     const t = useTranslations()
+    const router = useRouter()
+
     const { data: menu } = useGetAll()
     const { data: info_classes, isLoading } = useGetHLClass();
 
@@ -65,10 +67,10 @@ export const Class = () => {
                                         className="w-full p-0 h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] group/arrow"
                                         variant="ghost"
                                     >
-                                        <Link href={`${menu[2].url}/${item?.id}`} className="flex justify-center items-center gap-2 w-full h-full">
+                                        <div onClick={() => router.push(`${menu[2].url}/${item?.id}`)} className="flex justify-center items-center gap-2 w-full h-full">
                                             {t("discovery")}
                                             <ArrowRight className="group-hover/arrow:translate-x-2 transition-transform" />
-                                        </Link>
+                                        </div>
                                     </Button>
                                 </div>
                             </Card>

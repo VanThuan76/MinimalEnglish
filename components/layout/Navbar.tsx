@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
-import { Link, usePathname } from "@/navigation";
+import { useRouter, usePathname } from "@/navigation";
 
 import { Menu, X } from "lucide-react";
 import {
@@ -33,10 +33,14 @@ import { useAppDispatch, useAppSelector } from '@/components/hooks/useRedux';
 import { setActiveMenu } from '@/lib/stores/appSlice';
 
 export const Navbar = () => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
     const { data: menu, isLoading: isLoading1 } = useGetAll()
     const { data: classList, isLoading: isLoading2 } = useGetAllClass()
+
     const pathname = usePathname();
-    const [isOpen, setIsOpen] = React.useState(false);
+    const router = useRouter();
+
     const dispatch = useAppDispatch();
     const activeMenuId = useAppSelector(state => state.activeMenu);
 
@@ -111,9 +115,13 @@ export const Navbar = () => {
                                                     variant="ghost"
                                                     className="justify-start w-full text-base"
                                                 >
-                                                    <Link
-                                                        onClick={() => dispatch(setActiveMenu(item.id))}
-                                                        href={item?.url} className={activeMenuId + '' == item?.id ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{item?.name}</Link>
+                                                    <div
+                                                        onClick={() => {
+                                                            router.push(item?.url)
+                                                            dispatch(setActiveMenu(item.id))
+                                                        }}
+                                                        className={activeMenuId + '' == item?.id ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{item?.name}
+                                                    </div>
                                                 </Button>
                                                 <Separator className="mb-2 bg-[#D0D5DD]" />
                                             </div>
@@ -131,9 +139,13 @@ export const Navbar = () => {
                                                                     variant="ghost"
                                                                     className="justify-start w-full text-base"
                                                                 >
-                                                                    <Link
-                                                                        onClick={() => dispatch(setActiveMenu(item.id))}
-                                                                        href={`${item?.url}/${prop?.id}`} className={clsx("text-sm", pathname === `${item?.url}/${prop?.id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{prop.name}</Link>
+                                                                    <div
+                                                                        onClick={() => {
+                                                                            dispatch(setActiveMenu(item.id))
+                                                                            router.push(`${item?.url}/${prop?.id}`)
+                                                                        }}
+                                                                        className={clsx("text-sm", pathname === `${item?.url}/${prop?.id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{prop.name}
+                                                                    </div>
                                                                 </Button>
                                                                 <Separator className={clsx("mb-2 bg-[#D0D5DD]", index === classList?.length - 1 && "hidden")} />
                                                             </div>
@@ -153,14 +165,16 @@ export const Navbar = () => {
                     <NavigationMenuList className="flex gap-[40px] items-center">
                         {menu?.map((item: any) => (
                             item?.order !== 3
-                                ? <Link
+                                ? <div
                                     key={item.url}
-                                    href={item?.url}
-                                    onClick={() => dispatch(setActiveMenu(item.id))}
+                                    onClick={() => {
+                                        dispatch(setActiveMenu(item.id))
+                                        router.push(item?.url)
+                                    }}
                                     className={clsx("text-base px-2 text-[#000F30] hover:underline", activeMenuId + '' == item?.id && "font-bold text-[#BE5C59] hover:no-underline")}
                                 >
                                     {item?.name}
-                                </Link>
+                                </div>
                                 :
                                 <NavigationMenuItem key={item?.url}>
                                     <NavigationMenuTrigger className={clsx("text-base font-normal text-[#000F30] bg-[#FDF6EB] p-0 data-[state=open]:bg-[#FDF6EB] hover:bg-[#FDF6EB] hover:text-[#000F30] focus:bg-[#FDF6EB] focus:text-[#000F30]", activeMenuId + '' == item?.id && "font-bold text-[#BE5C59]")} >
@@ -169,14 +183,16 @@ export const Navbar = () => {
                                     <NavigationMenuContent>
                                         <div className="grid w-[432px] grid-cols-2 gap-5 p-4 bg-[#FDF6EB]">
                                             {classList?.map((prop: any) => (
-                                                <Link
-                                                    onClick={() => dispatch(setActiveMenu(item.id))}
-                                                    href={`${item?.url}/${prop?.id}`}
+                                                <div
+                                                    onClick={() => {
+                                                        dispatch(setActiveMenu(item.id))
+                                                        router.push(`${item?.url}/${prop?.id}`)
+                                                    }}
                                                     key={prop?.id}
                                                     className={clsx("p-3 text-sm hover:bg-[#fffcf7] line-clamp-2 rounded-md text-[#000F30]", pathname === `${item?.url}/${prop?.id}` && "font-bold text-[#BE5C59]")}
                                                 >
                                                     {prop?.name}
-                                                </Link>
+                                                </div>
                                             ))}
                                         </div>
                                     </NavigationMenuContent>
