@@ -245,16 +245,36 @@ export interface Highlights{
       created_at: string
     }
     export interface Lesson {
-      title: string,
+      id: number,
+      lecture_type_id: string,
+      associcate_link: string,
+      viewer: number,
       image: string,
-      view: string,
-      time: string,
-      link: string
+      created_at: string,
+      updated_at: string,
+      created_by: string,
+      updated_by: string,
+      order: number,
+      status: number,
+      title: string,
+      description: string,
+      content: string  
     }
     export interface document {
-      title: string,      
-      downloads: string,      
-      time: string,
+      id: number,
+      document_type_id: string,
+      link_file: string,
+      downloaded: number,
+      image: string,
+      created_at: string,
+      updated_at: string,
+      created_by: string,
+      updated_by: string,
+      order: number,
+      status: number,
+      title: string,
+      description: string,
+      content: string
       
     }
 
@@ -342,16 +362,4 @@ export interface All_Page {
   order: number,
   status: number,
   name: string,
-}
-
-interface getDocument {
-  id: number;
-  created_at: string;
-  updated_at: string;
-  created_by: string;
-  update_by: string;
-  order: number;
-  status: number;
-  name: string;
-  description: string | null;   
 }

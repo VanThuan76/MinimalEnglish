@@ -36,10 +36,10 @@ export const Vision = ({ data }: { data: any }) => {
 
         <div>
           <h2 className="text-[32px] font-[600] md:text-5xl md:py-[40px] md:font-bold mb-4 text-[#BE5C59]">
-            {data?.name || t('vision.label.Title')}
+            {t('about_us.vision.label')}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            {data?.description || t('vision.Description')}
+            {t('about_us.vision.content')}
           </p>
         </div>
 

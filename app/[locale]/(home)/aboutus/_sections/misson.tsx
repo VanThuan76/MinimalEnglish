@@ -13,9 +13,9 @@ export const Misson = ({ data }: { data: any }) => {
       <div className="grid lg:grid-cols-2 place-items-center gap-11">
         <div>
           <h2 className="text-[32px] font-[600] md:text-5xl md:py-[40px] md:font-bold mb-4 text-[#BE5C59]">
-            {data?.name || t('mission.label.Title')}
+            {t('about_us.mission.label')}
           </h2>
-          <p className="text-[#514F4F] text-[18px] ">{data?.description || t('mission.Description')}</p>
+          <p className="text-[#514F4F] text-[18px] ">{t('about_us.mission.content')}</p>
         </div>
 
         <div className="flex relative w-[330px] h-[330px] xl:w-[577px] xl:h-[577px]">
@@ -27,7 +27,7 @@ export const Misson = ({ data }: { data: any }) => {
                   objectFit: "cover",
                 }}
                 src={`/${data?.image}`} 
-                alt={t('mission.imageAlt')}
+                alt={'image about mission'}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>

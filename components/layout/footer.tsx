@@ -5,13 +5,14 @@ import {  MailIcon, PhoneIcon } from "lucide-react";
 import { Link, usePathname } from "@/navigation";
 import Image from "next/image";
 import MessengerIcon from "@/components/icons/messenger-icon";
-
+import { useTranslations } from 'next-intl';
 import { useGetAll } from "@/schema/services/all";
 import { All_Page } from "@/app/[locale]/type";
 
 export const FooterSection = () => {
   const {data: menu, isLoading: isLoading} = useGetAll()
   const pathname = usePathname();
+  const t = useTranslations();
 
   if (isLoading) return<></>
 
@@ -26,7 +27,7 @@ export const FooterSection = () => {
             <div className="flex items-center gap-3">
               <PhoneIcon className="w-6 h-6 mr-0 text-[#000F30]" />
               <div className="flex flex-col">
-                <h3 className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">Hotline: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">0936635052</span></h3>
+                <h3 className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">Hotline: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">{t('infomation.hotline')}</span></h3>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -36,14 +37,14 @@ export const FooterSection = () => {
                   target="_blank"
                   href="https://www.facebook.com/messages/t/998301663696890"
                   className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">
-                  Ieltsfocusmode
+                  {t('infomation.message')}
                 </Link></h3>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <MailIcon className="w-6 h-6 mr-0 text-[#000F30]" />
               <div className="">
-                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] mr-0 inline">Email: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">tuvan@ielts-nguyenhuyen.com</span></h3>
+                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] mr-0 inline">Email: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">{t('infomation.email')}</span></h3>
               </div>
             </div>
             <div className="flex gap-3">

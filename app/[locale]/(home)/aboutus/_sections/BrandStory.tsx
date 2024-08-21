@@ -14,11 +14,11 @@ export const BrandStory = ({ data }: { data: any }) => {
   return (
     <div className="px-4 py-10 font-sans bg-[#FDF6EB] md:px-[106px] md:py-[40px]">
       <h1 className="text-center leading-[76px] mb-0 font-bold text-[#BE5C59] text-3xl md:text-[48px] md:font-bold">
-        {data?.name || t('brandstory.label.Title')}
+        {t('about_us.brand_story.label')}
       </h1>
       <div className="flex justify-center mb-10">
         <p className="text-[#514F4f] text-[20px] leading-8 font-normal text-center md:text-[20px] md:w-[1228px] h-auto md:h-[96px] py-5">
-        {data?.description || t('brandstory.Description')}
+        {t('about_us.brand_story.description')}
         </p>        
       </div>
 
