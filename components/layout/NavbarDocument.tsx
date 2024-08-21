@@ -47,7 +47,7 @@ export const Navbardocument = () => {
           className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
         >
           <CarouselContent>              
-            {document && document.map((item: any) => (
+            {document && Array.isArray(document) && document.map((item: any) => (
               <Button
                 onClick={() => {
                   dispatch(setActiveDocument(item?.id));

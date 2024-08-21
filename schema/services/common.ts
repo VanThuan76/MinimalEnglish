@@ -17,3 +17,15 @@ export const useSectionByPage = (page_id: number) => {
         },
     })
 };
+export const useSectionByUrl = (path: string) => {
+    const activeMenuId = useAppSelector(state => state.activeMenu);
+    const locale = useLocale()
+
+    return useQuery({
+        queryKey: ['section', path],
+        queryFn: () => axiosInstance.post<IBaseResponse<any>>('/page/get-by-url', { language: locale || 'vi', url: path }),
+        select(data) {
+            return data.data
+        },
+    })
+};

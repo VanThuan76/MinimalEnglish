@@ -9,10 +9,10 @@ import { Vision } from "@/app/[locale]/(aboutus)/aboutus/_sections/Vision";
 import { Highlight } from "@/app/[locale]/(aboutus)/aboutus/_sections/Highlights";
 
 import { Feedback } from "@/components/layout/Feedback";
-import { useSectionByPage } from "@/schema/services/common";
+import { useSectionByUrl } from '@/schema/services/common';
 
 export default function AboutUs() {
-    const { data: sections, isLoading } = useSectionByPage(2);
+    const { data: sections, isLoading } = useSectionByUrl('/aboutus');
 
     if (isLoading) return <></>;
 
