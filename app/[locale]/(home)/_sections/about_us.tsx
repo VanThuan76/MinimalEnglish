@@ -25,7 +25,7 @@ export const AboutUs = ({ data }: { data: Section }) => {
                                     style={{
                                         objectFit: "cover"
                                     }}
-                                    src={`/${about[0]?.image}`}
+                                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${about[0]?.image}` as string}
                                     alt="about"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     priority={true}
@@ -44,7 +44,7 @@ export const AboutUs = ({ data }: { data: Section }) => {
                                     style={{
                                         objectFit: "cover"
                                     }}
-                                    src={`/${about[0]?.image_2}`}
+                                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${about[0]?.image_2}` as string}
                                     alt="about"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     priority={true}
@@ -81,7 +81,7 @@ export const AboutUs = ({ data }: { data: Section }) => {
                                     style={{
                                         objectFit: "cover"
                                     }}
-                                    src={`/${about[0]?.image}`}
+                                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${about[0]?.image}` as string}
                                     alt="about"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     priority={true}
@@ -100,7 +100,7 @@ export const AboutUs = ({ data }: { data: Section }) => {
                                     style={{
                                         objectFit: "cover"
                                     }}
-                                    src={`/${about[0]?.image_2}`}
+                                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${about[0]?.image_2}` as string}
                                     alt="about"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     priority={true}

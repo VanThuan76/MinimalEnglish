@@ -21,7 +21,7 @@ export const NewsBig = ({ tag, image, description, created_at, read_time, title,
                     <Image
                         fill
                         style={{ objectFit: "cover" }}
-                        src={`/${image}`}
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${image}` as string}
                         alt="image"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
