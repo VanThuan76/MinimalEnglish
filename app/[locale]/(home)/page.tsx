@@ -14,6 +14,7 @@ import { Feedback } from "@/components/layout/Feedback";
 
 export default function Home() {
     const { data: section, isLoading } = useSectionByPage(1)
+
     if (isLoading || !section) return <></>
 
     return (
