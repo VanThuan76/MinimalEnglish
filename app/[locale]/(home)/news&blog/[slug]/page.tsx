@@ -9,8 +9,13 @@ export default function DetailNews({params}: { params: { slug: string } }){
   if(isLoading) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
   
   return (
-    <>
-        <News detail={detail}/>
-        <OtherNews id={detail.news_category_id}/>
+    <>  
+    {
+      detail &&
+        <>
+          <News content={detail.content} description={detail.description} image={detail.image} title={detail.title}/>
+          <OtherNews id={detail.news_category_id}/>
+        </>
+    }
     </>
 )}

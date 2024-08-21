@@ -2,7 +2,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const withNextIntl = createNextIntlPlugin()
 
-const hostnames = ['i.pravatar.cc', 'images.unsplash.com', 'github.com'];
+const hostnames = ['dungtq.site', 'i.pravatar.cc', 'images.unsplash.com', 'github.com', 'th.bing.com'];
 
 const nextConfig = {
   swcMinify: true,
@@ -15,6 +15,7 @@ const nextConfig = {
     remotePatterns: hostnames.map(hostname => ({
       protocol: 'https',
       hostname,
+      pathname: '**',
     })),
   },
 };

@@ -1,5 +1,4 @@
 "use client";
-
 import { Menu, X } from "lucide-react";
 import React from "react";
 import {
@@ -25,13 +24,16 @@ import clsx from "clsx";
 import { useGetAll } from "@/schema/services/all";
 import { useGetAllClass } from "@/schema/services/all_short_class";
 import { All_Page } from "@/app/[locale]/type";
+import { useAppDispatch, useAppSelector } from '@/components/hooks/useRedux';
+import { setActiveMenu } from '@/lib/stores/appSlice';
 
 export const Navbar = () => {
-  const {data: menu, isLoading: isLoading1} = useGetAll()
-  const {data: classList, isLoading: isLoading2} = useGetAllClass()
+  const {data: menu} = useGetAll()
+  const {data: classList} = useGetAllClass()
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
-  if (isLoading1 || isLoading2) return <header className="sticky flex flex-row justify-between items-center px-[16px] md:px-[80px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]"></header>
+  const dispatch = useAppDispatch();
+  const activeMenuId = useAppSelector(state => state.activeMenu);
 
   return (
     <header className="sticky flex flex-row justify-between items-center px-[16px] md:px-[80px] z-10 w-full h-[84px] sm:h-[98px] left-0 top-0 bg-[#FDF6EB]">
@@ -90,9 +92,9 @@ export const Navbar = () => {
                 <Separator className="mb-2 bg-[#E0E2DE]" />
 
                 <div className="flex flex-col gap-2">
-                  {menu?.map((item: All_Page) => (
-                    item?.order !== 3
-                      ? <div key={item?.url}>
+                  {menu?.map(({id, order, url, name, }) => (
+                    order !== 3
+                      ? <div key={url}>
                           <Button
                             asChild
                             onClick={() => {
@@ -101,17 +103,19 @@ export const Navbar = () => {
                             variant="ghost"
                             className="justify-start text-base w-full"
                           >
-                            <Link href={item?.url} className={pathname === `${item?.url}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{item?.name}</Link>
+                            <Link
+                              onClick={() => dispatch(setActiveMenu(id))}
+                              href={url} className={activeMenuId + '' == id ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{name}</Link>
                           </Button>
                           <Separator className="mb-2 bg-[#D0D5DD]"/>
                         </div>
-                      : <Accordion key={item?.name} type="single" collapsible className="AccordionRoot my-0">
-                          <AccordionItem value="siuu" className="my-0 border-[#D0D5DD]">
-                            <AccordionTrigger className="text-left pt-0 pb-2 text-[#000F30] hover:no-underline font-normal">
-                              {item?.name}
+                      : <Accordion key={name} type="single" collapsible className="AccordionRoot my-0">
+                          <AccordionItem value="siuu" className={'my-0 border-[#D0D5DD]'}>
+                            <AccordionTrigger className={activeMenuId + '' == id ? ' font-bold text-[#BE5C59] text-left pt-0 pb-2  hover:no-underline' : 'text-left pt-0 pb-2 text-[#000F30] hover:no-underline font-normal'}>
+                              {name}
                             </AccordionTrigger>
                             <AccordionContent>
-                              {classList?.map((prop: any, index: number) => (
+                              {classList?.map(({id, name}, index: number) => (
                                 <div key={index}>
                                   <Button
                                     asChild
@@ -119,7 +123,9 @@ export const Navbar = () => {
                                     variant="ghost"
                                     className="justify-start text-base w-full"
                                   >
-                                    <Link href={`${item?.url}/${prop?.id}`} className={clsx("text-sm",pathname === `${item?.url}/${prop?.id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{prop.name}</Link>
+                                    <Link
+                                      onClick={() => dispatch(setActiveMenu(id))}
+                                      href={`${url}/${id}`} className={clsx("text-sm",pathname === `${url}/${id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{name}</Link>
                                   </Button>
                                   <Separator className={clsx("mb-2 bg-[#D0D5DD]", index === classList?.length - 1 && "hidden")}/>
                                 </div>
@@ -141,20 +147,22 @@ export const Navbar = () => {
                 item?.order !== 3
                 ? <Link 
                     key={item.url} 
-                    href={item?.url} 
-                    className={clsx("text-base px-2 text-[#000F30] hover:underline", pathname === item?.url && "font-bold text-[#BE5C59] hover:no-underline")}
+                    href={item?.url}
+                    onClick={() => dispatch(setActiveMenu(item.id))}
+                    className={clsx("text-base px-2 text-[#000F30] hover:underline", activeMenuId + '' == item?.id && "font-bold text-[#BE5C59] hover:no-underline")}
                   >
                     {item?.name}
                   </Link>
                 : 
                   <NavigationMenuItem key={item?.url}>
-                    <NavigationMenuTrigger className={clsx("text-base font-normal text-[#000F30] bg-[#FDF6EB] p-0 data-[state=open]:bg-[#FDF6EB] hover:bg-[#FDF6EB] hover:text-[#000F30] focus:bg-[#FDF6EB] focus:text-[#000F30]",pathname === item?.url && "font-bold text-[#BE5C59]" )} >
+                    <NavigationMenuTrigger className={clsx("text-base font-normal text-[#000F30] bg-[#FDF6EB] p-0 data-[state=open]:bg-[#FDF6EB] hover:bg-[#FDF6EB] hover:text-[#000F30] focus:bg-[#FDF6EB] focus:text-[#000F30]",activeMenuId + '' == item?.id && "font-bold text-[#BE5C59]" )} >
                       {item?.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="grid w-[432px] grid-cols-2 gap-5 p-4 bg-[#FDF6EB]">
                         {classList?.map((prop: any) => (
                           <Link
+                            onClick={() => dispatch(setActiveMenu(item.id))}
                             href={`${item?.url}/${prop?.id}`}
                             key={prop?.id}
                             className={clsx("p-3 text-sm hover:bg-[#fffcf7] line-clamp-2 rounded-md text-[#000F30]", pathname === `${item?.url}/${prop?.id}` && "font-bold text-[#BE5C59]")}

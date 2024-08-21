@@ -5,19 +5,21 @@ import { ShareFacebook } from "@/app/[locale]/(home)/news&blog/[slug]/_section/s
 import { ShareZalo } from "@/app/[locale]/(home)/news&blog/[slug]/_section/shareZalo" 
 import { Detail } from "@/app/[locale]/type"
 import { Separator } from "@/components/ui/separator"
+import { useTranslations } from "next-intl"
 import Image from "next/image"
 
-export const News: React.FC<{detail: Detail}> = ({detail}) => {  
+export const News: React.FC<{title: string, description: string, image: string, content: string}> = ({title, description, image, content}) => {  
+  const t = useTranslations()
   return (
     <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-white lg:grid grid-cols-3 gap-10">
       <div>
-        <h2 className="font-semibold text-[32px] text-black leading-[52px] mb-8" dangerouslySetInnerHTML={{__html: detail.title}}/>
+        <h2 className="font-semibold text-[32px] text-black leading-[52px] mb-8" dangerouslySetInnerHTML={{__html: title}}/>
         <Separator className="bg-[#98A2B3] mb-8"/>
-        <div className="text-[#514F4F] mb-10" dangerouslySetInnerHTML={{__html: detail.description}} />
+        <div className="text-[#514F4F] mb-10" dangerouslySetInnerHTML={{__html: description}} />
         <div className="w-[300px]">
           <Separator className="bg-[#98A2B3] mb-4" />
           <div className="flex gap-2 items-center">
-            <div className="text-black">Chia Sẻ:</div>
+            <div className="text-black">{t("share")}</div>
             <ShareFacebook />
             <ShareZalo />
             <CopyPathnameButton />
@@ -29,13 +31,13 @@ export const News: React.FC<{detail: Detail}> = ({detail}) => {
           <Image
             fill
             style={{objectFit: "cover"}}
-            src={`/${detail.image}`}
+            src={`/${image}`}
             alt=""
             sizes=""
             priority
           />
         </div>
-        <div className="text-black" dangerouslySetInnerHTML={{__html: detail.content}}/>
+        <div className="text-black" dangerouslySetInnerHTML={{__html: content}}/>
       </div>
       <Separator className="lg:col-span-3 bg-[#98A2B3] mt-7 lg:mt-0"/>
     </section>

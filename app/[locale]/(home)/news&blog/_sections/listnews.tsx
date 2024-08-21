@@ -7,7 +7,7 @@ export const LiNews = ({data}: {data: any}) => {
   let orderdata
   const t = useTranslations()
   const {state} = useGlobalState()
-  
+
   state.order > 0 ? orderdata = data.filter((item: any) => item.news_category_id === state.order) : orderdata = data
   const filterLiNews = orderdata.filter((item: any) => item.title.toLowerCase().includes(state.title.toLowerCase()))
   const {data: category, isLoading} = useGetAllCategory()
@@ -19,7 +19,7 @@ export const LiNews = ({data}: {data: any}) => {
         {filterLiNews.length > 0 
           ? filterLiNews.map((item: any, index: number) => (
             <div key={index}>
-              <SmNews title={item.title} description={item.description} image={item.image} read_time={item.read_time} created_at={item.created_at} tag={category[item.news_category_id - 1].description} href={item.slug}/>
+              <SmNews title={item.title} description={item.description} image={item.image} read_time={item.read_time} created_at={item.created_at} tag={category && category[item.news_category_id - 1].description} href={item.slug}/>
             </div>
           ))
           : <div className="">{t("notFound")}</div>

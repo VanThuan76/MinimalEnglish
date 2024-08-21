@@ -13,8 +13,7 @@ import Image from "next/image";
   
 export const WhyUs = ({data}: {data: Section}) => {
   const t = useTranslations("home.why_us")
-  const {data: whyUs, isLoading} = useGetComponent({section_id: data?.id, queryKey: "section_why_us"})
-  if(isLoading) return <section className="w-full px-[16px] md:px-[80px] h-[400px] py-12 md:py-16 bg-[#FDF6EB]"></section>
+  const {data: whyUs} = useGetComponent({section_id: data?.id, queryKey: "section_why_us"})
   
   return (
     <section className="w-full px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">
@@ -29,18 +28,19 @@ export const WhyUs = ({data}: {data: Section}) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-[120px]">
-        <Accordion type="multiple" className="AccordionRoot" defaultValue={["0"]}>
-          {whyUs?.map((item: any, index: number) => (
-            <AccordionItem key={index} value={`${index}`}>
-              <AccordionTrigger className="text-left text-[#000F30]">
-                <div className="flex flex-row text-2xl py-3">
-                  <div className="pr-4">{index + 1}</div>
-                  {item?.title}
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-[#667085]">{item?.content}</AccordionContent>
-            </AccordionItem>
-        ))}
+        <Accordion type="multiple" className="AccordionRoot" defaultValue={["1"]}>
+          {whyUs &&
+            whyUs.map(({title, content, order}) => (
+              <AccordionItem key={order} value={`${order}`}>
+                <AccordionTrigger className="text-left text-[#000F30]">
+                  <div className="flex flex-row text-2xl py-3">
+                    <div className="pr-4">{order}</div>
+                    {title}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-[#667085]">{content}</AccordionContent>
+              </AccordionItem>
+          ))}
         </Accordion>
         
         <div className="relative overflow-hidden w-full h-[500px] xl:h-[760px] rounded-[32px]">

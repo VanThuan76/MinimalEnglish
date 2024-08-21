@@ -7,8 +7,7 @@ import Image from "next/image";
 
 export const AboutUs = ({data}: {data: Section}) => {
   const t = useTranslations("home.about_us")
-  const {data: about, isLoading} = useGetComponent({section_id: data.id, queryKey: "section_about_ME"})
-  if(isLoading) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
+  const {data: about} = useGetComponent({section_id: data?.id, queryKey: "section_about_ME"})
 
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-white">
@@ -54,7 +53,7 @@ export const AboutUs = ({data}: {data: Section}) => {
 
         <div>
           <h2 className="text-[16px] font-bold md:mt-[10px] mb-4 text-[#BE5C59]">
-            {data.name}           
+            {data?.name}
           </h2>
           
           <h2 className="text-[32px] font-[600] md:text-5xl md:mt-[10px] md:font-bold text-[#000F30]">

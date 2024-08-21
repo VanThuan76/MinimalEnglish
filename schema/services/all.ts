@@ -9,7 +9,7 @@ export const useGetAll = () => {
     queryKey: ["getAllPage"],
     queryFn: () => axiosInstance.get<IBaseResponse<All_Page[]>>(`/page/all?language=${locale}`),
     select(data) {
-      return data.data
+      return data.data || []
     },
   })
 }

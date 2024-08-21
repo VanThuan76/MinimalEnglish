@@ -236,6 +236,7 @@
             ]
         }
     },
+    "share": "Chia Sẻ:",
     "notFound": "No results found",
     "related": "Bài viết liên quan",
     "article": "Đọc thêm",
@@ -257,5 +258,9 @@
             "title": "CÁCH ĐĂNG KÝ",
             "name": "CÁCH ĐĂNG KÝ THAM GIA LỚP HỌC"
         }
+    },
+    "visionTitle": "",
+    "mission": {
+        "imageAlt": ""
     }
 }

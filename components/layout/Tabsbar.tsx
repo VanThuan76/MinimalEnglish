@@ -11,11 +11,10 @@ import { useGetAllCategory } from "@/schema/services/allcategory";
 import { useTranslations } from "next-intl";
 
 export const TabsBar = () => {
-  const {data: category, isLoading} = useGetAllCategory()
+  const {data: category} = useGetAllCategory()
   const {state, setState} = useGlobalState()
   const router = useRouter()
   const t = useTranslations()
-  if(isLoading) return <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]"></div>
 
   return (
     <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#ffffff]">
@@ -31,15 +30,16 @@ export const TabsBar = () => {
             >
               {t("all")}
             </Link>
-            {category.map((item: any) => (
+            {category &&
+            category.map(({order, name}) => (
               <Link 
                 href="/news&blog"
                 onClick={() => {
-                  setState({...state, order: item.order})
+                  setState({...state, order: order})
                 }}
-                key={item.order}
-                className={state.order === item.order ? "text-sm px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
-                {item.name}
+                key={order}
+                className={state.order === order ? "text-sm px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
+                {name}
               </Link>
             ))}
           </div>
@@ -50,7 +50,7 @@ export const TabsBar = () => {
               align: "start",
               dragFree: true
             }}
-            className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
+            className="hidden lg:flex grid-col-5 w-full mb-4"
           >
             <CarouselContent>
               <Link
@@ -62,16 +62,17 @@ export const TabsBar = () => {
               )}>
                 {t("all")}
               </Link>
-              {category.map((item: any) => (
+              {category &&
+              category.map(({order, name }) => (
                 <Link
                   href="/news&blog"
                   onClick={() => {
-                    setState({...state, order: item.order})
+                    setState({...state, order: order})
                   }}
-                  key={item.order} 
-                  className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.order === item.order ? "font-bold text-[#BE5C59]" : "hover:underline"
+                  key={order} 
+                  className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.order === order ? "font-bold text-[#BE5C59]" : "hover:underline"
                 )}>
-                  {item.name}
+                  {name}
                 </Link>
               ))}
             </CarouselContent>

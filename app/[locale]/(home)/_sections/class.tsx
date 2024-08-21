@@ -13,9 +13,7 @@ import Image from "next/image";
 export const Class = () => {
   const t = useTranslations()
   const {data: menu} = useGetAll()
-  const {data: info_classes,isLoading} = useGetHLClass();
-  
-  if (isLoading) return <></>
+  const {data: info_classes} = useGetHLClass();
 
   return (
     <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">
@@ -27,16 +25,17 @@ export const Class = () => {
       </h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 place-items-top">
-        {info_classes?.map((item: any) => {  
+        {info_classes &&
+        info_classes.map(({content, id, image, name, description}) => {  
           let isComing = false
-          if (item?.content === null)
+          if (content === null)
             isComing = true
           return(
-            <div key={item?.id}>
+            <div key={id}>
             <Card className="w-full h-full border-0 shadow-none">
               <CardHeader className="relative overflow-hidden w-full h-[240px] rounded-xl shadow-md">
                 <Image
-                  src={`/${item?.image}`}
+                  src={`/${image}`}
                   alt="image about class"
                   fill
                   style={{
@@ -55,16 +54,16 @@ export const Class = () => {
               </CardHeader>
 
               <div className="flex flex-col justify-between mt-4 h-52">
-                <CardTitle className="text-[#000F30] text-xl">{item?.name}</CardTitle>
+                <CardTitle className="text-[#000F30] text-xl">{name}</CardTitle>
                 <CardContent className="text-[#514F4F] text-base text-left">
-                  {item?.description}
+                  {description}
                 </CardContent>
 
                 <Button
                   className="w-full p-0 h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] group/arrow"
                   variant="ghost"
                   >
-                  <Link href={`${menu[2].url}/${item?.id}`} className="flex justify-center items-center gap-2 w-full h-full">
+                  <Link href={`${menu && menu[2].url}/${id}`} className="flex justify-center items-center gap-2 w-full h-full">
                     {t("discovery")}
                     <ArrowRight className="group-hover/arrow:translate-x-2 transition-transform"/>
                   </Link>

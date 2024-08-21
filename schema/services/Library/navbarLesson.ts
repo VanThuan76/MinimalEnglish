@@ -7,11 +7,11 @@ export const useGetNavbarLesson = () => {
   return useQuery({
     queryKey: ['NavbarLesson'],
     queryFn: async () => {
-      const { data } = await axiosInstance.post<any>('/lecture-type/all', { language: "en" });
+      const { data } = await axiosInstance.post<any>('/lecture-type/all', { language: locale });
       return data; 
     },
     select(data) {
-      return data;
+      return data || [];
     },
   });
 };

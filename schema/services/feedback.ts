@@ -9,7 +9,7 @@ export const useGetFeedback = () => {
     queryKey: ['sectionFeedback'],
     queryFn: () => axiosInstance.post<IBaseResponse<FB>>('/feedback/all', {language: locale, page: 1, size: 18}),
     select(data) {
-      return data.data.data
+      return data.data.data || []
     },
   })
 }

@@ -12,20 +12,20 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
   if(isLoading) return <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]"></section>
   return (
     <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]">
-      <div className="flex flex-col lg:flex-row [@media(max-width:1028px)]:items-center justify-between">
-        <div className="lg:max-w-[460px] xl:max-w-[600px] [@media(min-width:1330px)]:max-w-[700px]">
+      <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+        <div className="lg:max-w-[460px] xl:max-w-[600px] 2xl:max-w-[700px]">
           <h2 className="text-[32px] font-[600] md:text-5xl md:font-bold mb-4 text-[#000F30]">
             {t("title")}
           </h2>
           <h2 className="text-[32px] font-[600] md:text-[48px] md:pb-[20px] md:pt-3 md:font-bold mb-4 text-[#BE5C59] leading-[56px]">
-            {item[0]?.title}
+            {item && item[0]?.title}
           </h2>
           <p className="text-[#514F4F] text-[16px] lg:text-[20px]">
-            {item[0]?.content}
+            {item && item[0]?.content}
           </p>
         </div>
 
-        <div className="grid grid-rows-3 grid-cols-3 w-[330px] h-[330px] lg:w-[400px] lg:h-[400px] place-items-center [@media(max-width:1028px)]:my-8">
+        <div className="grid grid-rows-3 grid-cols-3 w-[330px] h-[330px] lg:w-[400px] lg:h-[400px] place-items-center my-8 lg:my-0">
           <div className="w-[100px] h-[100px] md:w-[120px] md:h-[120px]"></div>
 
           <div className="relative w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-3xl overflow-hidden">
@@ -34,7 +34,7 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
               style={{
                 objectFit: "cover"
               }}
-              src={`/${item[0]?.image}`}
+              src={`/${item && item[0]?.image}`}
               alt="image_1"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
@@ -47,7 +47,7 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
               style={{
                 objectFit: "cover"
               }}
-              src={`/${item[0]?.image_2}`}
+              src={`/${item && item[0]?.image_2}`}
               alt="image_2"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
@@ -65,7 +65,7 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
               style={{
                 objectFit: "cover"
               }}
-              src={`/${item[0]?.image_3}`}
+              src={`/${item && item[0]?.image_3}`}
               alt="image_3"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
@@ -78,7 +78,7 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
               style={{
                 objectFit: "cover"
               }}
-              src={`/${item[0]?.image_4}`}
+              src={`/${item && item[0]?.image_4}`}
               alt="image_4"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
@@ -91,7 +91,7 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
               style={{
                 objectFit: "cover"
               }}
-              src={`/${item[0]?.image_5}`}
+              src={`/${item && item[0]?.image_5}`}
               alt="image_5"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
@@ -104,7 +104,7 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
               style={{
                 objectFit: "cover"
               }}
-              src={`/${item[0]?.image_6}`}
+              src={`/${item && item[0]?.image_6}`}
               alt="image_6"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
@@ -117,7 +117,7 @@ export const Banner:React.FC<{data: Section}> = ({data}) => {
               style={{
                 objectFit: "cover"
               }}
-              src={`/${item[0]?.image_7}`}
+              src={`/${item && item[0]?.image_7}`}
               alt="image_7"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
