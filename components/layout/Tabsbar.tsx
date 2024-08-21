@@ -50,7 +50,7 @@ export const TabsBar = () => {
                         align: "start",
                         dragFree: true
                     }}
-                    className="hidden [@media(max-width:1000px)]:flex grid-col-5 w-full mb-4"
+                    className="lg:hidden flex grid-col-5 w-full mb-4"
                 >
                     <CarouselContent>
                         <div

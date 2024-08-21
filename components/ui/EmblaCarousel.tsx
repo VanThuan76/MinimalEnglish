@@ -42,7 +42,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     }, [emblaApi, scrollPrev]);
 
     return (
-        <div className="overflow-hidden h-full [@media(max-width:1023px)]:w-full " ref={emblaRef}>
+        <div className="overflow-hidden h-full w-full lg:w-auto" ref={emblaRef}>
             <div className="flex h-full lg:mt-0 lg:flex-col">
                 {info_testimonials.map((item: any) => (
                     <div

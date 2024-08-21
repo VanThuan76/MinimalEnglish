@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { CircleArrowRight } from 'lucide-react'
 
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/navigation' 
 import { useTranslations } from 'next-intl'
 
 import { Badge } from '@/components/ui/badge'

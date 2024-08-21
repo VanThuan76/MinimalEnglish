@@ -13,7 +13,12 @@ type LessonItemProps = {
 
 export const LessonItem: React.FC<LessonItemProps> = ({ title, image, view, time, link }) => {
     return (
-        <div className="relative p-3 bg-[#ffffff] border border-[#ffffff] rounded-lg shadow-lg overflow-hidden">
+        <a 
+            href={link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="block p-3 bg-[#ffffff] border border-[#ffffff] rounded-lg shadow-lg overflow-hidden"
+        >
             <div className="relative w-full h-[200px] mb-2">
                 <Image
                     src={`/${image}`}
@@ -27,15 +32,15 @@ export const LessonItem: React.FC<LessonItemProps> = ({ title, image, view, time
                     10:00
                 </div>
             </div>
-            <a href={link} target="_blank" rel="noopener noreferrer" className="block text-[20px] leading-8 font-semibold text-[#000F30] mb-2">
+            <h2 className="text-[20px] leading-8 font-semibold text-[#000F30] mb-2">
                 {title}
-            </a>
+            </h2>
             <div className="flex items-center gap-1 text-[16px] leading-6 font-normal text-[#514F4F]">
                 <span className="text-left mr-1.5">{view} lượt xem</span>
                 <span className="text-black">•</span>
                 <span className="text-left ml-1.5">{time}</span>
             </div>
-        </div>
+        </a>
     );
 };
 
