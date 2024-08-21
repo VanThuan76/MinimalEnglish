@@ -5,10 +5,15 @@ import React from "react";
 type DocumentItemProps = {
     title: string;
     downloaded: string;   
-    created_at: string;    
+    created_at: string;
+    link_file: string;   
 };
 
-const DocumentItem: React.FC<DocumentItemProps> = ({ title, downloaded, created_at }) => {
+const DocumentItem: React.FC<DocumentItemProps> = ({ title, downloaded, created_at, link_file }) => {
+    const handleDownload = () => {
+        window.open(link_file, '_blank');
+    };
+
     return (
         <div className="relative p-3 bg-[#FFFFFF] border border-[#E4E7EC] rounded-lg shadow-lg overflow-hidden ">
             <div className="relative w-full h-[200px] mb-5 bg-[#E4E7EC] rounded-lg shadow-lg overflow-hidden"></div>
@@ -19,7 +24,8 @@ const DocumentItem: React.FC<DocumentItemProps> = ({ title, downloaded, created_
                 <span className="text-black">•</span>
                 <span className="text-[16px] leading-6 font-normal text-[#514F4F]">{created_at} </span>
             </div>
-            <button className="w-full h-[64px] text-[#ffffff] text-[20px] bg-[#BE5C59] rounded-lg font-semibold leading-8 border-none mt-4">Tải về</button>
+            <button  onClick={handleDownload}
+            className="w-full h-[64px] text-[#ffffff] text-[20px] bg-[#BE5C59] rounded-lg font-semibold leading-8 border-none mt-4">Tải về</button>
         </div>
     );
 };

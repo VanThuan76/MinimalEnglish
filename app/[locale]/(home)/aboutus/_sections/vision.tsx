@@ -51,7 +51,7 @@ export const Vision = ({ data }: { data: any }) => {
                 <Image
                   fill
                   style={{ objectFit: "cover" }}
-                  src={`/${data.image}`}
+                  src={`/${data?.image}`}
                   alt={t('visionTitle')}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />

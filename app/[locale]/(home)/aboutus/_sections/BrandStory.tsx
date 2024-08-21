@@ -1,6 +1,5 @@
 'use client';
 
-import Image from "next/image";
 import clsx from "clsx";
 import { useTranslations } from 'next-intl';
 import { useGetComponent } from "@/schema/services/component";

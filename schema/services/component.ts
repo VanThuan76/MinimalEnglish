@@ -9,7 +9,7 @@ export const useGetComponent = ({section_id, queryKey}: {section_id: number , qu
     queryKey: [queryKey],
     queryFn: () => axiosInstance.post<IBaseResponse<any>>('/component/get-by-section', {language: locale, section_id: section_id}),
     select(data) {
-      return data.data
+      return data.data || []
     },
   })
 }

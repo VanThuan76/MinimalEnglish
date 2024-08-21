@@ -5,7 +5,6 @@ import { useSectionByPage } from '@/schema/services/common';
 
 export const Register = () => {
   const page_content = useSectionByPage(5).data
-  console.log(page_content);
   const t = useTranslations();
   return (
     <div
@@ -17,7 +16,7 @@ export const Register = () => {
         {t('register.label.name')}
       </div>
       <div className={"text-black"}>
-        <div className="text-container" dangerouslySetInnerHTML={{ __html: page_content ? page_content[0]?.vi_description || page_content[0]?.en_description  : '' }} />
+        <div className="text-container" dangerouslySetInnerHTML={{ __html: page_content ? page_content[0]?.description : '' }} />
       </div>
     </div>
 

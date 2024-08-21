@@ -39,7 +39,7 @@ export const TabsBar = () => {
                 }}
                 key={item.order}
                 className={state.order === item.order ? "text-sm px-2 font-bold text-[#BE5C59]" : "text-base px-2 text-[#514F4F] hover:underline"}>
-                {item.name}
+                {item?.name}
               </Link>
             ))}
           </div>
@@ -71,7 +71,7 @@ export const TabsBar = () => {
                   key={item.order} 
                   className={clsx("text-base text-[#000F30] flex-[0_0_auto] mx-2", state.order === item.order ? "font-bold text-[#BE5C59]" : "hover:underline"
                 )}>
-                  {item.name}
+                  {item?.name}
                 </Link>
               ))}
             </CarouselContent>

@@ -258,7 +258,8 @@ export interface Highlights{
       status: number,
       title: string,
       description: string,
-      content: string  
+      content: string
+      state  : string
     }
     export interface document {
       id: number,
