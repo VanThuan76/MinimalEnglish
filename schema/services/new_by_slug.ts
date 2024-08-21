@@ -1,15 +1,17 @@
-import { IBaseResponse, Slug } from '@/app/[locale]/type';
-import { axiosInstance } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 import { useLocale } from 'next-intl';
 
-export const useGetNewsBySlug = ({slug}: {slug: string}) => {
-  const locale = useLocale()
-  return useQuery({
-    queryKey: [slug],
-    queryFn: () => axiosInstance.post<IBaseResponse<Slug[]>>('/news/get-by-slug', {language: locale, slug: slug}),
-    select(data) {
-      return data.data[0]
-    },
-  })
+import { axiosInstance } from '@/lib/api';
+import { IBaseResponse } from '@/app/[locale]/type';
+
+export const useGetNewsBySlug = ({ slug }: { slug: string }) => {
+    const locale = useLocale()
+
+    return useQuery({
+        queryKey: ['news', slug],
+        queryFn: () => axiosInstance.post<IBaseResponse<any>>('/news/get-by-slug', { language: locale, slug: slug }),
+        select(data) {
+            return data.data[0]
+        },
+    })
 }

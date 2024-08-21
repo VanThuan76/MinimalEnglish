@@ -7,58 +7,46 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/layout/navbar";
-import { ThemeProvider } from "@/components/layout/theme-provider";
-import { FooterSection } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/Navbar";
+import { FooterSection } from "@/components/layout/Footer";
+
 import Providers from '@/app/providers';
-import { Provider } from 'react-redux';
-import { store } from '@/lib/stores';
-import Providers_redux from '@/app/providers_redux';
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Minimal English",
-  description: "Minimal English",
-  icons: {
-    icon: '/images/logo.png',
-  }
+    title: "Minimal English",
+    description: "Minimal English",
+    icons: {
+        icon: '/images/logo.png',
+    }
 };
 
 export default async function RootLayout({
-  children,
-  params: { locale }
+    children,
+    params: { locale }
 }: Readonly<{
-  children: React.ReactNode
-  params: { locale: string }
+    children: React.ReactNode
+    params: { locale: string }
 }>) {
-  const translate = await getMessages()
+    const translate = await getMessages()
 
-  return (
-    <html lang={locale} suppressHydrationWarning>
-      <link rel="icon" href="/logo.png" sizes="any" />
-      <body className={cn("min-h-screen bg-background", openSans.className)}>
-        <NextIntlClientProvider messages={translate}>
-          <Providers>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Providers_redux>
-                <Navbar />
-                {children}
-                <FooterSection />
-            </Providers_redux>
-          </ThemeProvider>
-          </Providers>
-        </NextIntlClientProvider>
-        <Script
-          type='text/javascript'
-          src='../node_modules/tw-elements/dist/js/tw-elements.umd.min.js'
-        ></Script>
-      </body>
-    </html>
-  );
+    return (
+        <html lang={locale} suppressHydrationWarning>
+            <link rel="icon" href="/logo.png" sizes="any" />
+            <body className={cn("min-h-screen bg-background", openSans.className)}>
+                <NextIntlClientProvider messages={translate}>
+                    <Providers>
+                        <Navbar />
+                        {children}
+                        <FooterSection />
+                    </Providers>
+                </NextIntlClientProvider>
+                <Script
+                    type='text/javascript'
+                    src='../node_modules/tw-elements/dist/js/tw-elements.umd.min.js'
+                ></Script>
+            </body>
+        </html>
+    );
 }
