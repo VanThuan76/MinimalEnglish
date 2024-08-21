@@ -8,8 +8,8 @@ import { Misson } from "@/app/[locale]/(aboutus)/aboutus/_sections/Misson";
 import { Vision } from "@/app/[locale]/(aboutus)/aboutus/_sections/Vision";
 import { Highlight } from "@/app/[locale]/(aboutus)/aboutus/_sections/Highlights";
 
-import { Feedback } from "@/components/layout/Feedback";
 import { useSectionByPage, useSectionByUrl } from '@/schema/services/common';
+import { Feedback } from '@/components/layout/feedback';
 
 export default function AboutUs() {
   const { data: sections, isLoading } = useSectionByPage(2);
