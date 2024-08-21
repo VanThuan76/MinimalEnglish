@@ -2,7 +2,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const withNextIntl = createNextIntlPlugin()
 
-const hostnames = ['dungtq.site', 'i.pravatar.cc', 'images.unsplash.com', 'github.com', 'th.bing.com'];
+const hostnames = ['spaniel-flowing-sunbeam.ngrok-free.app', 'dungtq.site', 'i.pravatar.cc', 'images.unsplash.com', 'github.com', 'th.bing.com'];
 
 const nextConfig = {
   swcMinify: true,
