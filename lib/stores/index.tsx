@@ -7,21 +7,21 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 enableMapSet();
 
 const persistConfig = {
-  key: 'root',
-  version: 1,
-  storage,
+    key: 'root',
+    version: 1,
+    storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, appSlice);
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+    reducer: persistedReducer,
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
