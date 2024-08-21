@@ -26,7 +26,7 @@ const LessonList: React.FC<LessonListProps> = () => {
                     <LectureItem
                         key={index}
                         title={item.title}
-                        image={item.image}
+                        image={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item.image}` as string }
                         view={item.viewer}
                         time={item.created_at}
                         link={item.associcate_link}

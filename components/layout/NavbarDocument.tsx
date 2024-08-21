@@ -17,11 +17,11 @@ export const Navbardocument = () => {
 
   return (
     <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#FDF6EB]">
-      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">Tài liệu</h1>
+      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">{t('Documents')}</h1>
       <div className="lg:flex block justify-between mb-5">
         {/* desktop */}
         <div className="hidden lg:flex flex-row justify-between items-center w-[760px]">                    
-          {document && document.map((item: any) => (
+          {document && Array.isArray(document) && document.map((item: any) => (
             <Button
               onClick={() => {
                 dispatch(setActiveDocument(item?.id));

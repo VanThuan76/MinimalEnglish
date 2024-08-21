@@ -267,5 +267,10 @@
     "visionTitle": "",
     "mission": {
         "imageAlt": ""
-    }
+    },
+    "viewer": "lượt xem",
+    "download": "lượt tải",
+    "Lecture": "Bài Giảng",
+    "Documents": "Tài Liệu",
+    "downloaded": "Tải về"
 }

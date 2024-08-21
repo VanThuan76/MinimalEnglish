@@ -23,7 +23,7 @@ export const BrandStory = ({ data }: { data: any }) => {
 
       <div className="relative w-full flex justify-center top-20">
         <div className="relative w-full max-w-[920px]">
-          {components?.map((item: any, index: number) => (
+          {components && Array.isArray(components) && components?.map((item: any, index: number) => (
             <div key={item.id} className="flex items-start relative">
               {index % 2 === 0 ? (
                 <>
