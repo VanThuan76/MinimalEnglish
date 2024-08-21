@@ -129,7 +129,7 @@ export const Navbar = () => {
                                             </div>
                                             : <Accordion key={item?.name} type="single" collapsible className="my-0 AccordionRoot">
                                                 <AccordionItem value="siuu" className={'my-0 border-[#D0D5DD]'}>
-                                                    <AccordionTrigger className={pathname == item?.url ? ' font-bold text-[#BE5C59] text-left pt-0 pb-2  hover:no-underline' : 'text-left pt-0 pb-2 text-[#000F30] hover:no-underline font-normal'}>
+                                                    <AccordionTrigger className={pathname.includes(item?.url) ? ' font-bold text-[#BE5C59] text-left pt-0 pb-2  hover:no-underline' : 'text-left pt-0 pb-2 text-[#000F30] hover:no-underline font-normal'}>
                                                         {item?.name}
                                                     </AccordionTrigger>
                                                     <AccordionContent>
@@ -146,7 +146,7 @@ export const Navbar = () => {
                                                                             dispatch(setActiveMenu(item.id))
                                                                             router.push(`${item?.url}/${prop?.id}`)
                                                                         }}
-                                                                        className={clsx("text-sm", pathname === `${item?.url}/${prop?.id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{prop.name}
+                                                                        className={clsx("text-sm", params.slug === `${prop?.id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{prop.name}
                                                                     </div>
                                                                 </Button>
                                                                 <Separator className={clsx("mb-2 bg-[#D0D5DD]", index === classList?.length - 1 && "hidden")} />
@@ -180,7 +180,7 @@ export const Navbar = () => {
                                 :
                                 <NavigationMenuItem key={item?.url}>
                                     <NavigationMenuTrigger className={clsx("text-base font-normal text-[#000F30] bg-[#FDF6EB] p-0 data-[state=open]:bg-[#FDF6EB] hover:bg-[#FDF6EB] hover:text-[#000F30] focus:bg-[#FDF6EB] focus:text-[#000F30]",
-                                      activeMenuId + '' == item?.id && "font-bold text-[#BE5C59]")} >
+                                      pathname.includes(item?.url)  && "font-bold text-[#BE5C59]")} >
                                         {item?.name}
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
