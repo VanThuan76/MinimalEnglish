@@ -6,7 +6,7 @@ export const useGetFeedback = () => {
   const locale = useLocale()
   return useQuery({
     queryKey: ['sectionFeedback'],
-    queryFn: () => axiosInstance.post<any>('/feedback/all', {language: locale, page: 1, size: 18}),
+    queryFn: () => axiosInstance.post<IBaseResponse<FB>>('/feedback/all', {language: locale, page: 1, size: 18}),
     select(data) {
       return data.data.data
     },

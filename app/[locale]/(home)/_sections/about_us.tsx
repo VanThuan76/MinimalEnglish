@@ -23,7 +23,7 @@ export const AboutUs = ({data}: {data: Section}) => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={`/${about[0]?.image}`}
+                  src={`/${about && about[0]?.image}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority
@@ -42,7 +42,7 @@ export const AboutUs = ({data}: {data: Section}) => {
                   style={{
                     objectFit: "cover"
                   }}
-                  src={`/${about[0]?.image_2}`}
+                  src={`/${about && about[0]?.image_2}`}
                   alt="about"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority
@@ -65,7 +65,7 @@ export const AboutUs = ({data}: {data: Section}) => {
             {t("title2")}
           </h2>
           <p className="text-[#514F4F] text-[18px]">
-            {about[0]?.content}
+            {about && about[0]?.content}
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export const AboutUs = ({data}: {data: Section}) => {
                       style={{
                         objectFit: "cover"
                       }}
-                      src={`/${about[0]?.image}`}
+                      src={`/${about && about[0]?.image}`}
                       alt="about"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority
@@ -98,7 +98,7 @@ export const AboutUs = ({data}: {data: Section}) => {
                       style={{
                         objectFit: "cover"
                       }}
-                      src={`/${about[0]?.image_2}`}
+                      src={`/${about && about[0]?.image_2}`}
                       alt="about"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority
