@@ -23,7 +23,7 @@ export default function Home() {
             <AboutUs data={section[1]} />
             <Class />
             <Feedback />
-            {/* <WhyUs data={section[4]} /> */}
+            <WhyUs data={section[4]} />
             <Video data={section[5]} />
         </React.Fragment>
     );
