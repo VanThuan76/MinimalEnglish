@@ -18,7 +18,7 @@ export const Class = () => {
     const { data: menu } = useGetAll()
     const { data: info_classes, isLoading } = useGetHLClass();
 
-    if (isLoading || !info_classes) return <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]"></section>
+    if (isLoading || !info_classes || !menu) return <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]"></section>
 
     return (
         <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">

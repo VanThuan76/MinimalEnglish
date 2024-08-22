@@ -9,7 +9,7 @@ export const Highlight = ({ data }: { data: any }) => {
   const t = useTranslations();
   const { data: components, isLoading } = useGetComponent({ section_id: 9, queryKey: 'higlight' });
 
-  if (!data || isLoading) return <div></div>; 
+  if (!components || isLoading) return <div></div>;
 
   const filterLetures = components.filter((item: any)=> item.title === components[3]?.title) || [];
   const filteredTeachermethods = components.filter((item: any) => item.title === components[2]?.title ) || [];
@@ -32,35 +32,35 @@ export const Highlight = ({ data }: { data: any }) => {
           <div className="mb-5">
             <LectureIcon />
           </div>
-          <div className="font-[600] text-[#000F30] p-3 leading-[52px] text-[32px] sm:text-[32px] md:font-bold mb-[10px]">            
+          <div className="font-[600] text-[#000F30] p-3 leading-[52px] text-[32px] sm:text-[32px] md:font-bold mb-[10px]">
             {components[3]?.title}
           </div>
-          <ul className="text-[20px] sm:text-[20px] leading-8 font-normal p-3 text-[#282B27] flex flex-col space-y-4"> 
-                {filterLetures && Array.isArray(filterLetures) && filterLetures.map((item: any) =>(            
+          <ul className="text-[20px] sm:text-[20px] leading-8 font-normal p-3 text-[#282B27] flex flex-col space-y-4">
+                {filterLetures && Array.isArray(filterLetures) && filterLetures.map((item: any) =>(
                 <li key={item.id} className="flex items-start space-x-3">
                   <StarBlingIcon className="w-[24px] h-[24px] flex-shrink-0" />
                   <span className="flex-1" dangerouslySetInnerHTML={{ __html: item?.content }} />
                 </li>
-                ))}              
+                ))}
           </ul>
         </div>
 
         {/* Section for Teaching Methods */}
-        <div className="flex flex-col items-start mb-10" style={{ borderTop: '1px solid #C1C5BF', paddingTop: '50px' }}>       
+        <div className="flex flex-col items-start mb-10" style={{ borderTop: '1px solid #C1C5BF', paddingTop: '50px' }}>
           <div className="mb-5">
             <TeachMethodIcon />
           </div>
-          <div className="font-[600] text-[#000F30] p-3 leading-[52px] text-[32px] sm:text-[32px] md:font-bold mb-[10px]">                            
-            {components[2]?.title}              
-          </div>      
+          <div className="font-[600] text-[#000F30] p-3 leading-[52px] text-[32px] sm:text-[32px] md:font-bold mb-[10px]">
+            {components[2]?.title}
+          </div>
           <ul className="text-[20px] sm:text-[20px] leading-8 font-normal p-3 text-[#282B27] flex flex-col space-y-4">
-                {filteredTeachermethods && Array.isArray(filteredTeachermethods) && filteredTeachermethods.map((item: any) =>(                          
+                {filteredTeachermethods && Array.isArray(filteredTeachermethods) && filteredTeachermethods.map((item: any) =>(
                 <li key={item.id} className="flex items-start space-x-3">
                   <StarBlingIcon className="w-[24px] h-[24px] flex-shrink-0" />
                   <span className="flex-1" dangerouslySetInnerHTML={{ __html: item?.content }} />
                 </li>
               ))}
-            
+
           </ul>
         </div>
       </div>

@@ -11,7 +11,7 @@ import { NewsBig } from '@/app/[locale]/(news&blog)/news&blog/_sections/NewsBig'
 export const NewsAndBlog = () => {
     const { data: category, isLoading: isLoading1 } = useGetAllCategory()
     const { data: news, isLoading: isLoading2 } = useGetNews()
-    if (isLoading2 || isLoading1) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white" />
+    if (isLoading2 || isLoading1 || !news || !category) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white" />
 
     return (
         <React.Fragment>

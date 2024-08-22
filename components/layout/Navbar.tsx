@@ -24,13 +24,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 
-import { All_Page } from "@/app/[locale]/type";
-
 import { useGetAll } from "@/schema/services/all";
 import { useGetAllClass } from "@/schema/services/all_short_class";
 
 import { useAppDispatch, useAppSelector } from '@/components/hooks/useRedux';
 import { setActiveMenu } from '@/lib/stores/appSlice';
+import { useParams } from 'next/navigation';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -40,6 +39,7 @@ export const Navbar = () => {
 
     const pathname = usePathname();
     const router = useRouter();
+    const params = useParams()
 
     const dispatch = useAppDispatch();
     const activeMenuId = useAppSelector(state => state.activeMenu);
@@ -104,7 +104,7 @@ export const Navbar = () => {
                                 <Separator className="mb-2 bg-[#E0E2DE]" />
 
                                 <div className="flex flex-col gap-2">
-                                    {menu?.map((item: All_Page) => (
+                                    {menu?.map((item) => (
                                         item?.order !== 3
                                             ? <div key={item?.url}>
                                                 <Button
@@ -120,14 +120,14 @@ export const Navbar = () => {
                                                             router.push(item?.url)
                                                             dispatch(setActiveMenu(item.id))
                                                         }}
-                                                        className={activeMenuId + '' == item?.id ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{item?.name}
+                                                        className={pathname == item?.url ? ' font-bold text-[#BE5C59]' : "text-[#282B27]"}>{item?.name}
                                                     </div>
                                                 </Button>
                                                 <Separator className="mb-2 bg-[#D0D5DD]" />
                                             </div>
                                             : <Accordion key={item?.name} type="single" collapsible className="my-0 AccordionRoot">
                                                 <AccordionItem value="siuu" className={'my-0 border-[#D0D5DD]'}>
-                                                    <AccordionTrigger className={activeMenuId + '' == item?.id ? ' font-bold text-[#BE5C59] text-left pt-0 pb-2  hover:no-underline' : 'text-left pt-0 pb-2 text-[#000F30] hover:no-underline font-normal'}>
+                                                    <AccordionTrigger className={pathname.includes(item?.url) ? ' font-bold text-[#BE5C59] text-left pt-0 pb-2  hover:no-underline' : 'text-left pt-0 pb-2 text-[#000F30] hover:no-underline font-normal'}>
                                                         {item?.name}
                                                     </AccordionTrigger>
                                                     <AccordionContent>
@@ -144,7 +144,7 @@ export const Navbar = () => {
                                                                             dispatch(setActiveMenu(item.id))
                                                                             router.push(`${item?.url}/${prop?.id}`)
                                                                         }}
-                                                                        className={clsx("text-sm", pathname === `${item?.url}/${prop?.id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{prop.name}
+                                                                        className={clsx("text-sm", params.slug === `${prop?.id}` ? ' font-bold text-[#BE5C59]' : "text-[#282B27]")}>{prop.name}
                                                                     </div>
                                                                 </Button>
                                                                 <Separator className={clsx("mb-2 bg-[#D0D5DD]", index === classList?.length - 1 && "hidden")} />
@@ -161,7 +161,7 @@ export const Navbar = () => {
                 </div>
 
                 {/* <!-- Desktop --> */}
-                <NavigationMenu className="hidden lg:block">
+                <NavigationMenu className="hidden lg:block cursor-pointer">
                     <NavigationMenuList className="flex gap-[40px] items-center">
                         {menu?.map((item: any) => (
                             item?.order !== 3
@@ -171,13 +171,14 @@ export const Navbar = () => {
                                         dispatch(setActiveMenu(item.id))
                                         router.push(item?.url)
                                     }}
-                                    className={clsx("text-base px-2 text-[#000F30] hover:underline", activeMenuId + '' == item?.id && "font-bold text-[#BE5C59] hover:no-underline")}
+                                    className={clsx("text-base px-2 text-[#000F30] hover:underline", pathname === item?.url && "font-bold text-[#BE5C59] hover:no-underline")}
                                 >
                                     {item?.name}
                                 </div>
                                 :
                                 <NavigationMenuItem key={item?.url}>
-                                    <NavigationMenuTrigger className={clsx("text-base font-normal text-[#000F30] bg-[#FDF6EB] p-0 data-[state=open]:bg-[#FDF6EB] hover:bg-[#FDF6EB] hover:text-[#000F30] focus:bg-[#FDF6EB] focus:text-[#000F30]", activeMenuId + '' == item?.id && "font-bold text-[#BE5C59]")} >
+                                    <NavigationMenuTrigger className={clsx("text-base font-normal text-[#000F30] bg-[#FDF6EB] p-0 data-[state=open]:bg-[#FDF6EB] hover:bg-[#FDF6EB] hover:text-[#000F30] focus:bg-[#FDF6EB] focus:text-[#000F30]",
+                                        pathname.includes(item?.url) && "font-bold text-[#BE5C59]")} >
                                         {item?.name}
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
@@ -189,7 +190,7 @@ export const Navbar = () => {
                                                         router.push(`${item?.url}/${prop?.id}`)
                                                     }}
                                                     key={prop?.id}
-                                                    className={clsx("p-3 text-sm hover:bg-[#fffcf7] line-clamp-2 rounded-md text-[#000F30]", pathname === `${item?.url}/${prop?.id}` && "font-bold text-[#BE5C59]")}
+                                                    className={clsx("p-3 text-sm hover:bg-[#fffcf7] line-clamp-2 rounded-md text-[#000F30]", params.slug === `${prop?.id}` && "font-bold text-[#BE5C59]")}
                                                 >
                                                     {prop?.name}
                                                 </div>
