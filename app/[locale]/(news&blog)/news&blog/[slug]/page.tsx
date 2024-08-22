@@ -10,10 +10,11 @@ import { OtherNews } from "@/app/[locale]/(news&blog)/news&blog/[slug]/_sections
 export default function DetailNews({ params }: { params: { slug: string } }) {
     const { data: detail, isLoading } = useGetNewsBySlug({ slug: params.slug })
 
-    if (isLoading) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
+    if (isLoading || !detail) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
 
     return (
         <React.Fragment>
+            {/* //Fix ?? */}
             <News detail={detail} />
             <OtherNews id={detail.news_category_id} />
         </React.Fragment>

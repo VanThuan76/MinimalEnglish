@@ -14,8 +14,8 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
 
     return (
         <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]">
-            <div className="flex flex-col lg:flex-row [@media(max-width:1028px)]:items-center justify-between">
-                <div className="lg:max-w-[460px] xl:max-w-[600px] [@media(min-width:1330px)]:max-w-[700px]">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+                <div className="lg:max-w-[460px] xl:max-w-[600px] 2xl:max-w-[700px]">
                     <h2 className="text-[32px] font-[600] md:text-5xl md:font-bold mb-4 text-[#000F30]">
                         {t("title")}
                     </h2>
@@ -27,7 +27,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                     </p>
                 </div>
 
-                <div className="grid grid-rows-3 grid-cols-3 w-[330px] h-[330px] lg:w-[400px] lg:h-[400px] place-items-center [@media(max-width:1028px)]:my-8">
+                <div className="grid grid-rows-3 grid-cols-3 w-[330px] h-[330px] lg:w-[400px] lg:h-[400px] place-items-center my-8 lg:my-0">
                     <div className="w-[100px] h-[100px] md:w-[120px] md:h-[120px]"></div>
 
                     <div className="relative w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-3xl overflow-hidden">

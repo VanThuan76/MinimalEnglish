@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Detail } from "@/app/[locale]/type"
+import { INewsBySlug } from "@/schema/services/new_by_slug"
 import { Separator } from "@/components/ui/separator"
 
 import { ShareFacebook } from "@/app/[locale]/(news&blog)/news&blog/[slug]/_sections/ShareFacebook"
@@ -9,7 +9,7 @@ import { ShareZalo } from "@/app/[locale]/(news&blog)/news&blog/[slug]/_sections
 
 import CopyPathnameButton from "@/app/[locale]/(news&blog)/news&blog/[slug]/_sections/CopyPathname"
 
-export const News: React.FC<{ detail: Detail }> = ({ detail }) => {
+export const News: React.FC<{ detail: INewsBySlug }> = ({ detail }) => {
     return (
         <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-white lg:grid grid-cols-3 gap-10">
             <div>

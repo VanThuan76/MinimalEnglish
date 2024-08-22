@@ -9,7 +9,7 @@ export const OtherNews = ({ id }: { id: number }) => {
     const t = useTranslations()
     const { data: category } = useGetAllCategory()
     const { data: related, isLoading } = useGetRelated({ category_id: id, id: id })
-    if (isLoading) return <section className="px-[16px] md:px-[80px] bg-white"></section>
+    if (isLoading || !related || !category) return <section className="px-[16px] md:px-[80px] bg-white"></section>
 
     return (
         <section className="px-[16px] md:px-[80px] bg-white">

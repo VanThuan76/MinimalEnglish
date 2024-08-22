@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { useSectionByPage, useSectionByUrl } from '@/schema/services/common';
+import { useSectionByUrl } from '@/schema/services/common';
 
 
 export const Register = () => {

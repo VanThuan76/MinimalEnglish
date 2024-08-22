@@ -7,7 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import { cn } from "@/lib/utils";
-import { Navbar } from '@/components/layout/navbar';
+import { Navbar } from '@/components/layout/Navbar';
 import { FooterSection } from "@/components/layout/Footer";
 
 import Providers from '@/app/providers';

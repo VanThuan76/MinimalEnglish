@@ -6,10 +6,10 @@ export const LiNews = ({ data }: { data: any }) => {
     let orderdata
     const t = useTranslations()
 
-     orderdata = data
+    orderdata = data
     const filterLiNews = orderdata
     const { data: category, isLoading } = useGetAllCategory()
-    if (isLoading) return <></>
+    if (isLoading || !category) return <></>
 
     return (
         <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-white">
