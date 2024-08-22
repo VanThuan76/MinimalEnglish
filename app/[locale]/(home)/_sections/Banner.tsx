@@ -36,7 +36,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                             style={{
                                 objectFit: "cover"
                             }}
-                            src={`/${item[0]?.image}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item[0]?.image}` as string}
                             alt="image_1"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}
@@ -49,7 +49,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                             style={{
                                 objectFit: "cover"
                             }}
-                            src={`/${item[0]?.image_2}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item[0]?.image_2}` as string}
                             alt="image_2"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}
@@ -67,7 +67,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                             style={{
                                 objectFit: "cover"
                             }}
-                            src={`/${item[0]?.image_3}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item[0]?.image_3}` as string}
                             alt="image_3"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}
@@ -80,7 +80,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                             style={{
                                 objectFit: "cover"
                             }}
-                            src={`/${item[0]?.image_4}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item[0]?.image_4}` as string}
                             alt="image_4"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}
@@ -93,7 +93,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                             style={{
                                 objectFit: "cover"
                             }}
-                            src={`/${item[0]?.image_5}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item[0]?.image_5}` as string}
                             alt="image_5"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}
@@ -106,7 +106,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                             style={{
                                 objectFit: "cover"
                             }}
-                            src={`/${item[0]?.image_6}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item[0]?.image_6}` as string}
                             alt="image_6"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}
@@ -119,7 +119,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
                             style={{
                                 objectFit: "cover"
                             }}
-                            src={`/${item[0]?.image_7}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item[0]?.image_7}` as string}
                             alt="image_7"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}

@@ -44,7 +44,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     return (
         <div className="overflow-hidden h-full w-full lg:w-auto" ref={emblaRef}>
             <div className="flex h-full lg:mt-0 lg:flex-col">
-                {info_testimonials.map((item: any) => (
+                {info_testimonials && Array.isArray(info_testimonials) && info_testimonials.map((item: any) => (
                     <div
                         className="relative touch-pan-x touch-pinch-zoom flex-[0_0_50%] lg:flex-[0_0_100%] w-[146px] h-[316px] lg:w-[230px] lg:h-[384px] xl:w-[280px] xl:h-[538px] lg:mt-6 mx-2 lg:mx-0"
                         key={item?.image}
@@ -52,7 +52,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                         <Image
                             fill
                             style={{ objectFit: "cover" }}
-                            src={`/${item?.image}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item?.image}` as string}
                             alt="image"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={true}

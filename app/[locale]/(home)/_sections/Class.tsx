@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from "next-intl";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "@/navigation"; 
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -30,7 +30,7 @@ export const Class = () => {
             </h2>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 place-items-top">
-                {info_classes?.map((item: any) => {
+                {info_classes && Array.isArray(info_classes) && info_classes?.map((item: any) => {
                     let isComing = false
                     if (item?.content === null)
                         isComing = true
@@ -39,7 +39,7 @@ export const Class = () => {
                             <Card className="w-full h-full border-0 shadow-none">
                                 <CardHeader className="relative overflow-hidden w-full h-[240px] rounded-xl shadow-md">
                                     <Image
-                                        src={`/${item?.image}`}
+                                        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item?.image}` as string}
                                         alt="image about class"
                                         fill
                                         style={{
