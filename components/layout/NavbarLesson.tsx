@@ -17,12 +17,12 @@ export const NavbarLesson = () => {
 
   return (
     <div className="px-[16px] md:px-[80px] pt-3 md:pt-10 w-full bg-[#FDF6EB]">
-      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">Bài Giảng</h1>
+      <h1 className="text-[32px] text-[#000F30] leading-[52px] mt-[40px] font-semibold mb-10">{t('Lecture')}</h1>
       <div className="lg:flex justify-between mb-5">
         {/* desktop */}
-        <div className="hidden lg:flex flex-row justify-between items-center w-[1000px]">
-          {lesson && lesson.map((item: any, index: number) => (
-            <div key={item.order} className={index === 0 ? "flex-1 text-left" : "flex-1 mx-4 text-center"}>
+        <div className="hidden lg:flex flex-row justify-between items-center w-[760px]">
+          {lesson && Array.isArray(lesson) && lesson?.map((item: any, index: number) => (
+            <div key={item.order} className={index === 0 ? "flex-1 text-left" : "flex-1 mx-4 text-left"}>
               <Button
                 onClick={() => {
                   dispatch(setActiveLecture(item?.id));
@@ -50,7 +50,7 @@ export const NavbarLesson = () => {
           className="hidden [@media(max-width:1000px)]:flex w-full mb-4"
         >
           <CarouselContent>
-            {lesson && lesson.map((item: any) => (
+            {lesson && Array.isArray(lesson) && lesson?.map((item: any) => (
               <div key={item.order} className="flex-[0_0_auto] mx-1.5"> {/* Adjusted margin here */}
                 <Button
                   onClick={() => {

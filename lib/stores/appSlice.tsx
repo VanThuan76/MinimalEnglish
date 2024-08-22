@@ -4,12 +4,14 @@ type APPSTATE = {
     activeMenu: number;
     activeLecture: number;
     activeDocument: number;
+    activeNew: number;
 };
 
 const initialState: APPSTATE = {
     activeMenu: 1,
     activeLecture: 1,
-    activeDocument: 1
+    activeDocument: 1,
+    activeNew: 1,
 };
 export const appSlice = createSlice({
     name: 'appSlice',
@@ -24,11 +26,15 @@ export const appSlice = createSlice({
         setActiveDocument: (state, action) => {
             state.activeDocument = action.payload;
         },
+        setActiveNew: (state, action) => {
+            state.activeNew = action.payload;
+        },
     },
 });
 export const {
     setActiveMenu,
     setActiveLecture,
-    setActiveDocument
+    setActiveDocument,
+    setActiveNew
 } = appSlice.actions;
 export default appSlice.reducer;

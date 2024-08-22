@@ -35,14 +35,14 @@ export const Lecture = ({ data }: { data: any }) => {
         {data?.description}
       </p>
       <div className="relative grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
-        {components?.map((item: any) => (
+        {components && Array.isArray(components) && components?.map((item: any) => (
           <div
             key={item.id}
             className="relative p-3 border rounded-lg bg-[#ffffff] border-[#ffffff]"
           >
             <div className="w-full h-[500px] relative mb-4 flex-shrink-0">
               <Image
-                src={`/${item?.image}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item?.image}` as string}
                 alt={`${item?.image + 1}`}
                 layout="fill"
                 objectFit="cover"

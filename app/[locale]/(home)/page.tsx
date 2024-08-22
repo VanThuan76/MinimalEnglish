@@ -2,18 +2,18 @@
 
 import React from "react";
 
-import { Banner } from "@/app/[locale]/(home)/_sections/Banner";
-import { AboutUs } from "@/app/[locale]/(home)/_sections/About_us";
-import { Class } from "@/app/[locale]/(home)/_sections/Class";
-import { WhyUs } from "@/app/[locale]/(home)/_sections/Why_us";
-import { Video } from "@/app/[locale]/(home)/_sections/Video";
 
-import { useSectionByPage } from "@/schema/services/common";
-import { Feedback } from "@/components/layout/Feedback";
+import { useSectionByUrl } from '@/schema/services/common';
+import { Banner } from '@/app/[locale]/(home)/_sections/Banner';
+import { AboutUs } from '@/app/[locale]/(home)/_sections/About_us';
+import { Class } from '@/app/[locale]/(home)/_sections/Class';
+import { Feedback } from '@/components/layout/Feedback';
+import { WhyUs } from '@/app/[locale]/(home)/_sections/Why_us';
+import { Video } from '@/app/[locale]/(home)/_sections/Video';
 
 
 export default function Home() {
-    const { data: section, isLoading } = useSectionByPage(1)
+    const { data: section, isLoading } = useSectionByUrl('/')
 
     if (isLoading || !section) return <></>
 

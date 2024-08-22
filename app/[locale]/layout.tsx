@@ -7,7 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar } from '@/components/layout/Navbar';
 import { FooterSection } from "@/components/layout/Footer";
 
 import Providers from '@/app/providers';
@@ -42,10 +42,6 @@ export default async function RootLayout({
                         <FooterSection />
                     </Providers>
                 </NextIntlClientProvider>
-                <Script
-                    type='text/javascript'
-                    src='../node_modules/tw-elements/dist/js/tw-elements.umd.min.js'
-                ></Script>
             </body>
         </html>
     );

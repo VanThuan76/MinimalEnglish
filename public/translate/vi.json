@@ -259,8 +259,20 @@
             "name": "CÁCH ĐĂNG KÝ THAM GIA LỚP HỌC"
         }
     },
+    "lesson": {
+        "label": {
+            "view": "lượt xem"
+        }
+    },
     "visionTitle": "",
     "mission": {
         "imageAlt": ""
-    }
+    },
+    "viewer": "lượt xem",
+    "download": "lượt tải",
+    "Lecture": "Bài Giảng",
+    "Documents": "Tài Liệu",
+    "downloaded": "Tải về"
 }
+
+    

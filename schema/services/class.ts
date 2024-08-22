@@ -1,7 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
 import { axiosInstance } from '@/lib/api';
-import { Class_Detail, IBaseResponse } from '@/app/[locale]/type';
+import { IBaseResponse } from '@/app/[locale]/type';
 import { useLocale } from 'next-intl';
+
+interface Class_Detail {
+    id: number,
+    image: string,
+    created_at: string,
+    updated_at: string,
+    created_by: string,
+    updated_by: string,
+    order: number,
+    status: number,
+    name: string,
+    description: string,
+    content: string,
+}
 
 export const useGetClassData = (class_id: string) => {
     const locale = useLocale()
