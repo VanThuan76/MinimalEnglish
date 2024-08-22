@@ -49,7 +49,7 @@ export const WhyUs = ({ data }: { data: Section }) => {
                     <Image
                         fill
                         style={{ objectFit: "cover" }}
-                        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${data?.image}` as string}
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${data?.image}` as string} 
                         alt="why_us"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         priority={true}
