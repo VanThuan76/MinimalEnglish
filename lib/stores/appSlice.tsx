@@ -11,7 +11,7 @@ const initialState: APPSTATE = {
     activeMenu: 1,
     activeLecture: 1,
     activeDocument: 1,
-    activeNew: 1,
+    activeNew: 0,
 };
 export const appSlice = createSlice({
     name: 'appSlice',

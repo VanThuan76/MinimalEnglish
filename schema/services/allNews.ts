@@ -25,7 +25,7 @@ interface Link {
     active: boolean;
 }
 
-interface News {
+export interface News {
     id: number;
     news_category_id: number;
     slug: string;
