@@ -1,12 +1,14 @@
 import { useTranslations } from "next-intl";
 import { SmNews } from "@/components/ui/smnews";
 import { useGetAllCategory } from "@/schema/services/allcategory";
+import { useAppSelector } from "@/components/hooks/useRedux";
+import { News } from "@/schema/services/allNews";
 
-export const LiNews = ({ data }: { data: any }) => {
+export const LiNews = ({ data }: { data: News[] }) => {
     let orderdata
     const t = useTranslations()
-
-    orderdata = data
+    const news_type_id = useAppSelector(state => state.activeNew)
+    news_type_id > 0 ? orderdata = data.filter((item) => item.news_category_id === news_type_id) : orderdata = data
     const filterLiNews = orderdata
     const { data: category, isLoading } = useGetAllCategory()
     if (isLoading || !category) return <></>
