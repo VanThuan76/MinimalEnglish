@@ -27,13 +27,13 @@ export const FooterSection = () => {
                         <div className="flex items-center gap-3">
                             <PhoneIcon className="w-6 h-6 mr-0 text-[#000F30]" />
                             <div className="flex flex-col">
-                                <h3 className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">Hotline: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">{t('infomation.hotline')}</span></h3>
+                                <h3 className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">{t('infomation.Hotline_label')} <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">{t('infomation.hotline')}</span></h3>
                             </div>
                         </div>
                         <div className="flex items-center gap-3">
                             <MessengerIcon className="w-6 h-6 mr-0 text-[#000F30]" />
                             <div className="flex flex-col">
-                                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] inline">Messenger: <Link
+                                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] inline">{t('infomation.Messenger_label')} <Link
                                     target="_blank"
                                     href="https://www.facebook.com/messages/t/998301663696890"
                                     className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30] inline">
@@ -44,7 +44,7 @@ export const FooterSection = () => {
                         <div className="flex items-center gap-3">
                             <MailIcon className="w-6 h-6 mr-0 text-[#000F30]" />
                             <div className="">
-                                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] mr-0 inline">Email: <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">{t('infomation.email')}</span></h3>
+                                <h3 className="font-normal leading-[20.43px] text-justify text-[15px] text-[#000F30] mr-0 inline">{t('infomation.Email_label')} <span className="font-normal leading-[20.43px] text-justify text-[16px] text-[#000F30]">{t('infomation.email')}</span></h3>
                             </div>
                         </div>
                         <div className="flex gap-3">
@@ -64,7 +64,7 @@ export const FooterSection = () => {
                     </div>
 
                     <div className="flex flex-col gap-4">
-                        <h3 className="font-bold text-[#000F30] text-[16px]">Danh mục</h3>
+                        <h3 className="font-bold text-[#000F30] text-[16px]">{t('infomation.List')}</h3>
                         {menu?.map((item) => (
                             <div key={item?.url}>
 
@@ -77,7 +77,7 @@ export const FooterSection = () => {
                     </div>
 
                     <div className="flex flex-col gap-4">
-                        <h3 className="font-bold text-[#000F30] text-[16px] leading-6 text-justify">Địa chỉ:</h3>
+                        <h3 className="font-bold text-[#000F30] text-[16px] leading-6 text-justify">{t('infomation.Address')}</h3>
                         <div className="overflow-hidden max-w-full w-full md:w-[350px] md:h-[264px] h-[200px]">
                             <iframe
                                 className="h-full w-full outline-0"
@@ -89,7 +89,7 @@ export const FooterSection = () => {
 
                 <div className="w-full mt-12">
                     <Separator className="bg-[#E4E7EC]" />
-                    <h3 className="text-[#514F4F] text-[14px] mt-4">© COPYRIGHT 2024 - Minimal English</h3>
+                    <h3 className="text-[#514F4F] text-[14px] mt-4">{t('infomation.copyright')}</h3>
                 </div>
             </div>
         </footer>

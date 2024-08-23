@@ -1,8 +1,14 @@
 {
     "infomation": {
+        "Hotline_label": "Hotline: ",
         "hotline": "0936635052",
+        "Messenger_label": "Messenger: ",
         "message": "Ieltsfocusmode",
-        "email": "tuvan@ielts-nguyenhuyen.com"
+        "Email_label": "Email: ",
+        "email": "tuvan@ielts-nguyenhuyen.com",
+        "List": "Danh mục",
+        "Address": "Địa chỉ: ",
+        "copyright": "© COPYRIGHT 2024 - Minimal English"
     },
     "home": {
         "banner": {
