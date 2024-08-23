@@ -10,8 +10,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { useGetAll } from "@/schema/services/all";
 import { useGetHLClass } from "@/schema/services/hlClass";
+import { Section } from "@/app/[locale]/type";
 
-export const Class = () => {
+export const Class: React.FC<{ data: Section }> = ({data}) => {
     const t = useTranslations()
     const router = useRouter()
 
@@ -23,10 +24,10 @@ export const Class = () => {
     return (
         <section className="px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">
             <h2 className="text-base text-[#BE5C59] text-left font-bold tracking-wider">
-                {t("home.outstanding_class.label")}
+                {data?.name}
             </h2>
             <h2 className="flex text-3xl text-[#000F30] md:text-5xl text-left font-[600] md:font-bold mt-4 mb-10 gap-2">
-                {t("home.outstanding_class.title")}
+                {data?.description}
             </h2>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 place-items-top">

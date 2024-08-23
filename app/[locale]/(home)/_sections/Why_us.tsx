@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 
 import { Section } from "@/app/[locale]/type";
 import {
@@ -13,7 +12,6 @@ import {
 import { useGetComponent } from "@/schema/services/component";
 
 export const WhyUs = ({ data }: { data: Section }) => {
-    const t = useTranslations("home.why_us")
     const { data: whyUs, isLoading } = useGetComponent({ section_id: data?.id, queryKey: "section_why_us" })
 
     if (isLoading || !whyUs) return <section className="w-full px-[16px] md:px-[80px] h-[400px] py-12 md:py-16 bg-[#FDF6EB]"></section>
@@ -22,11 +20,11 @@ export const WhyUs = ({ data }: { data: Section }) => {
         <section className="w-full px-[16px] md:px-[80px] py-12 md:py-16 bg-[#FDF6EB]">
             <div className="mb-8">
                 <h2 className="text-base font-bold text-[#BE5C59] text-left tracking-wider mb-6">
-                    {t("label")}
+                    {data?.name}
                 </h2>
 
                 <h2 className="text-3xl md:text-5xl text-left font-[600] md:font-bold text-[#000F30]">
-                    {t("title")}
+                    {data?.description}
                 </h2>
             </div>
 

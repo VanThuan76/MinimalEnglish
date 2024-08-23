@@ -1,13 +1,10 @@
 "use client"
 
-import { useTranslations } from 'next-intl'
-
 import { useGetFeedback } from '@/schema/services/feedback'
-
 import EmblaCarousel from '@/components/ui/EmblaCarousel'
+import { Section } from '@/app/[locale]/type'
 
-export const Feedback = () => {
-    const t = useTranslations("home.testimonial")
+export const Feedback: React.FC<{ data: Section }> = ({data}) => {
     const { data: feedback, isLoading } = useGetFeedback()
 
     if (isLoading) return <section className=' px-[16px] md:px-[80px] h-[400px] py-12 md:py-16 bg-white'></section>
@@ -18,8 +15,8 @@ export const Feedback = () => {
     return (
         <section className='flex flex-col lg:flex-row justify-between px-[16px] md:px-[80px] py-12 md:py-16 bg-white'>
             <div className='lg:w-[360px] xl:w-[460px]'>
-                <h2 className='text-base text-[#BE5C59] font-bold mb-6'>{t("label")}</h2>
-                <h2 className='text-[32px] font-[600] xl:text-[48px] lg:font-bold text-[#000F30] leading-relaxed'>{t("title")}</h2>
+                <h2 className='text-base text-[#BE5C59] font-bold mb-6'>{data?.name}</h2>
+                <h2 className='text-[32px] font-[600] xl:text-[48px] lg:font-bold text-[#000F30] leading-relaxed'>{data?.description}</h2>
             </div>
 
             {/* desktop */}

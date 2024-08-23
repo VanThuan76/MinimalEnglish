@@ -21,8 +21,8 @@ export default function Home() {
         <React.Fragment>
             <Banner data={section[0]} />
             <AboutUs data={section[1]} />
-            <Class />
-            <Feedback />
+            <Class data={section[2]} />
+            <Feedback data={section[3]} />
             <WhyUs data={section[4]} />
             <Video data={section[5]} />
         </React.Fragment>

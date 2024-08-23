@@ -1,15 +1,11 @@
 "use client"
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-
 import { Section } from "@/app/[locale]/type";
 import { useGetComponent } from "@/schema/services/component";
 
 export const Banner: React.FC<{ data: Section }> = ({ data }) => {
     const { data: item, isLoading } = useGetComponent({ queryKey: data?.name, section_id: data?.id })
-    const t = useTranslations("home.banner")
-
     if (isLoading || !item) return <section className="py-[60px] px-[16px] md:px-[80px] bg-[#FDF6EB]"></section>
 
     return (
@@ -17,7 +13,7 @@ export const Banner: React.FC<{ data: Section }> = ({ data }) => {
             <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
                 <div className="lg:max-w-[460px] xl:max-w-[600px] 2xl:max-w-[700px]">
                     <h2 className="text-[32px] font-[600] md:text-5xl md:font-bold mb-4 text-[#000F30]">
-                        {t("title")}
+                        {data?.description}
                     </h2>
                     <h2 className="text-[32px] font-[600] md:text-[48px] md:pb-[20px] md:pt-3 md:font-bold mb-4 text-[#BE5C59] leading-[56px]">
                         {item[0]?.title}

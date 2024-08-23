@@ -2,12 +2,9 @@
 
 import Image from "next/image";
 import { Section } from "@/app/[locale]/type";
-
 import { useGetComponent } from "@/schema/services/component";
-import { useTranslations } from "next-intl";
 
 export const AboutUs = ({ data }: { data: Section }) => {
-    const t = useTranslations("home.about_us")
     const { data: about, isLoading } = useGetComponent({ section_id: data?.id, queryKey: "section_about_ME" })
 
     if (isLoading || !about) return <section className="py-[60px] px-[16px] h-[400px] md:px-[80px] bg-white"></section>
@@ -60,11 +57,11 @@ export const AboutUs = ({ data }: { data: Section }) => {
                     </h2>
 
                     <h2 className="text-[32px] font-[600] md:text-5xl md:mt-[10px] md:font-bold text-[#000F30]">
-                        {t("title1")}
+                        {data?.description}
                     </h2>
 
                     <h2 className="text-[32px] font-[600] md:text-5xl md:mb-[30px] md:mt-[10px] md:font-bold mb-6 text-[#BE5C59]">
-                        {t("title2")}
+                        {about[0]?.title}
                     </h2>
                     <p className="text-[#514F4F] text-[18px]">
                         {about[0]?.content}
