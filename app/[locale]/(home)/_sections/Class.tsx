@@ -12,6 +12,20 @@ import { useGetAll } from "@/schema/services/all";
 import { useGetHLClass } from "@/schema/services/hlClass";
 import { Section } from "@/app/[locale]/type";
 
+interface HLClass {
+    id: number;
+    image: string;
+    created_at: string;
+    updated_at: string;
+    created_by: null;
+    updated_by: null;
+    order: number;
+    status: number;
+    name: string;
+    description: string;
+    content: null | string;
+}
+
 export const Class: React.FC<{ data: Section }> = ({data}) => {
     const t = useTranslations()
     const router = useRouter()
@@ -31,16 +45,16 @@ export const Class: React.FC<{ data: Section }> = ({data}) => {
             </h2>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 place-items-top">
-                {info_classes && Array.isArray(info_classes) && info_classes?.map((item: any) => {
+                {info_classes && Array.isArray(info_classes) && info_classes?.map(({id, content, image, description, name}: HLClass) => {
                     let isComing = false
-                    if (item?.content === null)
+                    if (content === null)
                         isComing = true
                     return (
-                        <div key={item?.id}>
-                            <Card className="w-full h-full border-0 shadow-none">
+                        <div key={id}>
+                            <Card className="flex flex-col w-full h-full border-0 shadow-none">
                                 <CardHeader className="relative overflow-hidden w-full h-[240px] rounded-xl shadow-md">
                                     <Image
-                                        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${item?.image}` as string}
+                                        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${image}` as string}
                                         alt="image about class"
                                         fill
                                         style={{
@@ -58,17 +72,17 @@ export const Class: React.FC<{ data: Section }> = ({data}) => {
                                     </Badge>
                                 </CardHeader>
 
-                                <div className="flex flex-col justify-between mt-4 h-52">
-                                    <CardTitle className="text-[#000F30] text-xl">{item?.name}</CardTitle>
+                                <div className="flex flex-col justify-between mt-4 gap-3 flex-grow">
+                                    <CardTitle className="text-[#000F30] text-xl">{name}</CardTitle>
                                     <CardContent className="text-[#514F4F] text-base text-left">
-                                        {item?.description}
+                                        {description}
                                     </CardContent>
 
                                     <Button
                                         className="w-full p-0 h-14 rounded-2xl bg-white text-[#BE5C59] border-solid border-[1px] font-[600] border-[#BE5C59] group/arrow"
                                         variant="ghost"
                                     >
-                                        <div onClick={() => router.push(`${menu[2].url}/${item?.id}`)} className="flex justify-center items-center gap-2 w-full h-full">
+                                        <div onClick={() => router.push(`${menu[2].url}/${id}`)} className="flex justify-center items-center gap-2 w-full h-full">
                                             {t("discovery")}
                                             <ArrowRight className="group-hover/arrow:translate-x-2 transition-transform" />
                                         </div>
@@ -80,5 +94,5 @@ export const Class: React.FC<{ data: Section }> = ({data}) => {
                 })}
             </div>
         </section>
-    );
-};
+    )
+}
