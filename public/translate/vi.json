@@ -85,31 +85,31 @@
             "info_why_us": [
                 {
                     "title": "Phương pháp học tập Tối Giản",
-                    "content": ""
+                    "content": "Minimal English áp dụng phương pháp Hybrid Learning, kết hợp học trực tiếp và trực tuyến, giúp học viên linh hoạt trong việc tiếp cận kiến thức và tối ưu hóa thời gian học tập."
                 },
                 {
                     "title": "Giảng viên chuyên nghiệp",
-                    "content": ""
+                    "content": "Đội ngũ giảng viên, nhân viên học thuật và trợ giảng tại Minimal English đều đạt trình độ IELTS 7.5+, founder kiêm giảng viên chính 8.0 IELTS. Giảng viên có chứng chỉ và kinh nghiệm giảng dạy lâu năm, đảm bảo chất lượng giảng dạy cao nhất."
                 },
                 {
                     "title": "Hỗ trợ tối đa cho học viên",
-                    "content": ""
+                    "content": "Minimal English hỗ trợ học viên thi chưa đạt mục tiêu học lại miễn phí trong vòng 3 tháng"
                 },
                 {
                     "title": "Chính sách học phí linh hoạt",
-                    "content": ""
+                    "content": "Trung tâm cung cấp các gói học phí linh hoạt và chương trình khuyến mãi hấp dẫn, tạo điều kiện cho mọi học viên có thể tham gia khóa học."
                 },
                 {
                     "title": "Môi trường học thân thiện",
-                    "content": ""
+                    "content": "Minimal English tạo ra môi trường học tập thân thiện và gắn kết, giúp học viên cảm thấy thoải mái và tự tin trong quá trình học tập."
                 },
                 {
                     "title": "Công nghệ tiên tiến",
-                    "content": ""
+                    "content": "Áp dụng công nghệ chấm điểm tự động và hệ thống học tập trực tuyến, giúp học viên tự kiểm tra và cải thiện kỹ năng hiệu quả."
                 },
                 {
                     "title": "Hỗ trợ toàn diện",
-                    "content": ""
+                    "content": "Minimal English cung cấp hỗ trợ học tập sau buổi học, bao gồm bài tập về nhà, tài liệu bổ trợ, và sự giúp đỡ từ đội ngũ giảng viên và nhân viên học thuật."
                 }
             ]
         },
@@ -118,8 +118,7 @@
     "about_us":{
         "mission": {
             "label": "Sứ mệnh",
-            "content_1": "Minimal English cam kết mang lại môi trường học tập hiệu quả và thân thiện, giúp học sinh phát triển toàn diện kỹ năng ngôn ngữ và tự tin trong cuộc sống.",
-            "content_2": "Chúng tôi tập trung vào sự tối giản nhưng không đơn giản trong phương pháp giảng dạy, giúp học sinh đạt được mục tiêu học tập và vượt qua mọi thử thách"
+            "content": "Minimal English nỗ lực mang đến những khóa học tiếng Anh dễ hiểu, đơn giản và hiệu quả. Chúng tôi tập trung vào tư duy tối giản trong cả phương pháp giảng dạy cũng như nội dung bài học được truyền tải, giúp học viên nắm bắt kiến thức một cách dễ dàng và nhanh chóng hơn. Đội ngũ giảng viên giàu kinh nghiệm, tận tâm trong công việc của chúng tôi luôn sẵn sàng hỗ trợ và đồng hành cùng học viên trên con đường chinh phục tiếng Anh. Chúng tôi hướng tới việc giúp học viên cải thiện trình độ tiếng Anh và đạt được những mục tiêu học tập và nghề nghiệp cao hơn."
         },
         "vision": {
             "label": "Tầm nhìn",
